@@ -1,0 +1,893 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.about-page .bio-section {
+  margin-top: 70px;
+  padding-top: 0;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+main {
+  flex: 1;
+}
+
+html, body {
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.left-header {
+  display: flex;
+  align-items: center;
+}
+
+ .small-profile {     /*gif icon top left */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.head-name {
+  color: #000000;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  position: relative;
+}
+
+.top-nav a {
+ margin-left: 20px;
+  text-decoration: none;
+  color: #000000;
+   font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  position: relative;
+  transition: transform 0.9s;
+  display: inline-block ;
+}
+
+.top-nav a:hover {
+  /* text-decoration: underline;  */
+   transform: scale(1.1);
+}
+
+
+.profile-pic img {
+  width: 580px;
+  height: 580px;
+  transition: transform 3s;
+  margin-top: 70px;
+}
+
+.profile-pic img:hover {
+  transform: scale(1.4);
+}
+
+.bio-section {
+  padding: 60px 20px;
+  max-width: 800px;
+  text-align: left;
+}
+
+.bio-box {
+    font-size: 18pt;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
+
+.nav-buttons {
+  display: flex;
+  margin-top: 10px; /* spacing below the bio */
+  justify-content: flex-start; /* align left */
+  gap: 2px;
+  padding-left: 14px;
+}
+
+.footer {
+  padding: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.footer a {
+ text-decoration: none;
+ color: #000;
+}
+#container {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  gap: 40px;
+  /* padding-top: 90px; */
+}
+
+.bio-name {
+  font-size: 48px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: #1b1b1b;
+  font-family: "Lato", sans-serif;
+}
+
+/* .bio-box {
+  color: #1b1b1b;
+  margin: 0 0 2px 0;
+} */
+
+.bio-box {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  font-family: "Lato", sans-serif;
+}
+
+/* .bio-text {
+    font-size: 12pt;
+  margin: 0;
+  max-width: 600px;
+  line-height: 1.3;
+  margin: 0 0 10px 0;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
+
+.bio-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  max-width: 600px;
+  text-align: left;
+  font-family: "Lato", sans-serif;
+}
+
+.nav-gif {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.bio-content {
+  position: relative;
+  /* top: 59px; */
+  margin-top: 59px;
+}
+
+.about-page .clouds-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px; 
+  z-index: -1;
+  overflow: hidden;
+}
+
+.about-page .clouds-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: 40% 80%;
+}
+.icon-link {         /*layout alignment and position of Icon containers */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin: 0 -15px; 
+}
+
+
+.nav-icon {        /* Behance and linkdin position and size */
+  font-size: 30px;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  align-items: flex-start;
+padding-top: 8px; 
+}
+
+/* =========================
+   Portfolio Page (scoped)
+   ========================= */
+
+.portfolio-page {
+  font-family: "Lato", sans-serif;
+}
+
+/* Optional cover at top (if you use .clouds-bg on this page) */
+.portfolio-page .clouds-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: -1;
+  overflow: hidden;
+}
+.portfolio-page .clouds-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 80%;
+  display: block;
+}
+
+/* Section heading between cover and cards */
+.portfolio-page .cs-heading {
+  margin: 190px 0 47px;       /* space down from cover */
+  text-align: center;
+  font-size: 60px;            /* your chosen size */
+  font-weight: 900;
+  color: #1b1b1b;
+  font-family: "Lato", sans-serif;
+}
+
+/* Cards grid container (exactly 3 per row on desktop) */
+.portfolio-page .cs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 across */
+  gap: 20px;
+  max-width: 800px;   /* total grid width cap */
+  margin: 0 auto 80px;/* centered, with bottom space */
+  padding: 0 12px;    /* small side padding for tiny screens */
+}
+
+/* Individual card */
+.portfolio-page .cs-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.6s ease, box-shadow 180ms ease;
+  font-family: "Lato", sans-serif;
+}
+.portfolio-page .cs-card:hover,
+.portfolio-page .cs-card:focus-visible {
+  transform: scale(1.03);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+  outline: none;
+}
+
+.portfolio-page .cs-card-3 .cs-media {
+  position: relative;
+  overflow: hidden;
+}
+
+/* show the real pixels, don’t upscale */
+.portfolio-page .cs-card-3 .cs-media img {
+  height: 100%;       /* lock the image to the container height */
+  width: auto;        /* maintain natural width */
+  transform: translateX(-20%); /* pan left/right without resampling */
+}
+/* Cover image inside card (portrait) */
+.portfolio-page .cs-media {
+  width: 100%;
+  aspect-ratio: 3 / 4;     /* taller than wide */
+  background: #ddd;
+  overflow: hidden;
+}
+
+.portfolio-page .cs-media img.fit-cover {
+  object-fit: contain !important;  /* or cover, fill, etc. depending on look */
+  background: #91b69180;  /* optional: adds neutral background behind it */
+}
+
+.portfolio-page .cs-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* adjust per card if needed */
+  display: block;
+}
+
+.portfolio-page .cs-card {
+  position: relative;
+}
+.portfolio-page .cs-media {
+  position: relative;          /* so the overlay anchors to this box */
+  overflow: hidden;            /* keep overlay inside the card image */
+}
+
+/* Only apply logo overlay to the first card */
+.portfolio-page .cs-card:first-child .logo-overlay {
+  position: absolute;
+  top: 20px;   /* put it in upper right */
+  right: 20px;
+  width: 60px;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Card title */
+.portfolio-page .cs-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #222;
+  background: #fff;
+  border-top: 1px solid #eee;
+
+  /* center horizontally & vertically */
+  display: flex;
+  align-items: center;   /* vertical center */
+  justify-content: center; /* horizontal center */
+  min-height: 70px;      /* gives the rectangle a uniform height */
+  text-align: center;    /* keeps text centered if it wraps */
+  padding: 0 12px;       /* side padding for longer text */
+}
+/* -----------------
+   Responsive tweaks
+   ----------------- */
+
+/* Two columns when space is tight */
+@media (max-width: 860px) {
+  .portfolio-page .cs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 720px; /* keeps cards comfy */
+  }
+}
+
+/* Single column on small phones */
+@media (max-width: 560px) {
+  .portfolio-page .cs-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+  .portfolio-page .cs-heading {
+    font-size: 44px;
+    margin: 200px 0 20px;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-page .cs-card {
+    transition: none;
+  }
+  .portfolio-page .cs-card:hover,
+  .portfolio-page .cs-card:focus-visible {
+    transform: none;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  }
+}
+
+
+/*contact page css*/
+
+
+.contact-page .contact-container {   /* contact page is body class*/
+  display: flex;            /* flex and column vertical layout*/
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;         /* relative position but now movable with css */
+  z-index: 1;           /*z index for above video */
+  padding: 60px 20px 40px;
+  max-width: 800px;
+  margin: 0 auto;   /* centers element container */
+  margin-top: 40px;
+}
+
+.contact-page .bio-name {
+  margin-bottom: 20px;  /*move element below down */
+  margin-top: 40px;
+}
+
+.contact-page .bio-text {            /* spacing and width of text and page, only affecting bio text with contact page*/
+  margin-top: 0;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.contact-page .contact-form {    /* width and positioning of contact containers */
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 19px;
+}
+
+.contact-page .contact-form input,             /*Selecting input and textarea*/
+.contact-page .contact-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.contact-page .contact-form button {
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contact-page .nav-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 0px;
+}
+
+.contact-page .contact-page-clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 240px; /* or match your layout */
+  z-index: -1;
+  overflow: hidden;
+}
+
+.contact-page .contact-page-clouds img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  object-position: top center; /* adjust if needed */
+  display: block;
+}
+
+
+
+/*----------Lists Css-------------*/
+
+.lists-page .header {
+  background-color: #19191a;
+  position: fixed;
+}
+
+.learn-more {
+display: inline-block;
+  margin-left: 5px;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.5s, text-decoration 0.5s;
+}
+
+
+.learn-more:hover {
+ color: #169475;
+  text-decoration: underline;
+}
+
+.lists-page .top-nav a{
+  color: #f4f4f4;
+}
+
+.lists-page .head-name {
+  color: #fcfcfc;
+}
+
+.lists-page {
+  background-color:  #f4f4f4; 
+}
+
+.lists-page .lists-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  font-family: "Lato", sans-serif;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.lists-page .page-title {
+  font-size: 64px;
+  margin-bottom: 60px;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  margin-top: 100px;
+}
+
+.lists-top {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-bottom: 100px;
+}
+
+.lists-top .text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Lato", sans-serif;
+}
+
+.lists-top .text-block h2 {
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.lists-top h2 {
+  text-align: center;
+}
+
+.lists-top .square-item p {
+  width: 80%;   /*text width */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.music5 {
+ grid-column: 1 / -1;          
+  display: flex;
+  flex-direction: column;
+  align-items: center;          
+      
+}
+
+.music5 .square-item img {
+  max-width: 39%;
+  height: auto;
+}
+
+.music5 p {
+max-width: 39%;
+}
+
+.lists-top .text-block p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.square-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  font-family: "Lato", sans-serif;
+  font-weight: 400; 
+}
+
+.square-item img {
+  width: 80%;     /*image width */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  /* border-radius: 8px; for circles*/  
+}
+
+.square-item h4 {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.square-item.large {
+  width: 100%;
+}
+
+.square-item.small {
+  width: 400px;
+  margin-top: 40px;
+}
+.lists-page .page-title {
+  text-align: center;
+}
+
+
+/* bottom Concert Section (horizontal row) */
+.lists-bottom {
+  margin-top: 80px;
+  font-family: "Lato", sans-serif;
+}
+
+.lists-bottom h2 {
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 24px;
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+.bottom-row {
+  display: flex;
+  flex-wrap: wrap;                
+  justify-content: space-between; 
+  gap: 32px;                      
+  padding: 0 10px;                
+}
+
+
+.bottom-row .square-item {
+  width: 190px;                   
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+}
+
+
+.bottom-row .square-item img {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.bottom-row .square-item h4 {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.bottom-row .square-item p {
+  font-size: 14px;
+  margin-top: 4px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.section-subheading {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  color: #333;
+  margin-bottom: 40px;
+  margin-top: -20px;
+  text-align: center;
+}
+
+
+/* =========================
+   Case Study Page (image render)
+   ========================= */
+.case-study-page { font-family: "Lato", sans-serif; }
+
+/* keep the cover visible but behind */
+.case-study-page .clouds-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 0;
+  overflow: hidden;
+}
+.case-study-page .clouds-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 40% 80%;
+  display: block;
+}
+
+/* stack header/content above cover */
+.case-study-page .header,
+.case-study-page main { position: relative; z-index: 1; }
+
+/* centered “page” that matches your other pages’ width rhythm */
+.case-study-page .cs3-frame {
+  max-width: 1000px;             /* feel free to bump to 1200 if you want bigger */
+  margin: 240px auto 60px;       /* 200 cover + spacing */
+  padding: 0 16px;
+}
+
+/* the tall image itself */
+.case-study-page .cs3-longimg {
+  display: block;
+  width: 100%;
+  height: auto;                  /* keeps native pixel density, no upscaling blur */
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  image-rendering: auto;         /* best-quality resampling */
+}
+
+/* back button */
+.case-study-page .cs3-cta {
+  text-align: center;
+  margin: 0 0 80px;
+}
+.case-study-page .cs3-button {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #fff;
+  background: #111;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.case-study-page .cs3-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+
+/* =========================
+   Case Study (your cs1 HTML)
+   Scoped to: body.case-study-page
+   ========================= */
+.case-study-page { 
+  font-family: "Lato", sans-serif; 
+  color: #333; 
+  line-height: 1.6;
+}
+
+/* keep the cover image behind content */
+.case-study-page .clouds-bg {
+  position: absolute; 
+  top: 0; left: 0; 
+  width: 100%; 
+  height: 200px; 
+  z-index: 0; 
+  overflow: hidden;
+}
+.case-study-page .clouds-bg img {
+  width: 100%; 
+  height: 100%; 
+  display: block; 
+  object-fit: cover; 
+  object-position: 40% 80%;
+}
+
+/* stack header/content above cover */
+.case-study-page .header,
+.case-study-page main { 
+  position: relative; 
+  z-index: 1; 
+  background: transparent;
+}
+
+/* main container that wraps the whole case study */
+.case-study-page .cs1-container {
+  max-width: 1000px;
+  margin: 240px auto 100px; /* 200px cover + spacing */
+  padding: 0 20px;
+}
+
+/* headings */
+.case-study-page .cs1-title {
+  font-size: 56px;
+  font-weight: 900;
+  text-align: center;
+  margin: 0 0 8px;
+  color: #1b1b1b;
+}
+.case-study-page .cs1-subtitle {
+  text-align: center;
+  font-weight: 700;
+  color: #555;
+  margin: 0 0 28px;
+}
+
+/* sections & lists */
+.case-study-page .cs1-section { 
+  margin: 36px 0; 
+}
+.case-study-page .cs1-section h2 { 
+  font-size: 28px; 
+  font-weight: 900; 
+  margin: 0 0 12px; 
+  color: #1b1b1b; 
+}
+.case-study-page .cs1-section h3 { 
+  font-size: 22px; 
+  font-weight: 900; 
+  margin: 6px 0 0; 
+  color: #1b1b1b; 
+}
+.case-study-page .cs1-list { 
+  padding-left: 18px; 
+}
+.case-study-page .cs1-list li { 
+  margin: 6px 0; 
+}
+
+/* “img” placeholders are links in your HTML — style them like buttons/thumbs */
+.case-study-page a[href^="img/"] {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  border: 1px solid #e9e9e9;
+  text-decoration: none;
+  color: #222;
+  font-weight: 700;
+}
+.case-study-page a[href^="img/"]:hover {
+  background: #efefef;
+}
+
+.cs1-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+/* CTA section & button (your HTML uses class="cs1-section cs3-cta") */
+.case-study-page .cs3-cta { 
+  text-align: center; 
+  margin-top: 40px; 
+}
+.case-study-page .cs1-button {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #fff;
+  background: #111;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.case-study-page .cs1-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.18);
+}
+
+/* Images you might add directly later */
+.case-study-page .cs1-section img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+/* small responsive tweaks */
+@media (max-width: 640px) {
+  .case-study-page .cs1-title { font-size: 40px; }
+  .case-study-page .cs1-subtitle { font-size: 16px; }
+}
+
+/* Only shrink & center THIS one image */
+.case-study-page .cs1-section img.cs1-image.interview-notes {
+  width: 600px;        /* pick your size */
+  max-width: 90%;      /* stay responsive on small screens */
+  height: auto;
+  display: block;
+  margin: 2rem auto;   /* centers it */
+}
+
+/* Cursor hint for magnifiable images */
+.magnify-target {
+  cursor: zoom-in;
+}
+
+/* Lens styling */
+.magnify-lens {
+  mix-blend-mode: normal;
+}
+

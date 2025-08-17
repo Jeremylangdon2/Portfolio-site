@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Jeremy Langdon</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="contact-page">
+
+  <!-- Video Background -->
+<div class="contact-page-clouds">
+  <img src="img/curvs.jpeg" alt="Cloud background" />
+</div>
+
+  <!-- Header with navs-->
+  <header class="header">
+    <div class="left-header">
+      <img src="img/blue2.png" alt="Jeremy profile" class="small-profile" />
+      <span class="head-name">Jeremy Langdon</span>
+    </div>
+    <nav class="top-nav">
+      <a href="index.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <!-- <a href="lists.html">Lists</a> -->
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Contact Content -->
+  <main class="contact-container">                 <!--contact heading and text-->
+    <h1 class="bio-name">Contact Me</h1>
+    <p class="bio-text">I'd love to hear from you. Whether it's feedback, collaboration, or a simple hello — drop me a message!</p>
+
+    <form action="https://formspree.io/f/xzzggdvv" method="POST" class="contact-form">  <!--cols text box width by character amount, Labels help accesability, -->
+      <label for="name">Name</label><br />
+      <input type="text" id="name" name="name" required /><br>
+
+      <label for="email">Email</label><br>
+      <input type="email" id="email" name="email" required /><br>
+
+      <label for="message">Message</label><br>
+      <textarea id="message" name="message" rows="6" required></textarea><br>
+
+      <button type="submit">Send</button>
+    </form>
+
+    <!-- linkdin/behance icons -->
+    <section class="nav-buttons">
+      <a href="https://www.behance.net/jeremylangdon" class="icon-link" aria-label="Behance profile" target="_blank">
+        <i class="fa-brands fa-behance nav-icon" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/jeremy-langdon-4121a6149" class="icon-link" aria-label="LinkedIn profile" target="_blank">
+        <i class="fa-brands fa-linkedin nav-icon" aria-hidden="true"></i>
+      </a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <!-- <p><small>Contact: </small><a href="mailto:youremail@example.com"><small>Send Email</small></a></p> -->
+  </footer>
+
+</body>
+</html>
