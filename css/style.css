@@ -891,3 +891,8 @@ max-width: 39%;
   mix-blend-mode: normal;
 }
 
+.cs1-container:has(.magnify-target),
+section:has(.magnify-target) {
+  overflow: visible !important;
+  transform: none !important;
+}
