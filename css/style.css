@@ -541,7 +541,7 @@ padding-top: 8px;
   height: 100%; 
   display: block; 
   object-fit: cover; 
-  object-position: 100% 21%;
+  object-position: 100% 45%;
 }
 
 /* stack header/content above cover */
@@ -619,6 +619,20 @@ padding-top: 8px;
   margin: 1rem 0;
 }
 
+.cs1-image.concept-img {
+  width: 600px;                 /* fixed target width */
+  max-width: 70%;              /* shrink on small screens */
+  height: auto;
+  display: block;               /* needed for margin centering */
+  float: none !important;       /* undo any float */
+  margin-left: auto !important; /* center in normal/block layout */
+  margin-right: auto !important;
+  /* Handle flex/grid parents too */
+  align-self: center !important;   /* works if parent is flex */
+  justify-self: center !important; /* works if parent is grid */
+  place-self: center !important;   /* shorthand for many grid cases */
+}
+
 /* CTA section & button (your HTML uses class="cs1-section cs3-cta") */
 .case-study-page .cs3-cta { 
   text-align: center; 
@@ -674,3 +688,83 @@ padding-top: 8px;
   mix-blend-mode: normal;
 }
 
+/* ===== Phone videos: layout, sizing, cropping, captions ===== */
+
+/* Row layout for the two phones */
+.video-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;                 /* spacing between phones */
+  margin: 40px 0;
+  flex-wrap: wrap;           /* stack on narrow screens */
+}
+
+/* Each phone + its caption live inside .video-item
+   WIDTH is controlled by CSS var --w on .video-item */
+.video-item {
+  width: var(--w, 260px);    /* set per item: style="--w:260px;" */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Rounded “phone” frame with iPhone 14-ish screen ratio */
+.phone-frame {
+  width: 100%;
+  aspect-ratio: 9 / 19.5;    /* ~iPhone 14 screen ratio */
+  border-radius: 40px;       /* outer curve */
+  background: #fff;          /* ensures no black shows behind video */
+  overflow: hidden;          /* crop to rounded shape */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  position: relative;
+  flex-shrink: 0;
+  margin-bottom: 8px;        /* space before caption */
+}
+
+/* Inner viewport: we’ll zoom/pan the video to remove black bars */
+.phone-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Video fills the frame. Zoom & offsets come from CSS vars:
+   --zoom (number), --x (px), --y (px) set on .phone-frame */
+.phone-viewport video {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* crop instead of letterbox */
+  transform-origin: center;
+  transform:
+    translate(calc(-50% + var(--x, 0px)),
+              calc(-50% + var(--y, 0px)))
+    scale(var(--zoom, 1));
+  display: block;
+}
+
+/* Subtle Lato caption sized to phone width */
+.video-caption {
+  width: 100%;               /* exactly as wide as the phone */
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #666;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .video-gallery { gap: 48px; }
+  .video-item { width: min(var(--w, 260px), 300px); }
+}
+
+@media (max-width: 640px) {
+  .video-gallery { gap: 32px; }
+  /* stack vertically for very small screens */
+  .video-gallery { flex-direction: column; align-items: center; }
+}
