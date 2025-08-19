@@ -6,6 +6,20 @@ body {
   flex-direction: column;
 }
 
+body.about-page {
+  background-image: url("../img/cloud.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body.portfolio-page {
+  background: url("../img/room3.png") no-repeat center center;
+  background-size: 120%;   /* fill the screen width + height */
+  min-height: 100vh; 
+  background-position: -400px -300px;       /* ensure it spans full viewport height */
+}
+
 
 .about-page .bio-section {
   margin-top: 70px;
@@ -106,13 +120,17 @@ html, body {
 }
 
 .bio-box {
-    font-size: 18pt;
-  font-weight: bold;
+  font-size: 18pt;
+  font-weight: 700;               /* bold */
   margin-bottom: 20px;
-     font-family: "source-serif-4", serif;
-font-weight: 700;
-font-style: normal;
+
+  /* New font: Lora */
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;               /* change number: 400 = regular, 700 = bold */
+  font-style: italic;
 }
+
 
 .bio-section { position: relative; }
 .bio-section > * { transform: translateY(30px); }  /* adjust number */
@@ -155,13 +173,13 @@ font-style: normal;
 }
 
 .bio-box {
-  font-family: "source-serif-4", serif;
-font-weight: 700;
-font-style: normal;
+  font-family: "Lora", serif;
+font-weight: 400;
+font-style: italic;
   font-size: 20px;        /* smaller than name */       /* semi-bold for subheading */
   color: #333;            /* slightly lighter for hierarchy */
   margin-top: 0;
-  margin-bottom: 16px;    /* space before paragraph */
+  margin-bottom: 6px;    /* space before paragraph */
 }
 
 .bio-text {
@@ -200,6 +218,9 @@ font-style: normal;
   object-fit: cover;
 }
 
+#iconhome {
+  margin-bottom: 20px;
+}
 .bio-content {
   position: relative;
   /* top: 59px; */
@@ -613,32 +634,32 @@ html, body {
 }
 
 /* Desktop: subtle repeating ripple rings (no diagonal lines) */
-@media (min-width: 761px) {
+/* @media (min-width: 761px) {
   html { background-color: #e9e9e9; }
 
-  body {
+  body { */
     background:
       /* ripple group A */
-      repeating-radial-gradient(
+      /* repeating-radial-gradient(
         circle at 20% 12%,
         rgba(255,255,255,.28) 0 2px,
         rgba(255,255,255,0)   8px 56px
-      ),
+      ), */
       /* ripple group B */
-      repeating-radial-gradient(
+      /* repeating-radial-gradient(
         circle at 78% 38%,
         rgba(255,255,255,.22) 0 2px,
         rgba(255,255,255,0)   10px 62px
-      ),
+      ), */
       /* soft bloom underlay for depth */
-      radial-gradient(900px 700px at 18% 8%,  rgba(255,255,255,.30), transparent 60%),
+      /* radial-gradient(900px 700px at 18% 8%,  rgba(255,255,255,.30), transparent 60%),
       radial-gradient(900px 700px at 82% 30%, rgba(255,255,255,.24), transparent 65%);
     background-repeat: repeat, repeat, no-repeat, no-repeat;
     background-size: 1200px 1200px, 1400px 1400px, 1400px 900px, 1400px 900px;
     background-position: 0 0, 420px 300px, center top, center 25vh;
     background-attachment: scroll, scroll, scroll, scroll; /* repeats as you scroll */
   }
-}
+} */
 
 
 /* =========================
@@ -667,7 +688,7 @@ html, body {
 }
 
 .portfolio-page h1.cs-heading {
-  margin-bottom: 70px !important;
+  margin-bottom: 50px !important;
 }
 
 
@@ -678,10 +699,12 @@ html, body {
   text-align: center;           /* your chosen size */
   font-weight: 900;
   color: #1b1b1b;
-    font-family: "source-serif-4", serif;
-font-weight: 700;
-font-style: normal;
+    font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   font-size: 40px;        /* your chosen size */ 
+  font-style: italic;
 }
 
 /* Cards grid container (exactly 3 per row on desktop) */
@@ -978,6 +1001,11 @@ font-style: normal;
 
 /*contact page css*/
 
+body.contact-page {
+  background: url("../img/sf2.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;  /* optional: parallax effect */
+}
 
 .contact-page .contact-container {   /* contact page is body class*/
   display: flex;            /* flex and column vertical layout*/
@@ -997,6 +1025,16 @@ font-style: normal;
   margin-bottom: 20px;  /*move element below down */
   margin-top: 40px;
 }
+/* --- Contact page only: bio name in Lora italic --- */
+.contact-page .bio-name {
+  font-size: 18pt;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: "Lora", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
 
 .contact-page .bio-text {            /* spacing and width of text and page, only affecting bio text with contact page*/
   margin-top: 0;
@@ -1196,6 +1234,22 @@ font-style: normal;
 
   /* 3) Kill the H1’s default top margin inside the card */
   .contact-page .contact-container > *:first-child { margin-top: -7px; }
+}
+
+/* --- Remove background image on Contact page (mobile only) --- */
+@media (max-width: 760px) {
+  body.contact-page {
+    background: none !important;
+    background-color: #ffffff; /* optional: set plain white background */
+  }
+}
+
+@media (max-width: 760px) {
+  .contact-page section,
+  .contact-page .contact-container {
+    margin-bottom: -10px !important;
+    margin-top: 20px !important;
+  }
 }
 
 
@@ -1767,4 +1821,61 @@ Add this **once at the very end of `style.css`** to pull the bottom up a bit and
 }
 .contact-page .nav-buttons {         /* icons row */
   margin-bottom: 10px !important;
+}
+ 
+/* === About (index) MOBILE: parallax-style background === */
+@media (max-width: 760px) {
+  /* Kill the old black cover */
+  .about-page .clouds-bg {
+    display: none !important;
+  }
+
+  /* Make body relative so we can add a fixed bg layer */
+  body.about-page {
+    position: relative;
+    background: none !important; /* no scrolling bg on body */
+  }
+
+  /* Fixed background layer */
+ /* --- MOBILE ABOUT: enable scrolling and use tall scrolling bg --- */
+@media (max-width: 760px) {
+  /* 1) Do NOT clip the page (this was preventing scroll) */
+  body.about-page {
+    overflow: visible !important;   /* was hidden */
+    position: static !important;    /* undo any position:relative from experiments */
+    background: url("../img/mobilecloud.png") no-repeat center top / 100% auto !important;
+    background-position: 0px 100px / 160% auto !important;   /* try 0%–30% to aim the white area */
+
+    background-attachment: scroll !important;  /* make bg move with content */
+  }
+
+  /* 2) Remove any fixed pseudo-layer you tried earlier */
+  body.about-page::before { content: none !important; }
+
+  /* 3) Make sure the black cover isn’t masking the body background */
+  .about-page .clouds-bg { display: none !important; }
+
+  /* 4) Let the document be taller than the viewport */
+  html, body { 
+    height: auto !important; 
+    min-height: 100vh; 
+    overflow-y: auto !important;     /* re-enable vertical scroll */
+  }
+}
+
+/* --- About page ONLY, Mobile ONLY --- */
+@media (max-width: 760px) {
+  .about-page .navbar .site-name,
+  .about-page .navbar .logo a {
+    color: #000 !important;   /* black text */
+  }
+
+  .about-page .hamburger span,
+  .about-page .menu-toggle span {
+    background-color: #222121 !important;  /* black bars */
+  }
+
+  .about-page .head-name {
+    color: #222121 !important;
+  }
 }
