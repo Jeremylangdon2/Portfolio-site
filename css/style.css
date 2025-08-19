@@ -1059,6 +1059,29 @@ html, body {
   }
 }
 
+/* Contact (mobile): black cover, white header, tighter gap */
+@media (max-width: 760px) {
+  /* make the cover black & thinner; hide the image */
+  .contact-page .contact-page-clouds {
+    height: 73px;        /* match your other pages */
+    background: #000;
+  }
+  .contact-page .contact-page-clouds img { display: none; }
+
+  /* white site name + hamburger bars over black cover */
+  .contact-page .head-name { color: #fff; }
+  .contact-page .hamburger span { background: #fff; }
+
+  /* pull the content up closer to the black bar */
+  .contact-page .contact-container {
+    margin-top: 8px !important;   /* was 40px */
+    padding-top: 10px !important; /* was 60px */
+  }
+
+  /* if you show a heading on contact, trim its top margin too */
+  .contact-page .bio-name { margin-top: 8px !important; } /* was 40px */
+}
+
 /* =========================
    Case Study Page (image render)
    ========================= */
