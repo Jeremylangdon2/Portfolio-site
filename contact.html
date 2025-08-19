@@ -23,12 +23,18 @@
       <img src="img/blue2.png" alt="Jeremy profile" class="small-profile" />
       <span class="head-name">Jeremy Langdon</span>
     </div>
-    <nav class="top-nav">
-      <a href="index.html">About</a>
-      <a href="portfolio.html">Portfolio</a>
-      <!-- <a href="lists.html">Lists</a> -->
-      <a href="contact.html">Contact</a>
-    </nav>
+
+     <!-- Hamburger toggle -->
+  <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- The menu that opens -->
+  <nav class="top-nav" id="site-nav">
+    <a href="index.html">About</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   </header>
 
   <!-- Main Contact Content -->
@@ -48,6 +54,35 @@
 
       <button type="submit">Send</button>
     </form>
+<section class="contact-details">
+  <h2 class="contact-details__title">Contact Details</h2>
+  <ul class="contact-details__list">
+    <!-- Location, Email, Phone, LinkedIn rows here -->
+     <li>
+  <span class="contact-details__label">Location</span>
+  <a href="https://www.google.com/maps/place/San+Francisco+Bay+Area"
+     target="_blank" rel="noopener">
+    San Francisco Bay Area
+  </a>
+</li>
+
+    <li>
+      <span class="contact-details__label">Email</span>
+      <a href="mailto:jeremylangdon22@gmail.com">jeremylangdon22@gmail.com</a>
+    </li>
+    <li>
+      <span class="contact-details__label">Phone</span>
+      <a href="tel:+17073327974">707&nbsp;332&nbsp;7974</a>
+    </li>
+    <li>
+  <span class="contact-details__label">LinkedIn</span>
+  <a href="https://www.linkedin.com/in/jeremy-langdon-4121a6149"
+     target="_blank" rel="noopener">
+    linkedin.com/in/jeremy-langdon-4121a6149
+  </a>
+</li>
+  </ul>
+</section>
 
     <!-- linkdin/behance icons -->
     <section class="nav-buttons">
@@ -64,6 +99,6 @@
   <footer class="footer">
     <!-- <p><small>Contact: </small><a href="mailto:youremail@example.com"><small>Send Email</small></a></p> -->
   </footer>
-
+<script src="JS/nav.js" defer></script>
 </body>
 </html>

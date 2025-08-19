@@ -24,13 +24,17 @@
   <img src="img/blue2.png" alt="me" class="small-profile">
   <span class="head-name">Jeremy Langdon</span>
 </div>
- <!-- right side header/nav -->
-  <nav class="top-nav">
-  <a href="index.html">About</a> 
-  <a href="portfolio.html">Portfolio</a> 
-  <!-- <a href="lists.html">Lists</a> -->
-  <a href="contact.html">Contact</a>
-</nav>
+<!-- Hamburger toggle -->
+  <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- The menu that opens -->
+  <nav class="top-nav" id="site-nav">
+    <a href="index.html">About</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
  <!-- center section -->
 <main>
@@ -49,7 +53,7 @@
 
 
       <!-- Card 2 -->
-      <a class="cs-card" href="case-study-2.html">
+      <a class="cs-card" href="#">
   <div class="cs-media">
     <img class="fit-cover" src="img/ficnew.jpg" alt="Case Study 2 cover">
   </div>
@@ -57,7 +61,7 @@
 </a>
 
       <!-- Card 3 -->
-      <a class="cs-card cs-card-3" href="case-study-3.html">
+      <a class="cs-card cs-card-3" href="#">
         <div class="cs-media">
           <img src="img/ux.jpg" alt="Case Study 3 cover">
         </div>
@@ -70,5 +74,6 @@
 <!-- <footer class="footer">
   <p><a class="foot" href="contact.html">Contact</a></p>
 </footer> -->
+<script src="JS/nav.js" defer></script>
 </body>
 </html>
