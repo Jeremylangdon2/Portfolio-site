@@ -176,7 +176,7 @@ html, body {
   font-family: "Lora", serif;
 font-weight: 400;
 font-style: italic;
-  font-size: 20px;        /* smaller than name */       /* semi-bold for subheading */
+  font-size: 19px;        /* smaller than name */       /* semi-bold for subheading */
   color: #333;            /* slightly lighter for hierarchy */
   margin-top: 0;
   margin-bottom: 6px;    /* space before paragraph */
@@ -1016,9 +1016,16 @@ body.contact-page {
   padding: 60px 20px 40px;
   max-width: 800px;
   margin: 0 auto;   /* centers element container */
-  margin-top: 40px;
+  margin-top: 38px;
 }
 
+/* Contact page: prevent scrolling on desktop only */
+@media (min-width: 1025px) {
+  body.contact-page {
+    overflow: hidden;   /* no scrollbars */
+    height: 100vh;      /* lock to viewport height */
+  }
+}
 
 
 .contact-page .bio-name {
@@ -1062,6 +1069,21 @@ body.contact-page {
   font-size: 16px;
   cursor: pointer;
 }
+
+/* === Contact Form text in Lato === */
+body.contact-page form,
+body.contact-page form input,
+body.contact-page form textarea,
+body.contact-page form button,
+body.contact-page form label {
+  font-family: 'Lato', sans-serif !important;
+}
+
+body.contact-page form label {
+  display: block;
+  margin-bottom: -15.5px;  /* space between label and box */
+}
+
 
 .contact-page .nav-buttons {
   display: flex;
@@ -1864,18 +1886,18 @@ Add this **once at the very end of `style.css`** to pull the bottom up a bit and
 }
 
 /* --- About page ONLY, Mobile ONLY --- */
+
+
+
 @media (max-width: 760px) {
-  .about-page .navbar .site-name,
-  .about-page .navbar .logo a {
-    color: #000 !important;   /* black text */
+  /* About page only */
+  body.about-page .site-name,
+  body.about-page .head-name {
+    color: #000000b2 !important;   /* black text */
   }
 
-  .about-page .hamburger span,
-  .about-page .menu-toggle span {
-    background-color: #222121 !important;  /* black bars */
-  }
-
-  .about-page .head-name {
-    color: #222121 !important;
+  body.about-page .hamburger span,
+  body.about-page .menu-toggle span {
+    background-color: #000000bd !important; /* black bars */
   }
 }
