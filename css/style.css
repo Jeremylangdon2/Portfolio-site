@@ -27,14 +27,19 @@ html, body {
   height: 100%;
 }
 
+/* Desktop/base: header matches main container width */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+
   width: 100%;
+  max-width: 1440px;   /* same as your #container width */
+  margin: 0 auto;      /* center it */
+  padding: 20px 20px;  /* same side padding as #container */
   box-sizing: border-box;
 }
+
 
 .left-header {
   display: flex;
@@ -52,7 +57,7 @@ html, body {
 .head-name {
   color: #000000;
   font-family: "Lato", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   position: relative;
 }
@@ -63,7 +68,7 @@ html, body {
   text-decoration: none;
   color: #000000;
    font-family: "Lato", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   position: relative;
   transition: transform 0.9s;
@@ -72,19 +77,26 @@ html, body {
 
 .top-nav a:hover {
   /* text-decoration: underline;  */
-   transform: scale(1.1);
+   /* transform: scale(1.1); */
 }
 
 
 .profile-pic img {
-  width: 580px;
-  height: 580px;
-  transition: transform 3s;
-  margin-top: 70px;
+  width: 380px;
+  height: 380px;
+  /* transition: transform 3s; */
+  margin-top: 100px;
 }
 
+/* profile photo styling */
+
+
+
+/* end style of profile photo  */
+
+
 .profile-pic img:hover {
-  transform: scale(1.4);
+  /* transform: scale(1.4); */
 }
 
 .bio-section {
@@ -97,6 +109,9 @@ html, body {
     font-size: 18pt;
   font-weight: bold;
   margin-bottom: 20px;
+     font-family: "source-serif-4", serif;
+font-weight: 700;
+font-style: normal;
 }
 
 .bio-section { position: relative; }
@@ -132,17 +147,18 @@ html, body {
 }
 
 .bio-name {
-  font-family: "Lato", sans-serif;
+  font-family: "Caveat", "Lato", sans-serif;
   font-size: 33px;        /* your chosen size */
-  font-weight: 800;       /* strong but not ultra-heavy */
+  font-weight: 600;       /* strong but not ultra-heavy */
   color: #1b1b1b;         /* deep neutral, softer than pure black */
   margin-bottom: 8px;     /* tight gap to subheading */
 }
 
 .bio-box {
-  font-family: "Lato", sans-serif;
-  font-size: 20px;        /* smaller than name */
-  font-weight: 600;       /* semi-bold for subheading */
+  font-family: "source-serif-4", serif;
+font-weight: 700;
+font-style: normal;
+  font-size: 20px;        /* smaller than name */       /* semi-bold for subheading */
   color: #333;            /* slightly lighter for hierarchy */
   margin-top: 0;
   margin-bottom: 16px;    /* space before paragraph */
@@ -225,7 +241,18 @@ html, body {
   height: 80px;
   align-items: center;
   justify-content: center;
-  color: #000000;
+  color: #0A66C2;
+  align-items: flex-start;
+padding-top: 8px; 
+}
+
+.nav-icon .contact-page {        /* Behance and linkdin position and size */
+  font-size: 30px;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  color: #0A66C2;
   align-items: flex-start;
 padding-top: 8px; 
 }
@@ -561,6 +588,57 @@ html, body {
   }
 }
 
+/* Desktop: floating rounded nav bar */
+@media (min-width: 761px) {
+  .header {
+    position: sticky;                /* stays visible as you scroll */
+    top: 16px;
+    z-index: 1000;
+
+    /* size & alignment */
+    width: 100%;
+    max-width: 1440px;               /* match your main container width */
+    margin: 12px auto 0;             /* centered pill at the top */
+    padding: 14px 24px;              /* a bit tighter than before */
+    box-sizing: border-box;
+
+    /* look & feel (glass card) */
+    background: rgba(255,255,255,0.86);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+}
+
+/* Desktop: subtle repeating ripple rings (no diagonal lines) */
+@media (min-width: 761px) {
+  html { background-color: #e9e9e9; }
+
+  body {
+    background:
+      /* ripple group A */
+      repeating-radial-gradient(
+        circle at 20% 12%,
+        rgba(255,255,255,.28) 0 2px,
+        rgba(255,255,255,0)   8px 56px
+      ),
+      /* ripple group B */
+      repeating-radial-gradient(
+        circle at 78% 38%,
+        rgba(255,255,255,.22) 0 2px,
+        rgba(255,255,255,0)   10px 62px
+      ),
+      /* soft bloom underlay for depth */
+      radial-gradient(900px 700px at 18% 8%,  rgba(255,255,255,.30), transparent 60%),
+      radial-gradient(900px 700px at 82% 30%, rgba(255,255,255,.24), transparent 65%);
+    background-repeat: repeat, repeat, no-repeat, no-repeat;
+    background-size: 1200px 1200px, 1400px 1400px, 1400px 900px, 1400px 900px;
+    background-position: 0 0, 420px 300px, center top, center 25vh;
+    background-attachment: scroll, scroll, scroll, scroll; /* repeats as you scroll */
+  }
+}
 
 
 /* =========================
@@ -596,12 +674,14 @@ html, body {
 
 /* Section heading between cover and cards */
 .portfolio-page .cs-heading {
-  margin: 190px 0 47px;       /* space down from cover */
-  text-align: center;
-  font-size: 60px;            /* your chosen size */
+  margin: 90px 0 47px;       /* space down from cover */
+  text-align: center;           /* your chosen size */
   font-weight: 900;
   color: #1b1b1b;
-  font-family: "Lato", sans-serif;
+    font-family: "source-serif-4", serif;
+font-weight: 700;
+font-style: normal;
+  font-size: 40px;        /* your chosen size */ 
 }
 
 /* Cards grid container (exactly 3 per row on desktop) */
@@ -911,6 +991,8 @@ html, body {
   margin-top: 40px;
 }
 
+
+
 .contact-page .bio-name {
   margin-bottom: 20px;  /*move element below down */
   margin-top: 40px;
@@ -970,7 +1052,7 @@ html, body {
 /* Contact page — info block below the form */
 .contact-page .contact-details {
   margin-top: 16px;                    /* sits right under the form */
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   background: #fff;
   border: 1px solid #eee;
   border-radius: 12px;
@@ -1081,6 +1163,41 @@ html, body {
   /* if you show a heading on contact, trim its top margin too */
   .contact-page .bio-name { margin-top: 8px !important; } /* was 40px */
 }
+
+/* Contact page: white card container */
+.contact-page .contact-container {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+  max-width: 800px;          /* your existing width */
+  margin: 24px auto 60px;    /* separates from bg and centers */
+  padding: 32px 28px;        /* comfortable interior spacing */
+  box-sizing: border-box;
+}
+
+/* Mobile tweaks */
+@media (max-width: 760px) {
+  .contact-page .contact-container {
+    margin: 12px 16px 28px;  /* keep space from edges/black header */
+    padding: 20px 16px;
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+  }
+}
+
+/* Desktop: reduce space above Contact */
+@media (min-width: 761px) {
+  /* 1) The fixed header offset — shrink it */
+  body { padding-top: 72px; }   /* was ~96px; tweak to 64–80px to taste */
+
+  /* 2) Pull the Contact card up */
+  .contact-page .contact-container { margin-top: 60px; }  /* was ~24px */
+
+  /* 3) Kill the H1’s default top margin inside the card */
+  .contact-page .contact-container > *:first-child { margin-top: -7px; }
+}
+
 
 /* =========================
    Case Study Page (image render)
@@ -1545,4 +1662,109 @@ html, body {
   .portfolio-page .cs-card-3 .cs-media img {
     transform: none !important;
   }
+}
+
+/* ALL NAV */
+/* Desktop: blue/underline on hover, blue dot for active page */
+@media (min-width: 761px) {
+  .top-nav a {
+    position: relative;                 /* needed for the dot */
+    color: #333;
+    text-decoration: none;
+    padding-bottom: 6px;                /* room for the dot */
+    transition: color .2s ease;
+  }
+
+  /* Hover state */
+  .top-nav a:hover,
+  .top-nav a:focus {
+    color: #1a73e8;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+  }
+
+  /* Active/current page: blue text + centered dot (no underline) */
+  .top-nav a[aria-current="page"] {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  .top-nav a[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -6px;                       /* adjust if it sits too low/high */
+    width: 6px;
+    height: 6px;
+    background: #1a73e8;
+    border-radius: 50%;
+  }
+
+  /* If you can't add aria-current, use page-class targeting instead */
+  .about-page    .top-nav a[href*="about"],
+  .about-page    .top-nav a[href*="index"],
+  .portfolio-page .top-nav a[href*="portfolio"],
+  .case-study-page .top-nav a[href*="case"],
+  .contact-page  .top-nav a[href*="contact"] {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  .about-page    .top-nav a[href*="about"]::after,
+  .about-page    .top-nav a[href*="index"]::after,
+  .portfolio-page .top-nav a[href*="portfolio"]::after,
+  .case-study-page .top-nav a[href*="case"]::after,
+  .contact-page  .top-nav a[href*="contact"]::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -6px;
+    width: 6px;
+    height: 6px;
+    background: #1a73e8;
+    border-radius: 50%;
+  }
+}
+
+/* Desktop: NOT fixed — scrolls with the page */
+@media (min-width: 761px) {
+  .header {     /* change from fixed → sticky (or use 'static') */
+    top: -4px;             /* small breathing room from the top */
+    left: auto;           /* cancel any centering from the fixed version */
+    transform: none;      /* cancel translateX */
+    margin: 32px auto 0;  /* centered pill */
+    width: 100%;
+    max-width: 1440px;    /* same as your main container */
+    /* keep your existing background/blur/border/shadow */
+  }
+
+  /* Remove the offset we added for the fixed header */
+  body { padding-top: 0; }
+
+  /* Keep a tidy gap below the nav on Contact (tune as you like) */
+  .contact-page .contact-container { margin-top: 16px; }
+  /* If it feels too tight, try 20–24px */
+}
+
+.contact-page .contact-container {
+  /* … */
+  margin: 24px auto 60px;   /* ← this “60px” makes the big gap */
+  padding: 32px 28px;
+}
+``` :contentReference[oaicite:0]{index=0}
+
+Add this **once at the very end of `style.css`** to pull the bottom up a bit and neutralize any child margins:
+
+```css
+/* Tighten space under the Contact card (desktop + mobile) */
+.contact-page .contact-container {
+  margin-bottom: 16px !important;   /* was 60px */
+  padding-bottom: 10px !important;  /* small inner breathing room */
+}
+.contact-page .contact-container > *:last-child {
+  margin-bottom: -60px !important;      /* stop last child from adding extra gap */
+}
+.contact-page .nav-buttons {         /* icons row */
+  margin-bottom: 10px !important;
 }
