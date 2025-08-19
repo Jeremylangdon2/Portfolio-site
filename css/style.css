@@ -1061,6 +1061,16 @@ body.contact-page form label {
   font-family: 'Lato', sans-serif !important;
 }
 
+/* Contact form focus state */
+body.contact-page input:focus,
+body.contact-page textarea:focus,
+body.contact-page select:focus {
+  outline: none;                        /* remove default browser outline */
+  border: 2px solid #155713;            /* black border when active */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* subtle shadow if you want */
+}
+
+
 body.contact-page form label {
   display: block;
   margin-bottom: -15.5px;  /* space between label and box */
@@ -1399,7 +1409,8 @@ body.contact-page form label {
 }
 .case-study-page .cs1-section h3 { 
   font-size: 22px; 
-  font-weight: 900; 
+  font-weight: 900;
+  font-style: italic; 
   margin: 6px 0 0; 
   color: #1b1b1b; 
 }
