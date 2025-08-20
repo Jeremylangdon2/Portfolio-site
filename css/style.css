@@ -631,7 +631,7 @@ html, body {
 @media (min-width: 761px) {
   body.portfolio-page {
     /* use the new image */
-    background: url("../img/room5.png") no-repeat 50% 50% / cover !important;
+    background: url("../img/blueback.jpg") no-repeat 100% 100% / cover !important;
     min-height: 100vh;
   }
 }
@@ -670,7 +670,9 @@ html, body {
 }
 
 .portfolio-page h1.cs-heading {
-  margin-bottom: 50px !important;
+  margin-bottom: 32px; /* remove !important so media queries can adjust */
+  /* text-decoration: underline 1px;
+    text-underline-offset: 7px; */
 }
 
 
@@ -709,7 +711,7 @@ html, body {
   overflow: hidden;
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
   transition: transform 0.6s ease, box-shadow 180ms ease;
-  font-family: "Lato", sans-serif;
+  font-family: "lora", sans-serif;
 }
 .portfolio-page .cs-card:hover,
 .portfolio-page .cs-card:focus-visible {
@@ -806,7 +808,6 @@ html, body {
   }
   .portfolio-page .cs-heading {
     font-size: 30px;
-    margin: 200px 0 20px;
   }
 }
 
@@ -894,7 +895,7 @@ html, body {
 /* Pull portfolio content up on mobile (match ~73px cover height) */
 @media (max-width: 760px) {
   .portfolio-page .cs-heading {
-    margin: 50px 0 16px !important; /* adjust the first value (top) as needed */
+     margin: 110px 0 16px; /* adjust the first value (top) as needed */
   }
 }
 
@@ -1841,6 +1842,7 @@ Add this **once at the very end of `style.css`** to pull the bottom up a bit and
 /* === About (index) MOBILE: parallax-style background === */
 @media (max-width: 760px) {
   /* Kill the old black cover */
+  .about-page .clouds-bg { display: none !important; }
   .about-page .clouds-bg {
     display: none !important;
   }
@@ -1877,7 +1879,7 @@ Add this **once at the very end of `style.css`** to pull the bottom up a bit and
     overflow-y: auto !important;     /* re-enable vertical scroll */
   }
 }
-
+}
 /* --- About page ONLY, Mobile ONLY --- */
 
 
@@ -1895,3 +1897,65 @@ Add this **once at the very end of `style.css`** to pull the bottom up a bit and
   }
 }
 
+/* ----- Portfolio page: switch layouts by breakpoint ----- */
+
+
+/* === Portfolio: mobile title fix (final override) === */
+@media (max-width: 760px) {
+  .portfolio-page .cs-heading {
+    margin: 24px 0 12px !important;          /* small, predictable top gap */
+    font-size: clamp(24px, 6vw, 32px) !important;
+    position: relative;                       /* ensure we can layer it */
+    z-index: 2;                               /* sit above any backgrounds */
+  }
+
+  /* mild nudge so the title doesn't collide with the black bar */
+  .portfolio-page #portcontainer { 
+    padding-top: 8px !important; 
+  }
+}
+
+
+/* === Portfolio → Mobile: make the title visible === */
+@media (max-width: 760px) {
+  .portfolio-page .cs-heading {
+    color: #111 !important;                 /* was white */
+    margin: 24px 0 12px !important;         /* small, reliable gap */
+    font-size: clamp(24px, 6vw, 32px) !important;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+  }
+  /* tiny nudge so it clears the black bar and sits over the white section */
+  .portfolio-page #portcontainer { padding-top: 8px !important; }
+}
+
+
+/* Card titles split into big (Lora) + small (Lato) */
+.portfolio-page .cs-title {
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  align-items: center;      /* center horizontally */
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 12px 0;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.portfolio-page .cs-title .cs-main {
+  font-family: "Lora", serif;   /* keep Lora */
+  font-size: 22px;
+  font-weight: 800;
+  color: #222;
+  line-height: 1.2;
+}
+
+.portfolio-page .cs-title .cs-sub {
+  font-family: "Lato", sans-serif;  /* small text in Lato */
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin-top: 4px;
+}
