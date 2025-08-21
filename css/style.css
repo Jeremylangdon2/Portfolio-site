@@ -1486,6 +1486,18 @@ body.contact-page form label {
   image-rendering: auto;         /* best-quality resampling */
 }
 
+/* Center captions to the image width */
+.case-study-page .cs-figure .video-caption{
+  display: inline-block;      /* shrink to image width */
+  margin: 0 auto 0;           /* center the figure in the section */
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+}
+.case-study-page .cs-figure img { display: block; }
+.case-study-page .cs-figure .video-caption { margin-top: 6px; }
+
+
 /* back button */
 .case-study-page .cs3-cta {
   text-align: center;
@@ -1629,6 +1641,11 @@ body.contact-page form label {
   color: #222;
   font-weight: 700;
 }
+
+.case-study-page .cs1-section img:has(+ .video-caption) { margin-bottom: 2px; }
+.case-study-page .cs1-section img.cs1-image.magnify-target { margin-bottom: 2px; }
+
+
 .case-study-page a[href^="img/"]:hover {
   background: #efefef;
 }
@@ -1679,7 +1696,7 @@ body.contact-page form label {
   display: block;
   width: 100%;
   height: auto;
-  margin: 20px 0;
+  margin: 0px 0;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.06);
 }
@@ -1696,18 +1713,29 @@ body.contact-page form label {
   max-width: 90%;      /* stay responsive on small screens */
   height: auto;
   display: block;
-  margin: 2rem auto;   /* centers it */
+   margin: 2px 0;   /* centers it */
 }
+
+
+
+
 
 /* Cursor hint for magnifiable images */
 .magnify-target {
   cursor: zoom-in;
 }
 
+
+/* Tight image→caption gap for magnify images */
+.case-study-page .cs1-section img.cs1-image.magnify-target { margin-bottom: 2px; }
+
+
 /* Lens styling */
 .magnify-lens {
   mix-blend-mode: normal;
 }
+
+
 
 /* ===== Phone videos: layout, sizing, cropping, captions ===== */
 
@@ -1771,12 +1799,16 @@ body.contact-page form label {
 .video-caption {
   width: 100%;               /* exactly as wide as the phone */
   font-family: 'Lato', sans-serif;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 300;
-  color: #666;
-  line-height: 1.3;
+  color: #797979;
   text-align: center;
+  margin-bottom: 10px;
 }
+
+/* If a paragraph directly wraps an image, don’t add extra gap below it */
+.case-study-page .cs1-section p:has(> img) { margin-bottom: 6px; }
+
 
 /* Responsive tweaks */
 @media (max-width: 900px) {
@@ -1808,13 +1840,19 @@ body.contact-page form label {
 .case-study-page .cs1-section p {
   margin: 0 0 1.5rem;
   line-height: 1.7;
+  font-size: 18px;
   max-width: 700px;   /* stops lines from being too wide */
+}
+
+.case-study-page .cs1-section li { 
+  font-size: 18px; 
+  line-height: 1.7;
 }
 
 /* Images: always centered, with generous top/bottom space */
 .case-study-page .cs1-section img {
   display: block;
-  margin: 2.5rem auto;
+  margin: 2.5rem 0;
   max-width: 100%;
   height: auto;
   border-radius: 12px;
@@ -1826,6 +1864,9 @@ body.contact-page form label {
   margin-top: 1.5rem;
 }
 
+
+
+
 /* Text directly after an image: tighten gap slightly */
 .case-study-page .cs1-section img + p {
   margin-top: 1rem;
@@ -1833,15 +1874,27 @@ body.contact-page form label {
 
 /* Optional: captions under images */
 .case-study-page figure {
-  margin: 2.5rem auto;
+  margin: 2.5rem 0;
   text-align: center;
   max-width: 700px;
 }
+
 .case-study-page figcaption {
   font-size: 0.9rem;
   color: #666;
-  margin-top: 0.4rem;
+  margin-top: 2px;
   font-style: italic;
+
+}
+
+/* Tighten image→caption gap (handles both <figcaption> and .video-caption) */
+.case-study-page .cs1-section img + figcaption,
+.case-study-page .cs1-section img:has(+ .video-caption) {
+  margin-bottom: 1px;   /* overrides the 2.5rem bottom from the global img rule */
+}
+
+.case-study-page figure img { margin-bottom: 0px;
+padding-bottom: 0;
 }
 
 /* Make sure the header stack is above everything on the case-study page */
