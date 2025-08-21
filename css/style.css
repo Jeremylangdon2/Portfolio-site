@@ -1038,7 +1038,7 @@ html, body {
 .portfolio-page .tf-accordion details[open] > summary span {
   text-decoration: underline;
   text-underline-offset: 3px;
-  color: inherit;
+  color: #dfd5a8;
 }
 
 /* Hover/focus feedback without backgrounds */
@@ -1136,6 +1136,8 @@ html, body {
   margin: 0 0 10px;
   font-family: "lato", serif;
   font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
 }
 .portfolio-page .testimonial__name { margin: 8px 0 0; font-weight: 700; opacity: .9; }
 
@@ -1612,10 +1614,10 @@ body.contact-page form label {
 }
 .case-study-page .cs1-section h3 { 
   font-size: 22px; 
-  font-weight: 900;
-  font-style: italic; 
+  font-weight: 400; 
   margin: 6px 0 0; 
   color: #1b1b1b; 
+  font-family: "Lato";
 }
 
 /* override for Step headings */
@@ -1680,7 +1682,7 @@ body.contact-page form label {
   display: inline-block;
   padding: 12px 18px;
   border-radius: 10px;
-  font-weight: 800;
+  font-weight: 400;
   text-decoration: none;
   color: #fff;
   background: #111;
@@ -2209,3 +2211,34 @@ Add this **once at the very end of `style.css`** to pull the bottom up a bit and
   color: #555;
   margin-top: 4px;
 }
+
+/* === Accordion open/close speed & animation === */
+.portfolio-page {
+  /* change this to taste (e.g., 900ms for slower, 400ms for faster) */
+  --acc-speed: 700ms;
+  --acc-ease: cubic-bezier(0.33, 1, 0.68, 1); /* easeOutQuint-ish */
+}
+
+/* Make the caret rotate at the same slower speed */
+.portfolio-page .tf-accordion summary::before {
+  transition: transform var(--acc-speed) var(--acc-ease);
+}
+
+/* Smoothly reveal the panel body */
+.portfolio-page .tf-accordion .content {
+  /* it already has padding/color set earlier; we’re only adding animation */
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height var(--acc-speed) var(--acc-ease),
+    opacity calc(var(--acc-speed) * 0.85) var(--acc-ease);
+  will-change: max-height, opacity;
+}
+
+/* When the details is open, expand to a generous max-height */
+.portfolio-page .tf-accordion details[open] .content {
+  max-height: 800px; /* adjust if a panel is taller than this */
+  opacity: 1;
+}
+
