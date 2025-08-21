@@ -1713,7 +1713,8 @@ body.contact-page form label {
   max-width: 90%;      /* stay responsive on small screens */
   height: auto;
   display: block;
-   margin: 2px 0;   /* centers it */
+   margin: 2px 0px;   /* centers it */
+   margin-bottom: 7px;
 }
 
 
@@ -1803,7 +1804,7 @@ body.contact-page form label {
   font-weight: 300;
   color: #797979;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 /* If a paragraph directly wraps an image, don’t add extra gap below it */
