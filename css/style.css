@@ -631,7 +631,7 @@ html, body {
 @media (min-width: 761px) {
   body.portfolio-page {
     /* use the new image */
-    background: url("../img/blueback.jpg") no-repeat 100% 100% / cover !important;
+    background: url("../img/room5.png") no-repeat 100% 100% / cover !important;
     min-height: 100vh;
   }
 }
@@ -682,7 +682,7 @@ html, body {
   margin: 90px 0 47px;       /* space down from cover */
   text-align: center;           /* your chosen size */
   font-weight: 900;
-  color: #ffffff;
+  color: #faedca;
     font-family: "Lora", serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -697,7 +697,7 @@ html, body {
   grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 across */
   gap: 20px;
   max-width: 800px;   /* total grid width cap */
-  margin: 0 auto 80px;/* centered, with bottom space */
+  margin: 0 auto 180px;/* centered, with bottom space */
   padding: 0 12px;    /* small side padding for tiny screens */
 }
 
@@ -966,6 +966,185 @@ html, body {
   }
 }
 
+/* ========= Portfolio: About/Accordion under cards ========= */
+/* ========= Portfolio: text-only accordion (no backgrounds/borders) ========= */
+.portfolio-page .pf-section { 
+  max-width: 900px;
+  margin: 0 auto 80px;
+  padding: 0 12px;
+}
+
+.portfolio-page .pf-lefttitle {
+  font-size: 28px;
+  font-weight: 900;
+  margin-top: -40px;
+  text-align: left;         /* not centered */
+  color: #9fc092;  
+  font-family: lora;
+  font-style: italic;
+  font-weight: 400;           /* white title */
+}
+
+
+
+/* Reset any boxes/panels */
+.portfolio-page .tf-accordion details,
+.portfolio-page .tf-accordion summary,
+.portfolio-page .tf-accordion .content {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Summary (click target) */
+.portfolio-page .tf-accordion summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 0 10px 28px;   /* space for caret only */
+  color: #fff;                 /* white summary text */
+  position: relative;
+  user-select: none;
+  font-family: "Lora", serif;
+  font-weight: 400;
+  display: inline-block;
+
+}
+.portfolio-page .tf-accordion summary::-webkit-details-marker { display: none; }
+
+/* Caret (white) */
+.portfolio-page .tf-accordion summary::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-right: 3px solid currentColor;  /* chevron stroke */
+  border-bottom: 3px solid currentColor; /* chevron stroke */
+  transform: translateY(-50%) rotate(45deg); /* ">" when closed */
+  transition: transform .2s ease;
+  opacity: .9;            /* white caret */
+  color: #9fc092;
+}
+
+/* Open state */
+.portfolio-page .tf-accordion details[open] summary::before {
+  transform: translateY(-50%) rotate(225deg);
+  
+}
+
+/* underline the open (selected) heading */
+.portfolio-page .tf-accordion details[open] > summary span {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: #d8bba8;
+}
+
+/* Hover/focus feedback without backgrounds */
+.portfolio-page .tf-accordion summary:hover span { text-decoration: underline; }
+
+
+/* Content (white body text) */
+.portfolio-page .tf-accordion .content {
+  padding: 0 0 8px 28px;
+   color: #fcfffc;                /* white content text */
+  line-height: 1.7;
+}
+.portfolio-page .tf-accordion .content p { margin: 8px 0 0; }
+
+
+
+/* Small screens */
+@media (max-width: 640px) {
+  /* Title stays white on mobile */
+  .portfolio-page .pf-lefttitle { 
+    color: #000000;
+    text-align: center;
+    margin-bottom: 30px; 
+    font-size: clamp(24px, 6vw, 32px)
+  }
+  
+
+  /* Frames (boxes) for each accordion item on mobile */
+  .portfolio-page .tf-accordion details {
+    background: #fff;
+    border: 1px solid #e5e7eb;   /* light gray frame */
+    border-radius: 12px;
+    margin: 10px 0;
+  }
+
+  /* Heading (click target) — black text + full-width block */
+  .portfolio-page .tf-accordion summary {
+    color: #000;                 /* makes arrow black too (uses currentColor) */
+    display: block;              /* full-width tap area */
+    padding: 14px 16px 14px 44px;/* keep space for the chevron */
+  }
+
+  /* Ensure chevron is black even if you later change summary color */
+  .portfolio-page .tf-accordion summary::before {
+    border-right-color: #000; 
+    border-bottom-color: #000;
+  }
+
+  /* Body text — black in mobile frames */
+  .portfolio-page .tf-accordion .content {
+    color: #000;
+    padding: 0 16px 16px 44px;
+  }
+
+  /* Optional: subtle open-state border emphasis */
+  .portfolio-page .tf-accordion details[open] {
+    border-color: #d1d5db;
+  }
+}
+
+
+
+/* ===== Portfolio: Testimonials (under About Tech Fleet) ===== */
+.portfolio-page .pf-testimonials { max-width: 900px; padding: 0 12px; }
+
+.portfolio-page .pf-testimonials .pf-lefttitle {
+  color: #9fc092;                 /* white title for this section */
+  margin: 0 0 30px;
+  text-align: left;
+}
+
+.portfolio-page .testimonial {
+  display: grid;
+  grid-template-columns: 1fr 100px ;  
+  gap: 20px;
+  align-items: start;
+}
+
+.portfolio-page .testimonial__img {
+ width: 100px;
+  height: 100px;
+  grid-column: 2;    
+  grid-row: 1;
+  object-fit: cover;
+}
+
+.portfolio-page .testimonial__body { color: #fff; line-height: 1.7;  grid-column: 1;     grid-row: 1; }
+.portfolio-page .testimonial__quote {
+  margin: 0 0 10px;
+  font-family: "lato", serif;
+  font-weight: 400;
+}
+.portfolio-page .testimonial__name { margin: 8px 0 0; font-weight: 700; opacity: .9; }
+
+/* Mobile: stack and keep readable */
+@media (max-width: 640px) {
+  .portfolio-page .pf-testimonials .pf-lefttitle { text-align: center; }
+  .portfolio-page .testimonial { grid-template-columns: 1fr; }
+  .portfolio-page .testimonial__img {
+    width: 100%;
+    height: auto;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+
 
 /* /* =========================
    RESPONSIVE UPSHIFTS
@@ -985,7 +1164,7 @@ html, body {
 /*contact page css*/
 
 body.contact-page {
-  background: url("../img/sf2.jpg") no-repeat center center;
+  background: url("../img/sunrise.jpg") no-repeat center center;
   background-size: cover;
   background-attachment: fixed;  /* optional: parallax effect */
 }
@@ -1415,6 +1594,12 @@ body.contact-page form label {
   margin: 6px 0 0; 
   color: #1b1b1b; 
 }
+
+/* override for Step headings */
+.case-study-page .cs1-section h3.step {
+  font-style: normal;            /* not 'none' */
+}
+
 .case-study-page .cs1-list { 
   padding-left: 18px; 
 }
