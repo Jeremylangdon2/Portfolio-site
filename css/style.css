@@ -2024,6 +2024,7 @@ padding-bottom: 0;
   }
 
   /* If you can't add aria-current, use page-class targeting instead */
+  .about-page    .top-nav a[href="/"],
   .about-page    .top-nav a[href*="about"],
   .about-page    .top-nav a[href*="index"],
   .portfolio-page .top-nav a[href*="portfolio"],
@@ -2032,6 +2033,7 @@ padding-bottom: 0;
     color: #1a73e8;
     text-decoration: none;
   }
+  .about-page    .top-nav a[href="/"]::after,
   .about-page    .top-nav a[href*="about"]::after,
   .about-page    .top-nav a[href*="index"]::after,
   .portfolio-page .top-nav a[href*="portfolio"]::after,
