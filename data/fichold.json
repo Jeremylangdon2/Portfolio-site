@@ -1,0 +1,338 @@
+[
+  {
+    "Tickets": "Secondary Research on Membership Copywriting for Tiered Access & PWYC Models",
+    "Type": "Task 🔨",
+    "Status": "Sprint In Progress",
+    "Sprint": "Sprint 2",
+    "User Stories": [
+      "As a UX researcher, I want to analyze how other mission-aligned organizations communicate their membership tiers and pricing so I can guide FIC and the UX writing team.",
+      "As an FIC stakeholder, I want to understand how similar orgs explain membership systems so our messaging feels clear, inviting, and values-aligned."
+    ],
+    "Background": "FIC is rolling out a new membership system with PWYC options, premium features behind a paywall, and multiple audience types. Values-aligned copy is critical; research will gather patterns from mission-aligned platforms (e.g., sliding-scale, gated content, nonprofit/co-op models).",
+    "Problem to Solve": [
+      "Explain tier differences simply",
+      "Encourage fair PWYC payment",
+      "Reduce confusion around locked features",
+      "Build trust with value-focused messaging"
+    ],
+    "Task Goals": [
+      "Identify how mission-driven platforms explain tiers, PWYC, members-only features, and upgrade CTAs",
+      "Document strengths/pitfalls and value-communication patterns",
+      "Summarize approaches that fit FIC’s audiences"
+    ],
+    "Task Scope": [
+      "Collect public examples from nonprofits/co-ops/sliding-scale services/open-source/IC directories",
+      "Analyze tier names/framing, benefits, locked-content framing, PWYC language, tone",
+      "Organize findings into deck/report + reference doc",
+      "Coordinate with writing/strategy to align with values and timeline"
+    ],
+    "Expected Outcomes": [
+      "Curated examples of membership experiences and language",
+      "Summary of effective patterns/strategies",
+      "Reference doc for writing team",
+      "Strategic talking points for client"
+    ],
+    "Supported Use Cases": [
+      "Give FIC leadership confidence in PWYC/membership messaging",
+      "Equip copywriters with examples and best practices",
+      "Guide UX writers on pricing/feature-access messaging",
+      "Clarify paid feature value and rationale"
+    ],
+    "Acceptance Criteria": [
+      "Multiple membership/PWYC examples included",
+      "Report highlights strengths/risks, tier/gating explanations, persuasive values-aligned language",
+      "Findings shared with writing team and client",
+      "Collaboration with UX writers on how findings inform copy",
+      "Delivered by end of sprint"
+    ]
+  },
+  {
+    "Tickets": "Subscription and Membership Business Strategy",
+    "Type": "Task 🔨",
+    "Status": "Sprint In Progress",
+    "Sprint": "2",
+    "User Stories": [
+      "As an FIC executive director, I want to increase retention to sustain revenue.",
+      "As a product manager, I want to help FIC make informed strategy decisions so the org can grow."
+    ],
+    "Background": "FIC is defining/structuring paid services with a clearer understanding of the customer journey across exploration, joining, and ongoing engagement.",
+    "Problem to Solve": [
+      "User needs evolve over time; without alignment, drop-off threatens revenue and stability."
+    ],
+    "Task Goals": [
+      "Develop a framework aligning offerings and membership states with business goals and user needs across the lifecycle"
+    ],
+    "Task Scope": [
+      "Run CX Strategy Workshop (Seekers & Community Owners)",
+      "Share takeaways; build current flows and future funnels for both audiences",
+      "Identify research needs"
+    ],
+    "Expected Outcomes": [
+      "Workshop takeaways",
+      "Customer experience funnel (Seekers, Community Owners)",
+      "UX flows (Seekers, Community Owners)",
+      "Workshop report with insights/recommendations"
+    ],
+    "Supported Use Cases": [
+      "What to show to logged-in vs new visitors",
+      "When to promote subscriptions vs memberships",
+      "Tracking progression from visitors to members",
+      "Clarity on goals of paid services",
+      "Shared framework for updating offerings"
+    ],
+    "Acceptance Criteria": [
+      "Workshop completed; conversion points documented for both audiences",
+      "Services defined: subscription vs membership; targets; features/benefits; overlaps/edge cases",
+      "Journey maps/flows of current and future states (visual + table)",
+      "Short- vs long-term goals; touchpoints; retention tactics",
+      "Framework for adapting offerings by auth state (visitor/user/member)"
+    ]
+  },
+  {
+    "Tickets": "Defining Membership for Research",
+    "Type": "Task 🔨",
+    "Status": "Sprint In Progress",
+    "Sprint": "Sprint 2",
+    "User Stories": [
+      "As an FIC director, I want to reflect membership ideas to users via research on existing models.",
+      "As strategy, I want to progress/define membership to guide client strategy and enable design/research.",
+      "As research, I want to understand membership strategy, materials, and info to plan studies with stakeholders."
+    ],
+    "Background": "Membership changes are being discussed; site is ready for design but membership definition is incomplete. Strategy must inform research materials/data.",
+    "Task Goals": [
+      "Help FIC make informed membership decisions by defining structure, interpreting insights, and analyzing client work with them"
+    ],
+    "Problem to Solve": [
+      "Too many options; unclear fit for user stages and goals; risk of lower conversions",
+      "Membership state incomplete → teams unprepared for research/strategy/design"
+    ],
+    "Task Scope": [
+      "Meet with research",
+      "Understand client priorities",
+      "Assist with insights gathering",
+      "Co-define recommendations for membership structure"
+    ],
+    "Expected Outcomes": [
+      "Document showing full understanding of membership strategy including proposed features and pricing"
+    ],
+    "Supported Use Cases": [
+      "Research team receives inputs to conduct studies",
+      "Stakeholders build new membership structure"
+    ],
+    "Acceptance Criteria": [
+      "Features & pricing fully documented per tier (features, access level, pricing model, audiences)",
+      "Key artifacts reviewed (Payment Tiers doc, Figma, Miro)",
+      "Synthesis doc for research: current/proposed structures, gaps/overlaps, what’s testable",
+      "Research & strategy alignment on priorities, RQs, next steps",
+      "Client alignment with documented open questions"
+    ]
+  },
+  {
+    "Tickets": "Copy-writing for membership",
+    "Type": "Task 🔨",
+    "Status": "Sprint In Progress",
+    "Sprint": "Sprint 2",
+    "User Stories": [
+      "As FIC director, I want values-aligned language that builds trust and increases paid conversion.",
+      "As a registered user encountering a locked feature, I want a clear explanation and rationale so I feel confident upgrading."
+    ],
+    "Background": "FIC is moving to PWYC + premium access; success depends on clarity and trust. UX writing is central to the experience.",
+    "Problem to Solve": [
+      "Membership options can confuse/overwhelm if not conveyed clearly → underpaying in PWYC, tier confusion, abandonment."
+    ],
+    "Task Goals": [
+      "Create effective UX copy: explain pricing/tiers, encourage fair PWYC, convert to paid/premium, match values/tone"
+    ],
+    "Task Scope": [
+      "Write copy for tier selection, PWYC prompts, premium CTAs, landing/pages/popups, tooltips/modals",
+      "Collaborate with design for clarity; A/B alternate headlines/CTAs if time allows"
+    ],
+    "Expected Outcomes": [
+      "Clear values-based copy for new membership and premium flows",
+      "Messaging that increases conversions and reduces confusion",
+      "Optional variants for testing/segments"
+    ],
+    "Supported Use Cases": [
+      "First-time visitor choosing free vs paid",
+      "Returning user hitting locked feature",
+      "PWYC seeker deciding contribution",
+      "Community admin understanding included tier features",
+      "Donor-type user paying it forward"
+    ],
+    "Acceptance Criteria": [
+      "Copy for: tier descriptions (Accessible/Sustaining/Pay It Forward), PWYC explainer, upgrade modals/tooltips, tier comparison, payment confirmations",
+      "Language is clear, values-aligned, fair, and transparent; defaults encourage fair PWYC; includes trust messaging"
+    ]
+  },
+  {
+    "Tickets": "Comparative analysis of Analytics tools",
+    "Type": "Task 🔨",
+    "Status": "Sprint In Progress",
+    "Sprint": "Sprint 2",
+    "User Stories": [
+      "As a TF UX strategist/researcher, I want to compare analytics tools aligned to FIC goals and tech needs.",
+      "As an FIC director, I want a tool matching strategy and constraints to make data-informed decisions."
+    ],
+    "Background": "New membership structure (PWYC, premium) requires tracking of behaviors to evaluate success and reduce friction.",
+    "Problem to Solve": [
+      "Limited tracking → can’t measure tier conversion, drop-off, PWYC behavior, or optimize language/design."
+    ],
+    "Task Goals": [
+      "Define behaviors/metrics, compare tools, implement selected tool(s), begin collecting baseline data"
+    ],
+    "Task Scope": [
+      "Identify key flows (signup, feature access, PWYC)",
+      "Compare 4–5 tools on events/funnels, privacy, integration, cost",
+      "Select tool and implement tracking; share baseline/confirmation"
+    ],
+    "Expected Outcomes": [
+      "Tool comparison and recommendation",
+      "Tracking implemented for core flows",
+      "Baseline data/confirmation and summary to stakeholders"
+    ],
+    "Supported Use Cases": [
+      "Track free→paid conversion",
+      "Monitor premium feature access",
+      "Measure signup/PWYC drop-off",
+      "Understand tier behavior differences",
+      "Identify friction/underused features"
+    ],
+    "Acceptance Criteria": [
+      "Key metrics/flows defined",
+      "≥4 tools compared with consistent criteria",
+      "One tool selected and integrated",
+      "Priority behaviors tracked; baseline summary delivered",
+      "Research/setup documented in editable format"
+    ]
+  },
+  {
+    "Tickets": "Future CX Maps",
+    "Type": "Task 🔨",
+    "Status": "Sprint In Progress",
+    "Sprint": "Sprint 2",
+    "User Stories": [
+      "As strategy, define future journey for FIC audiences to support engagement, conversion, retention.",
+      "As FIC stakeholder, see impacts of membership changes to gain confidence and surface gaps early."
+    ],
+    "Background": "Membership restructuring (PWYC, premium, clearer tiers) changes experience; a future-state CX map/flow is needed.",
+    "Problem to Solve": [
+      "Outdated CX map risks misaligned design, missed needs, and poor internal alignment."
+    ],
+    "Task Goals": [
+      "Define proposed model, map ideal CX, visualize in flowchart, present for feedback and next steps"
+    ],
+    "Task Scope": [
+      "Summarize proposed membership structure",
+      "Create CX map across lifecycle stages and tasks/decisions",
+      "Identify opportunities/friction; share drafts; revise and finalize"
+    ],
+    "Expected Outcomes": [
+      "Future-state CX map and user flow",
+      "Next-step recommendations; shared editable files (FigJam)"
+    ],
+    "Supported Use Cases": [
+      "Anticipate behavior with new tiers",
+      "Align teams on end-to-end journey",
+      "Identify friction to test/improve",
+      "Guide copy/UI/dev priorities"
+    ],
+    "Acceptance Criteria": [
+      "Membership model summary documented/approved",
+      "Lifecycle CX journey map created",
+      "User flowchart created",
+      "Drafts reviewed; notes collected; final artifacts delivered in editable formats"
+    ]
+  },
+  {
+    "Tickets": "Perform research around membership model potential",
+    "Type": "Task 🔨",
+    "Status": "Sprint In Progress",
+    "Sprint": "Sprint 2",
+    "User Stories": [
+      "As a UX researcher, understand user response to tiers for effectiveness/equity.",
+      "As strategy, clarify intent/flexibility to ground research.",
+      "As stakeholder, evaluate fit with needs to improve trust/accessibility/conversions."
+    ],
+    "Background": "Before launch, assess if proposal meets needs, if users understand value, and how best practices inform strategy; define internal clarifications and external feedback.",
+    "Problem to Solve": [
+      "Model not fully validated → risk of confusing/inequitable/unsustainable system without user insight and best-practice comparison."
+    ],
+    "Task Goals": [
+      "Understand how tiers/pricing/access were developed and what is flexible",
+      "Analyze internal feedback/usage",
+      "Identify risks/friction and role of comparative scan"
+    ],
+    "Task Scope": [
+      "Confirm with Kim: finality, influences, prior comparative work",
+      "Analyze internal data (engagement, drop-off, paywall experiments)",
+      "Snapshot tiers/features/pricing/clarity; optional public comparative review",
+      "Deliver sprint-timely insights before July launch"
+    ],
+    "Expected Outcomes": [
+      "Summary of model development and flexibility",
+      "Tier breakdown with potential confusion",
+      "Internal data findings where available",
+      "Feedback on PWYC clarity/trust",
+      "Recommendation on comparative analysis necessity",
+      "Client-ready insights before sprint end"
+    ],
+    "Supported Use Cases": [
+      "Evaluate fit with user expectations",
+      "Compare to best practices",
+      "Inform revisions to features/pricing/language",
+      "Ensure membership messaging is research-grounded"
+    ],
+    "Acceptance Criteria": [
+      "Comms with Kim documented",
+      "Background/influences/flexibility summarized",
+      "Internal usage data reviewed/summarized",
+      "Tier-by-tier analysis with confusion notes",
+      "Optional comparative scan completed or ruled out",
+      "Final recommendations delivered and reviewed"
+    ],
+    "Created": "June 13, 2025 11:18 AM"
+  },
+  {
+    "Tickets": "Develop the Community Listing Page",
+    "Type": "Task 🔨",
+    "Status": "Complete (Disneyland)",
+    "Sprint": "Sprint 2",
+    "User Stories": [
+      "As an FIC executive director, increase subscription revenue to sustain the nonprofit.",
+      "As a potential subscriber, make informed decisions about communities before paying."
+    ],
+    "Background": "Tech Fleet and FIC redesigned the information site; this is the first ticket for the community listing detail.",
+    "Problem to Solve": [
+      "Info is scattered → prospects make decisions without a cohesive, persuasive listing, risking revenue."
+    ],
+    "Task Goals": [
+      "Build the community listing page supporting the subscription model"
+    ],
+    "Task Scope": [
+      "Approve page layout driving toward membership",
+      "Approve Voxel theme feasibility",
+      "Build/approve sections for events, members, classifieds"
+    ],
+    "Expected Outcomes": [
+      "Mockups for listing details (About, Members, Events, Classifieds)",
+      "Dev requirements"
+    ],
+    "Supported Use Cases": [
+      "Choosing whether to join communities",
+      "Viewing members/events/classifieds",
+      "Becoming subscribers"
+    ],
+    "Acceptance Criteria": [
+      "Desktop/Tablet/Mobile designs",
+      "Use Voxel theme (https://getvoxel.io/)",
+      "Top of page: breadcrumbs, name, location",
+      "Tabs: About, Events, Members, Classifieds, Reviews",
+      "About: info per layout + signup CTA; owners can upload pictures/tags and set multiple attributes (openness to members/visitors, stage, purpose, setting, ecosystem, mission/description limits); accordions for membership/governance/housing/economics/lifestyle/social justice/sustainability",
+      "Events: multi-event page (about, upcoming, past, testimonial), single event page (time/date/location, RSVP, organizers, features/desc/contact), event directory (discover/search cards)",
+      "Members: leadership and member cards with required fields",
+      "Classifieds: ad cards per Figma components",
+      "Reviews tab: review card content"
+    ],
+    "Created": "—"
+  }
+]

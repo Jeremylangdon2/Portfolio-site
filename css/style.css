@@ -238,6 +238,7 @@ font-style: italic;
   display: block;
   object-position: 40% 80%;
 }
+
 .icon-link {         /*layout alignment and position of Icon containers */
   display: flex;
   flex-direction: column;
@@ -618,9 +619,7 @@ html, body {
     box-sizing: border-box;
 
     /* look & feel (glass card) */
-    background: rgba(255,255,255,0.86);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: #ffffff;
     border: 1px solid rgba(0,0,0,0.06);
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -712,6 +711,7 @@ html, body {
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
   transition: transform 0.6s ease, box-shadow 180ms ease;
   font-family: "lora", sans-serif;
+  margin: -5px 10px -5px;
 }
 .portfolio-page .cs-card:hover,
 .portfolio-page .cs-card:focus-visible {
@@ -967,6 +967,9 @@ html, body {
   }
 }
 
+
+
+
 /* ========= Portfolio: About/Accordion under cards ========= */
 /* ========= Portfolio: text-only accordion (no backgrounds/borders) ========= */
 .portfolio-page .pf-section { 
@@ -1038,7 +1041,7 @@ html, body {
 .portfolio-page .tf-accordion details[open] > summary span {
   text-decoration: underline;
   text-underline-offset: 3px;
-  color: #dfd5a8;
+  color: #726530;
 }
 
 /* Hover/focus feedback without backgrounds */
@@ -1133,13 +1136,13 @@ html, body {
 
 .portfolio-page .testimonial__body { color: #fff; line-height: 1.7;  grid-column: 1;     grid-row: 1; }
 .portfolio-page .testimonial__quote {
-  margin: 0 0 10px;
+  margin: 0 10px 10px;
   font-family: "lato", serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.4;
 }
-.portfolio-page .testimonial__name { margin: 8px 0 0; font-weight: 700; opacity: .9; }
+.portfolio-page .testimonial__name { margin: 8px 10px 0; font-weight: 700; opacity: .9; }
 
 @media (max-width: 640px) {
   .portfolio-page .pf-testimonials .pf-lefttitle { text-align: center; color: #000; }
@@ -1577,7 +1580,13 @@ body.contact-page form label {
 .case-study-page main { 
   position: relative; 
   z-index: 1; 
-  background: transparent;
+  /* background: transparent; */
+}
+
+.case-study-page .header { 
+  position: relative; 
+  z-index: 2; 
+ background: #fff; 
 }
 
 /* main container that wraps the whole case study */
@@ -2114,7 +2123,7 @@ Add this **once at the very end of `style.css`** to pull the bottom up a bit and
   body.about-page {
     overflow: visible !important;   /* was hidden */
     position: static !important;    /* undo any position:relative from experiments */
-    background: url("../img/mobilecloud.png") no-repeat center top / 100% auto !important;
+    background: url("../img/mobilecloud2.jpg") no-repeat center top / 100% auto !important;
     background-position: 0px 100px / 160% auto !important;   /* try 0%–30% to aim the white area */
 
     background-attachment: scroll !important;  /* make bg move with content */
@@ -2244,3 +2253,146 @@ Add this **once at the very end of `style.css`** to pull the bottom up a bit and
   opacity: 1;
 }
 
+
+/* 
+
+FIC PAGE
+
+*/
+
+/* =========================
+   FIC Kanban (scoped)
+   ========================= */
+.fic-page .kanban-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  margin: 1rem 0 .5rem;
+  border-radius: 14px;
+  background: transparent;
+}
+
+.fic-page .kanban-board {
+  display: flex;
+  gap: 16px;
+  padding: 4px 2px 12px;
+  min-height: 320px;
+}
+
+/* Columns */
+.fic-page .kanban-column {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  background: #f6f6f7;
+  border-radius: 12px;
+  border: 1px solid #ececef;
+}
+.fic-page .kanban-col-head {
+  padding: 12px 14px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8e8ea;
+  background: #f6f6f7;
+}
+.fic-page .kanban-col-head .count {
+  font-weight: 700;
+  font-size: .8rem;
+  opacity: .7;
+}
+.fic-page .kanban-col-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Cards */
+.fic-page .kanban-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #ececef;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.fic-page .kanban-card details {
+  padding: 10px 12px;
+}
+.fic-page .kanban-card summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fic-page .kanban-card summary::-webkit-details-marker { display: none; }
+.fic-page .kanban-card .type {
+  font-size: .75rem;
+  font-weight: 700;
+  opacity: .7;
+}
+.fic-page .kanban-card .title {
+  font-size: .98rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.fic-page .kanban-card .meta {
+  margin-top: 8px;
+  font-size: .86rem;
+  display: grid;
+  gap: 4px;
+}
+
+/* Keyboard focus ring */
+.fic-page .kanban-card:focus-within,
+.fic-page .kanban-card summary:focus-visible {
+  outline: 2px solid #4d8dff;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Small screens: slightly narrower columns */
+@media (max-width: 680px) {
+  .fic-page .kanban-column { flex-basis: 280px; }
+}
+
+
+/* ===== Kanban detail modal (scoped) ===== */
+.fic-page .fic-modal{position:fixed;inset:0;display:none}
+.fic-page .fic-modal.is-open{display:block;z-index:1000}
+.fic-page .fic-modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.fic-page .fic-modal__dialog{
+  position:relative;
+  box-sizing:border-box;
+  width:min(920px, 92vw);
+  max-height:88vh;
+  margin:6vh auto;
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  overflow:hidden;
+}
+.fic-page .fic-modal__close{
+  position:absolute;top:10px;right:12px;
+  background:#f3f4f6;border:1px solid #e5e7eb;
+  border-radius:8px;font-size:22px;line-height:1;width:36px;height:32px;
+  cursor:pointer
+}
+.fic-page .fic-modal__content{
+  padding:18px 22px;
+  max-height:calc(88vh - 20px);
+  overflow:auto;
+}
+.fic-page .fic-modal__content h3{margin:.8rem 0 .4rem;font-weight:800}
+.fic-page .fic-modal__content ul{margin:.4rem 0 .8rem 1.1rem}
+.fic-page .fic-modal__content li{margin:.25rem 0;line-height:1.4}
+
+/* === FIC page cover image tweaks === */
+.fic-page .clouds-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 23%;
+}

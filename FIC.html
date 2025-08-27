@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FIC — Membership & Community Kanban | Jeremy Langdon</title>
+
+  <!-- site css (same as case-study-1) -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Lato + Font Awesome (same pattern as your cs1 page) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="case-study-page fic-page">
+  <!-- background cover (same structure) -->
+  <div class="clouds-bg">
+    <img src="img/ppl2.jpg" alt="stock photo of a team working" />
+  </div>
+
+  <!-- Header + Nav (copied structure) -->
+  <header class="header">
+    <div class="left-header">
+      <!-- <img src="img/blue2.png" alt="Jeremy Langdon" class="small-profile" /> -->
+      <span class="head-name">Jeremy Langdon</span>
+    </div>
+
+    <nav class="top-nav" id="site-nav">
+      <a href="/">About</a>
+      <a href="portfolio">Portfolio</a>
+      <a href="contact">Contact</a>
+    </nav>
+
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <div id="TrackScrollProgress">
+      <div class="cs1-container">
+        <h1 class="cs1-title">FIC: Membership & Community — Project Kanban</h1>
+        <p class="cs1-subtitle">Tech Fleet · Sprints · Research / UX / Product</p>
+
+        <!-- Overview (keeps your case-study rhythm) -->
+        <section class="cs1-section">
+          <h2>Overview</h2>
+          <p>
+            This case study embeds a horizontally scrollable Kanban so stakeholders can quickly scan work in progress.
+            Tickets expand with native details for quick reading. The Disneyland “Complete” column and all contributor/owner fields are hidden per your request.
+          </p>
+        </section>
+
+        <!-- Kanban section -->
+        <section class="cs1-section" id="kanban-section">
+          <h2>Kanban Board</h2>
+
+          <!-- Horizontal scroll wrapper -->
+          <div class="kanban-scroll" role="region" aria-label="Kanban board" tabindex="0">
+            <div class="kanban-board" id="kanban-root"></div>
+          </div>
+        </section>
+
+        <!-- Optional image block for your magnifier (left commented for later) -->
+        <!--
+        <figure class="cs-figure">
+          <img src="img/placeholder.png"
+               alt="Annotated board detail"
+               class="cs1-image magnify-target"
+               data-zoom="0.32">
+          <figcaption class="video-caption">Zoomable board detail (add your image file).</figcaption>
+        </figure>
+        -->
+
+        <section class="cs1-section cs3-cta">
+          <a class="cs1-button" href="portfolio">Back to Portfolio</a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+
+  <script src="JS/magnifier.js"></script>
+<script src="JS/nav.js"></script>
+<script src="JS/port.js"></script>
+<script src="JS/fic.js"></script>
+<!-- Kanban detail modal -->
+<div class="fic-modal" id="ficModal" aria-hidden="true">
+  <div class="fic-modal__overlay" data-close></div>
+  <div class="fic-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="ficModalTitle">
+    <button class="fic-modal__close" type="button" aria-label="Close" data-close>&times;</button>
+    <div class="fic-modal__content" id="ficModalContent"><!-- injected --></div>
+  </div>
+</div>
+
+  </body>
+</html>
