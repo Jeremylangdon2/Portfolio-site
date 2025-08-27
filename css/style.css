@@ -1972,6 +1972,24 @@ padding-bottom: 0;
   }
 }
 
+@media (max-width: 760px) {
+  .case-study-page .clouds-bg {
+    background: #000;
+  }
+  .case-study-page .clouds-bg img {
+    display: none;
+  }
+  .case-study-page .head-name {
+    color: #fff;
+  }
+  .case-study-page .hamburger span {
+    background: #fff;
+  }
+  .case-study-page .header {
+    background: transparent;  /* remove the white bar */
+  }
+}
+
 
 
 /* KILLS ALL TRANSFORMS MOBILE */
@@ -2411,3 +2429,4 @@ FIC PAGE
   object-fit: cover;
   object-position: center 23%;
 }
+
