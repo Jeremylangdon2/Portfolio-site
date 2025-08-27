@@ -1041,7 +1041,7 @@ html, body {
 .portfolio-page .tf-accordion details[open] > summary span {
   text-decoration: underline;
   text-underline-offset: 3px;
-  color: #726530;
+  color: #dfd5a8;
 }
 
 /* Hover/focus feedback without backgrounds */
@@ -1106,9 +1106,24 @@ html, body {
   .portfolio-page .tf-accordion details[open] {
     border-color: #d1d5db;
   }
+
+  @media (max-width: 640px) {
+  /* Selected/open heading color on mobile */
+  .portfolio-page #about-techfleet .tf-accordion details[open] > summary span {
+    color: #854012;   /* or your new hex */
+  }
 }
 
+}
 
+@media (max-width: 760px) {
+  .portfolio-page .testimonial__body,
+  .portfolio-page .testimonial__quote {
+    hyphens: none;         
+    overflow-wrap: normal; 
+    word-break: normal;    
+  }
+}
 
 /* ===== Portfolio: Testimonials (under About Tech Fleet) ===== */
 .portfolio-page .pf-testimonials { max-width: 900px; padding: 0 12px; }
