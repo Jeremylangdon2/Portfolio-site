@@ -1195,7 +1195,7 @@ html, body {
 /*contact page css*/
 
 body.contact-page {
-  background: url("../img/sunrise.jpg") no-repeat center center;
+  background: url("../img/backgray.jpg") no-repeat center center;
   background-size: cover;
   background-attachment: fixed;  /* optional: parallax effect */
 }
@@ -2156,7 +2156,7 @@ Add this **once at the very end of `style.css`** to pull the bottom up a bit and
   body.about-page {
     overflow: visible !important;   /* was hidden */
     position: static !important;    /* undo any position:relative from experiments */
-    background: url("../img/mobilecloud2.jpg") no-repeat center top / 100% auto !important;
+    background: url("../img/white.jpg") no-repeat center top / 100% auto !important;
     background-position: 0px 100px / 160% auto !important;   /* try 0%–30% to aim the white area */
 
     background-attachment: scroll !important;  /* make bg move with content */
