@@ -7,7 +7,7 @@ body {
 }
 
 body.about-page {
-  background-image: url("../img/cloud.jpg");
+  background-image: url("../img/white.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -630,7 +630,7 @@ html, body {
 @media (min-width: 761px) {
   body.portfolio-page {
     /* use the new image */
-    background: url("../img/room5.png") no-repeat 100% 100% / cover !important;
+    background: url("../img/white.jpg") no-repeat 100% 100% / cover !important;
     min-height: 100vh;
   }
 }
@@ -681,13 +681,12 @@ html, body {
   margin: 90px 0 47px;       /* space down from cover */
   text-align: center;           /* your chosen size */
   font-weight: 900;
-  color: #faedca;
-    font-family: "Lora", serif;
+  color: #000000;
+    font-family: "lato";
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
   font-size: 40px;        /* your chosen size */ 
-  font-style: italic;
 }
 
 /* Cards grid container (exactly 3 per row on desktop) */
@@ -710,7 +709,8 @@ html, body {
   overflow: hidden;
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
   transition: transform 0.6s ease, box-shadow 180ms ease;
-  font-family: "lora", sans-serif;
+  font-family: "lato";
+  font-weight: 500;
   margin: -5px 10px -5px;
 }
 .portfolio-page .cs-card:hover,
@@ -2241,17 +2241,17 @@ Add this **once at the very end of `style.css`** to pull the bottom up a bit and
 }
 
 .portfolio-page .cs-title .cs-main {
-  font-family: "Lora", serif;   /* keep Lora */
-  font-size: 22px;
-  font-weight: 800;
+  font-family: "lato";   /* keep Lora */
+  font-size: 24px;
+  font-weight: 600;
   color: #222;
   line-height: 1.2;
 }
 
 .portfolio-page .cs-title .cs-sub {
   font-family: "Lato", sans-serif;  /* small text in Lato */
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
   color: #555;
   margin-top: 4px;
 }
@@ -2311,11 +2311,12 @@ FIC PAGE
   gap: 16px;
   padding: 4px 2px 12px;
   min-height: 320px;
+  flex-wrap: wrap;
 }
 
 /* Columns */
 .fic-page .kanban-column {
-  flex: 0 0 320px;
+  flex: 1 1 320px;
   display: flex;
   flex-direction: column;
   background: #f6f6f7;
@@ -2359,6 +2360,8 @@ FIC PAGE
   display: flex;
   flex-direction: column;
   gap: 6px;
+  align-items: flex-start;   /* ← add this */
+  text-align: left; 
 }
 .fic-page .kanban-card summary::-webkit-details-marker { display: none; }
 .fic-page .kanban-card .type {
@@ -2370,6 +2373,7 @@ FIC PAGE
   font-size: .98rem;
   font-weight: 800;
   line-height: 1.25;
+  text-align: left;
 }
 .fic-page .kanban-card .meta {
   margin-top: 8px;
@@ -2418,7 +2422,7 @@ FIC PAGE
   max-height:calc(88vh - 20px);
   overflow:auto;
 }
-.fic-page .fic-modal__content h3{margin:.8rem 0 .4rem;font-weight:800}
+.fic-page .fic-modal__content h3{margin:.8rem 0 .4rem;font-weight:800; text-align: left;}
 .fic-page .fic-modal__content ul{margin:.4rem 0 .8rem 1.1rem}
 .fic-page .fic-modal__content li{margin:.25rem 0;line-height:1.4}
 
@@ -2428,5 +2432,9 @@ FIC PAGE
   height: 100%;
   object-fit: cover;
   object-position: center 23%;
+}
+
+.fic-page h3 {
+  text-align: center;
 }
 

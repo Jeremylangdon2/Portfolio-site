@@ -215,9 +215,11 @@
 
       const head = document.createElement("header");
       head.className = "kanban-col-head";
-      head.innerHTML = `${escapeHTML(status)} <span class="count">${rows.length}</span>`;
+      head.textContent = status;
       column.appendChild(head);
-
+if (status === "Sprint In Progress") {
+  head.textContent = "Sprint 2 In Progress";  // change header only
+}
       const body = document.createElement("div");
       body.className = "kanban-col-body";
 
