@@ -1991,10 +1991,10 @@ padding-bottom: 0;
     display: none;
   }
   .case-study-page .head-name {
-    color: #fff;
+    color: #000000;
   }
   .case-study-page .hamburger span {
-    background: #fff;
+    background: #000000;
   }
   .case-study-page .header {
     background: transparent;  /* remove the white bar */
@@ -2600,4 +2600,38 @@ FIC PAGE
 
 .header {
    margin: 19px auto 0;
+}
+
+/* =========================================
+   MOBILE HEADING FIX – FIC + CASE-STUDY-1
+   Tighter line-height for all main headings
+   ========================================= */
+@media (max-width: 760px) {
+
+  /* Global headings */
+  h1, h2, h3 {
+    line-height: 1.05 !important;
+  }
+
+  /* Common case-study headings */
+  .cs-heading,
+  .cs1-heading,
+  .cs1-title,
+  .section-title,
+  .section-heading {
+    line-height: 1.05 !important;
+  }
+
+  /* FIC-specific headings */
+  .fic-title,
+  .fic-section-title,
+  .fic-heading,
+  .fic-subheading {
+    line-height: 1.05 !important;
+  }
+
+  /* If you have very big hero headings */
+  .page-title, .title-hero {
+    line-height: 1.03 !important;
+  }
 }

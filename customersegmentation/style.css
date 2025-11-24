@@ -507,3 +507,106 @@ code[class*="language-"] {
 .toc a.active {
   color: #000 !important;
 }
+
+/* =========================
+   HAMBURGER NAVIGATION
+   ========================= */
+
+.hamburger {
+  display: none;            /* hidden on desktop */
+  width: 40px;
+  height: 36px;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;      /* thickness */
+  width: 27px;      /* length */
+  background: #333; /* color of bars */
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+/* mobile nav animation hook */
+.top-nav {
+  transition: max-height 240ms ease, opacity 180ms ease;
+  will-change: max-height, opacity;
+}
+
+/* =====================================
+   MOBILE LAYOUT (≤ 760px)
+   ===================================== */
+@media (max-width: 760px) {
+
+  .hamburger { display: inline-block; }
+
+  .header {
+    position: relative;
+    padding: 16px 20px;
+  }
+
+  /* collapsed by default */
+  .top-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+
+    background: #fff;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    padding: 12px 16px;
+
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .top-nav.open {
+    max-height: 240px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .top-nav a {
+    padding: 10px 6px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  h1, h2, h3, .cs-heading, .pf-lefttitle, .section-title {
+    line-height: 1.05 !important;
+  }
+}
+
+/* CENTER ALL CASE-STUDY PAGES ON MOBILE */
+@media (max-width: 760px) {
+  .case-study-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .case-study-page .cs1-container,
+  .case-study-page main,
+  .case-study-page section,
+  .case-study-page .container {
+    width: 100%;
+    max-width: 800px;   /* or 1000px if your desktop width is bigger */
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+}
