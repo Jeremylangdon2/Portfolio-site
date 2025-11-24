@@ -7,17 +7,17 @@ body {
 }
 
 body.about-page {
-  background-image: url("../img/white.jpg");
+  /* background-image: url("../img/white.jpg"); */
+  background-color: #ece7de;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 
-
 .about-page .bio-section {
-  margin-top: 70px;
-  padding-top: 110px;
+  margin-top: 16px;
+  padding-top: 16px;
 }
 
 p {
@@ -36,52 +36,60 @@ html, body {
 }
 
 /* Desktop/base: header matches main container width */
+/* ===== SIMPLE HEADER FOR CASE STUDY (MATCH WIDTH) ===== */
+
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
+  justify-content: space-between;
+  max-width: 1300px;
   width: 100%;
-  max-width: 1440px;   /* same as your #container width */
-  margin: 0 auto;      /* center it */
-  padding: 20px 20px;  /* same side padding as #container */
+  margin: 0 auto;
+  padding: 6px 16px 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  position: static;
   box-sizing: border-box;
 }
-
 
 .left-header {
   display: flex;
   align-items: center;
 }
 
- .small-profile {     /*gif icon top left */
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 10px;
-}
-
 .head-name {
-  color: #000000;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  position: relative;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
+.top-nav {
+  display: flex;
+  gap: 1.75rem;
+}
 
 .top-nav a {
- margin-left: 20px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
   text-decoration: none;
-  color: #000000;
-   font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  position: relative;
-  transition: transform 0.9s;
-  display: inline-block ;
+  color: #333;
+  padding-bottom: 4px;
 }
+
+.top-nav a:hover,
+.top-nav a:focus {
+  color: #1a73e8;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+.top-nav a[aria-current="page"] {
+  color: #1a73e8;
+}
+
 
 .top-nav a:hover {
   /* text-decoration: underline;  */
@@ -90,10 +98,10 @@ html, body {
 
 
 .profile-pic img {
-  width: 380px;
-  height: 380px;
+  width: auto;
+  height: 280px;
   /* transition: transform 3s; */
-  margin-top: 100px;
+  margin-top: 45px;
 }
 
 /* profile photo styling */
@@ -160,7 +168,7 @@ html, body {
 
 .bio-name {
   font-family: "Caveat", "Lato", sans-serif;
-  font-size: 33px;        /* your chosen size */
+  font-size: 25px;        /* your chosen size */
   font-weight: 600;       /* strong but not ultra-heavy */
   color: #1b1b1b;         /* deep neutral, softer than pure black */
   margin-bottom: 8px;     /* tight gap to subheading */
@@ -177,22 +185,25 @@ font-style: italic;
 }
 
 .bio-text {
-  font-family: "Lato", sans-serif;
-  font-size: 16px;        /* body text size */
-  font-weight: 400;       /* normal for readability */
-  line-height: 1.6;
-  color: #444;            /* softer gray for long text */
-  margin-top: 0;
-}
-
-.bio-text {
+  font-family: "source-serif-pro", serif !important;
   font-size: 16px;
-  line-height: 1.6;
   color: #444;
   max-width: 600px;
   text-align: left;
-  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.35rem;
+  margin-top: 0;
+
+  /* TURN OFF HYPHENATION */
+    hyphens: none !important;
+  -webkit-hyphens: none !important;
+  -ms-hyphens: none !important;
+  overflow-wrap: normal;
+  word-break: normal;
 }
+
+
+
 
 @media (max-width: 760px) {
   .about-page .bio-text {
@@ -221,7 +232,7 @@ font-style: italic;
   margin-top: 9px;
 }
 
-.about-page .clouds-bg {
+/* .about-page .clouds-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -237,7 +248,7 @@ font-style: italic;
   object-fit: cover;
   display: block;
   object-position: 40% 80%;
-}
+} */
 
 .icon-link {         /*layout alignment and position of Icon containers */
   display: flex;
@@ -443,7 +454,7 @@ padding-top: 8px;
   }
   .about-page .bio-text {
     overflow-wrap: anywhere;
-    hyphens: auto;
+    hyphens: none;
     line-height: 1.7;
   }
 
@@ -605,26 +616,24 @@ html, body {
 }
 
 /* Desktop: floating rounded nav bar */
-@media (min-width: 761px) {
+/* @media (min-width: 761px) {
   .header {
-    position: sticky;                /* stays visible as you scroll */
     top: 16px;
     z-index: 1000;
 
-    /* size & alignment */
+  
     width: 100%;
-    max-width: 1440px;               /* match your main container width */
-    margin: 12px auto 0;             /* centered pill at the top */
-    padding: 14px 24px;              /* a bit tighter than before */
+    max-width: 1440px;              
+    margin: 12px auto 0;             
+    padding: 14px 24px;             
     box-sizing: border-box;
 
-    /* look & feel (glass card) */
     background: #ffffff;
     border: 1px solid rgba(0,0,0,0.06);
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   }
-}
+} */
 
 /* === Portfolio background: desktop only, resize-safe === */
 @media (min-width: 761px) {
@@ -788,6 +797,8 @@ html, body {
   text-align: center;    /* keeps text centered if it wraps */
   padding: 0 12px;       /* side padding for longer text */
 }
+
+
 /* -----------------
    Responsive tweaks
    ----------------- */
@@ -986,7 +997,7 @@ html, body {
   color: #9fc092;  
   font-family: lora;
   font-style: italic;
-  font-weight: 400;           /* white title */
+  font-weight: 400;      /* white title */
 }
 
 
@@ -1607,7 +1618,7 @@ body.contact-page form label {
 /* main container that wraps the whole case study */
 .case-study-page .cs1-container {
   max-width: 1000px;
-  margin: 240px auto 100px; /* 200px cover + spacing */
+  margin: 70px auto 100px; /* 200px cover + spacing */
   padding: 0 20px;
 }
 
@@ -2438,3 +2449,155 @@ FIC PAGE
   text-align: center;
 }
 
+/* =========================
+   About page – Case Study preview
+   ========================= */
+
+.about-page .about-cs {
+  max-width: 1100px;
+  margin: 16px auto 180px;   /* big top + big bottom space */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.about-page .about-cs-block + .about-cs-block {
+  margin-top: 72px;           /* space between Data Science and UX sections */
+}
+
+/* Label where “Latest” would be on portfolio */
+.about-page .about-cs-label {
+  font-family: "Lora", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+  margin: 0 0 4px;
+}
+
+/* Section heading (similar vibe to portfolio cs-heading) */
+.about-page .about-cs-heading {
+ font-family: "proxima-nova", sans-serif !important;
+  font-weight:700;
+  font-size: 30px;
+  letter-spacing: -0.01em;
+  color: #111;
+  margin: 0 0 24px;
+}
+
+/* Grid of cards */
+.about-page .about-cs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* Individual card */
+.about-page .about-cs-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  color: #222;
+    width: 100%;
+  min-width: 0;
+}
+
+.about-page .about-cs-card:hover,
+.about-page .about-cs-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+  outline: none;
+}
+
+/* Image area (you'll drop in cover images later) */
+.about-page .about-cs-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;      /* clean replacement for padding-top hack */
+  overflow: hidden;
+  background: #f1f3f5;
+  border-radius: 8px 8px 0 0;
+}
+
+.about-page .about-cs-media img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* crop without stretching */
+  image-rendering: auto;     /* ensures smooth edges */
+}
+
+/* Text block inside card */
+.about-page .about-cs-body {
+  padding: 14px 16px 16px;
+}
+
+/* Small tag line */
+.about-page .about-cs-tag {
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #777;
+  margin: 0 0 6px;
+}
+
+/* Card title */
+.about-page .about-cs-title {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* --------- Responsive tweaks --------- */
+
+/* 2 columns on medium screens */
+@media (max-width: 960px) {
+  .about-page .about-cs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 1 column on small screens, keep bottom breathing room */
+@media (max-width: 640px) {
+  .about-page .about-cs {
+    margin: 80px auto 140px;
+  }
+
+  .about-page .about-cs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Adjust crop window for ONLY this image */
+.about-page .cs-zoom-segment img {
+  object-fit: cover;             /* keep thumbnail style */
+  object-position: center 35%;   /* <-- THIS is the fix */
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.portfolio-page .cs-grid .cs-card:nth-child(3) .cs-media img {
+  width: 100% !important;
+  height: auto !important;               /* don't stretch to container height */
+  object-fit: contain !important;        /* show the whole pie chart */
+  object-position: center !important;
+  transform: none !important;            /* kill the old translateX */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.header {
+   margin: 19px auto 0;
+}

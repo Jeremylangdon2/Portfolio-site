@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="customersegmentation/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
+    <link rel="stylesheet" href="https://use.typekit.net/oop4far.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+
+</head>
+<body>
+  <header class="header">
+  <div class="left-header">
+    <span class="head-name">Jeremy Langdon</span>
+  </div>
+
+  <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="top-nav" id="site-nav">
+    <a href="/">Portfolio</a>
+    <!-- <a href="portfolio">Portfolio</a> -->
+    <a href="contact">Contact</a>
+  </nav>
+</header>
+  <div id="reading-progress"></div>
+<main id="start">
+<div class="cs-title">
+  <h1>Unsupervised learning and clustering,</h1>
+  <h1>Customer Personality Segmentation Case study</h1>
+</div>
+<br>
+<div class="case-summary-grid">
+  <div><strong class="sans">Tools</strong><br>Python, Pandas, NumPy, Scikit-Learn</div>
+  <div><strong class="sans">Libraries</strong><br>Matplotlib, Seaborn, Yellowbrick, SciPy</div>
+  <div><strong class="sans">Methods</strong><br>EDA, PCA, K-Means, Cluster Profiling</div>
+  <div><strong class="sans">Dataset</strong><br>2,240 customers · 29 variables</div>
+</div>
+
+
+ <section class="case-study-header">
+  <h1>Customer Personality Segmentation</h1>
+  <aside class="toc">
+  <h4>On this page</h4>
+  <ul>
+     <li><a href="#start">Start</a></li>
+    <li><a href="#overview">Data Overview</a></li>
+    <li><a href="#eda">Exploratory Data Analysis</a></li>
+    <li><a href="#clustering">K-Means Clustering</a></li>
+    <li><a href="#profiling">Cluster Profiling</a></li>
+    <li><a href="#business">Business Recommendations</a></li>
+     <li><a href="#summary">Summary</a></li>
+  </ul>
+</aside>
+
+  <p>
+    This is a case study/project I conducted through the MIT and the Institute for Data, Systems, and Society data science and machine learning program. This study utilizes machine learning, unsupervised learning, and clustering to group customers by income and spending patterns, creating customer segments to support targeted marketing and campaign strategies.
+  </p>
+</section>
+<figure class="cs-figure">
+  <img src="images/segment.png" alt="Customer segment visualization">
+  <figcaption>Segmentation reveals distinct customer groups, enabling more targeted marketing and higher retention.</figcaption>
+</figure>
+
+  <section class="case-study-header">
+  <h1>Customer Personality Segmentation</h1>
+  <p>
+    A machine learning case study using K-Means clustering to identify
+    distinct customer groups based on demographics, personality traits,
+    and spending behavior.
+  </p>
+</section>
+<div class="section-divider"></div>
+<section class="business-context">
+  <h2>Business Context</h2>
+  <p>
+    Understanding customer personality and behavior is pivotal for businesses
+    to enhance satisfaction and increase revenue. Segmentation based on a
+    customer's personality, demographics, and purchasing behavior allows
+    companies to create tailored marketing campaigns, improve retention,
+    and optimize product offerings.
+  </p>
+  <p>
+    A leading retail company with a rapidly growing customer base seeks deeper
+    insights into their customers' profiles. By understanding personalities,
+    lifestyles, and purchasing habits, the company can personalize marketing,
+    strengthen loyalty programs, and address challenges such as improving
+    campaign effectiveness, identifying high-value customer groups, and
+    fostering long-term relationships.
+  </p>
+  <p>
+    With competition increasing, shifting from generic strategies to targeted
+    approaches is essential for sustaining advantage.
+  </p>
+</section>
+
+<section class="objective">
+  <h2>Objective</h2>
+  <p>
+    To optimize marketing efficiency and enhance customer experience, the
+    company aims to identify distinct customer segments. Understanding the
+    characteristics and behaviors of each group enables the company to:
+  </p>
+
+  <ul>
+    <li>Develop personalized marketing campaigns to increase conversions.</li>
+    <li>Create retention strategies for high-value customers.</li>
+    <li>Optimize resource allocation, such as inventory and pricing.</li>
+  </ul>
+
+  <p>
+    As the data scientist, my role was to analyze the customer dataset,
+    apply clustering techniques, and provide actionable insights for each
+    segment.
+  </p>
+</section>
+
+<section class="data-dictionary">
+  <h2>Data Dictionary</h2>
+  <p>The dataset includes 2,240 customers and 64,960 individual data points.</p>
+  <p class="download-data">
+  <a href="/mnt/data/Customer_Personality_Segmentation.csv" download>
+    Copy of data here
+  </a>
+</p>
+  <h3>Customer Information</h3>
+  <ul>
+    <li><strong>ID</strong>: Unique identifier.</li>
+    <li><strong>Year_Birth</strong>: Birth year.</li>
+    <li><strong>Education</strong>: Education level.</li>
+    <li><strong>Marital_Status</strong>: Marital status.</li>
+    <li><strong>Income</strong>: Yearly household income (USD).</li>
+    <li><strong>Kidhome</strong>: Number of children.</li>
+    <li><strong>Teenhome</strong>: Number of teenagers.</li>
+    <li><strong>Dt_Customer</strong>: Enrollment date.</li>
+    <li><strong>Recency</strong>: Days since last purchase.</li>
+    <li><strong>Complain</strong>: Complaint in last 2 years (0/1).</li>
+  </ul>
+
+  <h3>Spending Information (Last 2 Years)</h3>
+  <ul>
+    <li>MntWines</li>
+    <li>MntFruits</li>
+    <li>MntMeatProducts</li>
+    <li>MntFishProducts</li>
+    <li>MntSweetProducts</li>
+    <li>MntGoldProds</li>
+  </ul>
+
+  <h3>Purchase and Campaign Interaction</h3>
+  <ul>
+    <li>NumDealsPurchases</li>
+    <li>AcceptedCmp1</li>
+    <li>AcceptedCmp2</li>
+    <li>AcceptedCmp3</li>
+    <li>AcceptedCmp4</li>
+    <li>AcceptedCmp5</li>
+    <li>Response</li>
+  </ul>
+
+  <h3>Shopping Behavior</h3>
+  <ul>
+    <li>NumWebPurchases</li>
+    <li>NumCatalogPurchases</li>
+    <li>NumStorePurchases</li>
+    <li>NumWebVisitsMonth</li>
+  </ul>
+</section>
+<section class="code-block">
+  <h2>Libraries</h2>
+  <pre><code class="language-python">
+# Libraries to help with reading and manipulating data
+import pandas as pd
+import numpy as np
+
+# libaries to help with data visualization
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Removes the limit for the number of displayed columns
+pd.set_option("display.max_columns", None)
+# Sets the limit for the number of displayed rows
+pd.set_option("display.max_rows", 200)
+
+# to scale the data using z-score
+from sklearn.preprocessing import StandardScaler
+
+# to compute distances
+from scipy.spatial.distance import cdist, pdist
+
+# to perform k-means clustering and compute silhouette scores
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+
+# to visualize the elbow curve and silhouette scores
+from yellowbrick.cluster import KElbowVisualizer, SilhouetteVisualizer
+
+# to suppress warnings
+import warnings
+
+warnings.filterwarnings("ignore")
+  </code></pre>
+</section>
+<div class="section-divider"></div>
+<h1 id="overview">Data Overview/Cleaning</h1>
+<p>In order to begin analyzing the data, I first had to prepare the data and identify any faults. </p>
+<h3>Objective</h3>
+<p>Identify the data types.</p>
+<pre><code class="language-python">data.dtypes</code></pre>
+<section class="data-fields">
+  <h3>Dataset Fields</h3>
+
+  <div class="fields-grid">
+
+    <div class="field">
+      <strong>ID</strong><br>int64
+    </div>
+    <div class="field">
+      <strong>Year_Birth</strong><br>int64
+    </div>
+    <div class="field">
+      <strong>Education</strong><br>object
+    </div>
+
+    <div class="field">
+      <strong>Marital_Status</strong><br>object
+    </div>
+    <div class="field">
+      <strong>Income</strong><br>float64
+    </div>
+    <div class="field">
+      <strong>Kidhome</strong><br>int64
+    </div>
+
+    <div class="field">
+      <strong>Teenhome</strong><br>int64
+    </div>
+    <div class="field">
+      <strong>Dt_Customer</strong><br>object
+    </div>
+    <div class="field">
+      <strong>Recency</strong><br>int64
+    </div>
+
+    <div class="field"><strong>MntWines</strong><br>int64</div>
+    <div class="field"><strong>MntFruits</strong><br>int64</div>
+    <div class="field"><strong>MntMeatProducts</strong><br>int64</div>
+
+    <div class="field"><strong>MntFishProducts</strong><br>int64</div>
+    <div class="field"><strong>MntSweetProducts</strong><br>int64</div>
+    <div class="field"><strong>MntGoldProds</strong><br>int64</div>
+
+    <div class="field"><strong>NumDealsPurchases</strong><br>int64</div>
+    <div class="field"><strong>NumWebPurchases</strong><br>int64</div>
+    <div class="field"><strong>NumCatalogPurchases</strong><br>int64</div>
+
+    <div class="field"><strong>NumStorePurchases</strong><br>int64</div>
+    <div class="field"><strong>NumWebVisitsMonth</strong><br>int64</div>
+    <div class="field"><strong>AcceptedCmp3</strong><br>int64</div>
+
+    <div class="field"><strong>AcceptedCmp4</strong><br>int64</div>
+    <div class="field"><strong>AcceptedCmp5</strong><br>int64</div>
+    <div class="field"><strong>AcceptedCmp1</strong><br>int64</div>
+
+    <div class="field"><strong>AcceptedCmp2</strong><br>int64</div>
+    <div class="field"><strong>Complain</strong><br>int64</div>
+    <div class="field"><strong>Z_CostContact</strong><br>int64</div>
+
+    <div class="field"><strong>Z_Revenue</strong><br>int64</div>
+    <div class="field"><strong>Response</strong><br>int64</div>
+    
+  </div>
+</section>
+ <p><strong class="sans">Observations:</strong> <span class="serif">The data types observed across the columns are <em>Int64, object, and float64</em></span></p>
+<h3>Objective</h3>
+<p>Analyze the statistical summaries of the dataset and determine the average household income.</p>
+<pre><code class="language-python">data.describe()</code></pre>
+<section class="describe-table-section">
+  <h3>Summary Statistics</h3>
+ <pre><code><div id="describe-table" class="describe-scroll"></div></code></pre>
+</section>
+<p>The average household income annually is approximately <em>52k</em></p>
+<h3>Objective</h3>
+<p>Determine if there are any missing values in the data, If yes, treat them using an appropriate method.</p>
+<pre><code class="language-python">data.isnull().sum()
+# isnull shows income has 24 places where data is missing
+data = data.dropna(subset=["Income"])
+#data.dropna specifys which column to drop the missing data
+data.isnull().sum()
+#repear code of isnull now shows income at 0 missing data points</code></pre>
+<br>
+<div class="code-output-table">
+  <table>
+    <tr>
+      <th>Feature</th>
+      <th>Missing_Values</th>
+    </tr>
+    <tr>
+      <td>Income</td>
+      <td>24</td>
+    </tr>
+  </table>
+</div>
+<p class="table-caption">The data before cleaning, showing 24 missing values.</p>
+
+
+<div class="code-output-table">
+  <table>
+    <tr>
+      <th>Feature</th>
+      <th>Missing_Values</th>
+    </tr>
+    <tr>
+      <td>Income</td>
+      <td>0</td>
+    </tr>
+  </table>
+</div>
+<p class="table-caption">The data after cleaning showing 0 missing values.</p>
+<br>
+<p>After Removing the 24 missing values I ensured that the dataset is complete and mathematically usable, since machine learning algorithms cannot operate on null inputs. This also improved the reliability of the clustering results by preventing inaccurate calculations.
+</p>
+
+<h3>Duplicate Check</h3>
+
+<p class="serif">
+  <p>Determine if there are any duplicates in the data.</p>
+
+<pre><code class="language-python">data.duplicated().sum()</code></pre>
+
+<div class="code-output-table">
+  <table>
+    <tr>
+      <th>Duplicates_Found</th>
+    </tr>
+    <tr>
+      <td>0</td>
+    </tr>
+  </table>
+</div>
+<p>The executed code returned <em>0</em>, indicating no duplicated records in the dataset.</em></span></p>
+<div class="section-divider"></div>
+<h1 id="eda">Exploratory Data Analysis</h1>
+<h2>Univariate Analysis</h2>
+
+<p>I explored all of the variables and provided observations on their distributions (histograms and boxplots).</p>
+
+<h3>Histograms of Key Numerical Features</h3>
+
+<pre><code class="language-python"># Pull out the numerical columns we want to look at
+features = [
+    "Income",
+    "Recency",
+    "MntWines",
+    "MntMeatProducts",
+    "MntSweetProducts",
+    "NumWebPurchases",
+    "NumStorePurchases",
+    "NumCatalogPurchases"
+]
+
+# Set up a 3x3 grid for the plots so everything fits on one figure
+fig, axes = plt.subplots(3, 3, figsize=(14, 10))
+axes = axes.flatten()   # makes the grid easier to loop through
+
+# Loop through each feature and draw a histogram for it
+for i, col in enumerate(features):
+    sns.histplot(data[col], bins=30, kde=True, ax=axes[i])
+    axes[i].set_title(col, fontsize=12)   # title = feature name
+    axes[i].set_xlabel(col, fontsize=10)  # x-axis shows actual values
+    axes[i].set_ylabel("Frequency", fontsize=10)  # y-axis = how many customers fall in each bin
+
+# Remove any empty subplot boxes if we don't use all 9 grid positions
+for j in range(len(features), 9):
+    fig.delaxes(axes[j])
+
+# Layout clean-up so titles and labels don’t overlap
+plt.suptitle("Histograms of Key Numerical Features", y=1.02, fontsize=16)
+plt.tight_layout()
+plt.show()
+</code></pre>
+
+<figure class="cs-figure">
+  <img src="images/plot.png" alt="Histograms of key numerical customer features">
+  <figcaption>
+    Histogram grid showing the distributions of key numerical features, including spending amounts and
+    purchase frequencies across different channels.
+  </figcaption>
+</figure>
+
+<p class="serif">
+  In each histogram, the x-axis represents the actual values of the feature being analyzed (e.g., number of catalog
+  purchases), while the y-axis shows how many customers fall into each value range.
+</p>
+
+<p class="serif">
+  <strong class="sans">Observations:</strong>
+  The histograms confirm that spending variables such as <em>MntWines</em>, <em>MntMeatProducts</em>, and
+  <em>MntSweetProducts</em> share similar skewed distributions that show positive relationships. Web, store, and catalog purchase counts show overlapping ranges and clustering toward lower values, reflecting mild positive correlations among the purchase-frequency features. In
+  contrast, <em>Income</em> and <em>Recency</em> do not exhibit clear distribution patterns that strongly align with
+  the other variables, reinforcing that they have weak or negligible linear relationships compared to the spending and
+  purchase-behavior features.
+</p>
+
+<h3>Boxplots of Key Numerical Features</h3>
+
+<pre><code class="language-python"># Same set of features as the histogram section
+features = [
+    "Income",
+    "Recency",
+    "MntWines",
+    "MntMeatProducts",
+    "MntSweetProducts",
+    "NumWebPurchases",
+    "NumStorePurchases",
+    "NumCatalogPurchases"
+]
+
+# Create a 3x3 grid for the boxplots
+fig, axes = plt.subplots(3, 3, figsize=(14, 10))
+axes = axes.flatten()
+
+# Loop through each feature and draw a boxplot
+for i, col in enumerate(features):
+    sns.boxplot(data=data, x=col, ax=axes[i])
+    axes[i].set_title(col, fontsize=12)   # feature name at the top
+    axes[i].set_xlabel(col, fontsize=10)  # x-axis shows the range of values
+    axes[i].set_yticks([])                # remove y-axis ticks
+
+# Remove any leftover empty subplot spaces
+for j in range(len(features), 9):
+    fig.delaxes(axes[j])
+
+# Keep things from overlapping and add a main title
+plt.suptitle("Boxplots of Key Numerical Features", y=1.02, fontsize=16)
+plt.tight_layout()
+plt.show()</code></pre>
+
+<figure class="cs-figure">
+  <img src="images/box.png" alt="Boxplots of key numerical customer features">
+  <figcaption>
+  Boxplot grid displaying the value ranges and outlier patterns for the key numerical features in the dataset.
+</figcaption>
+<p class="serif">
+</figure>
+  <strong class="sans">Observations:</strong>
+  The boxplots show that most spending and purchase-related variables are heavily right-skewed, with the majority of customers clustered at lower values and a smaller group of high-spending customers extending the upper tails. Features like <em>MntWines</em> and <em>MntMeatProducts</em> exhibit particularly strong outlier groups, while variables such as <em>Income</em> and <em>Recency</em> show wider spread but less concentration in the upper range. Overall, the distributions reflect a customer base with mostly moderate activity and a smaller segment of disproportionately high spenders.
+</p>
+<div class="section-divider"></div>
+<h3>Bivariate Analysis</h3>
+
+<p>I Performed a multivariate analysis to explore the relationships between the variables.</p>
+
+<pre><code class="language-python">numeric_data = data.select_dtypes(include=["int64", "float64"])
+
+plt.figure(figsize=(22,18))   # bigger figure for readability
+sns.heatmap(numeric_data.corr(),
+            annot=True,
+            cmap="coolwarm",
+            linewidths=0.5)
+plt.title("Correlation Heatmap", fontsize=20)
+plt.xticks(rotation=45, ha='right')
+plt.yticks(rotation=0)
+plt.show()</code></pre>
+
+<figure class="cs-figure">
+  <img src="images/heat.jpg" alt="Correlation heatmap of numerical features">
+  <figcaption>
+    Correlation heatmap of the numerical features in the dataset.
+  </figcaption>
+</figure>
+
+<p class="serif">
+  <strong class="sans">Observations:</strong>
+  The plot data shows that High-spending customers cluster in top-right areas, income vs spending is positive, and spending variables rise together. There are also other relationships like catalog purchases and store purchases. If spending on one area is high it is high for the other areas aswell again suggesting a high spending customer segment.
+</p>
+
+<h3>Additional Bivariate Analysis</h3>
+
+<h4>Income vs Total Spending</h4>
+
+<pre><code class="language-python">spending_cols = ["MntWines", "MntMeatProducts", "MntFishProducts",
+                 "MntSweetProducts", "MntGoldProds"]
+
+plt.figure(figsize=(10,6))
+sns.scatterplot(x=data["Income"], y=data[spending_cols].sum(axis=1))
+plt.title("Income vs Total Spending")
+plt.xlabel("Income")
+plt.ylabel("Total Spending (2-year total)")
+plt.show()</code></pre>
+
+<figure class="cs-figure">
+  <img src="images/income.jpg" alt="Scatterplot of income versus total spending">
+  <figcaption>
+    Scatterplot showing the relationship between yearly income and total 2-year spending.
+  </figcaption>
+</figure>
+
+<p class="serif">
+  <strong class="sans">Observations:</strong>
+  This plot showing a relationship of income level vs all spent suggests that higher-income customers tend to spend more,
+  but there is still variation, and not all high-income customers spend a lot.
+</p>
+
+
+
+<h4>Web Visits vs Web Purchases</h4>
+
+<pre><code class="language-python">plt.figure(figsize=(8,6))
+sns.scatterplot(x=data["NumWebVisitsMonth"], y=data["NumWebPurchases"])
+plt.title("Web Visits vs Web Purchases")
+plt.xlabel("Monthly Web Visits")
+plt.ylabel("Web Purchases")
+plt.show()</code></pre>
+
+<figure class="cs-figure">
+  <img src="images/web.jpg" alt="Scatterplot of web visits versus web purchases">
+  <figcaption>
+    Scatterplot comparing monthly web visits with the number of web purchases.
+  </figcaption>
+</figure>
+
+<p class="serif">
+  <strong class="sans">Observations:</strong>
+  This plot shows a relationship between monthly web visits and web purchases, and suggests a clear positive relationship,
+  where more web visits are associated with more web purchases and indicate online engagement behavior.
+</p>
+
+
+
+<h4>Correlation Among Spending Categories</h4>
+
+<pre><code class="language-python">spending_cols = ["MntWines", "MntMeatProducts", "MntFishProducts",
+                 "MntSweetProducts", "MntGoldProds"]
+
+plt.figure(figsize=(12,6))
+sns.heatmap(data[spending_cols].corr(), annot=True, cmap="Blues")
+plt.title("Correlation Among Spending Categories")
+plt.show()</code></pre>
+
+<figure class="cs-figure">
+  <img src="images/correlation.jpg" alt="Heatmap of correlations among spending categories">
+  <figcaption>
+    Correlation heatmap for wine, meat, fish, sweets, and gold product spending.
+  </figcaption>
+</figure>
+
+<p class="serif">
+  <strong class="sans">Observations:</strong>
+  In this plot Wine, Meat, Fish, Sweets, and Gold spending all move together. This forms the "premium customer" behavior
+  profile that indicates the consumers who spend a lot on one category tend to spend a lot on others as well.
+</p>
+<div class="section-divider"></div>
+<h1 id="clustering">K-means Clustering</h1>
+
+<p>I used the K-means algorithim to cluster the data, and started by preparing the data to determine K, the appropriate amount of clusters.</p>
+
+<h3>Data Preparation for K-Means Clustering</h3>
+
+
+<h4>Step 1: Convert Dates and Create Age Feature</h4>
+
+<pre><code class="language-python"># Convert the customer date column to a proper datetime format
+data["Dt_Customer"] = pd.to_datetime(data["Dt_Customer"], dayfirst=True)
+
+# Make a new age column using the birth year
+data["Age"] = 2025 - data["Year_Birth"]</code></pre>
+
+<p class="serif">
+  This step cleans up the customer date field and engineers a new <em>Age</em> feature from the birth year.
+  Using age instead of raw birth year makes the feature easier to interpret and more meaningful for clustering,
+  since age directly reflects where customers are in their life stage.
+</p>
+
+
+<h4>Step 2: Remove Columns Not Needed for Clustering</h4>
+
+<pre><code class="language-python"># Remove columns we don’t need for clustering
+data = data.drop(columns=["ID", "Year_Birth", "Dt_Customer", "Z_CostContact", "Z_Revenue"])</code></pre>
+
+<p class="serif">
+  Here, identifier and constant-like fields are removed so they do not influence the clustering.
+  Dropping IDs and non-informative variables keeps the model focused on features that actually describe customer
+  behavior and reduces noise in the feature space.
+</p>
+
+
+<h4>Step 3: Encode Categorical Variables</h4>
+
+<pre><code class="language-python"># Turn all of the remaining string columns into numeric dummy variables
+cat_cols = data.select_dtypes(include="object").columns
+data_encoded = pd.get_dummies(data, columns=cat_cols, drop_first=True)</code></pre>
+
+<p class="serif">
+  Categorical fields are converted into numeric dummy variables so they can be used by K-Means, which only works
+  with numeric inputs. Using one-hot encoding (with the first category dropped) preserves the information in each
+  category while avoiding redundancy.
+</p>
+
+
+<h4>Step 4: Select Numeric Columns for the Model</h4>
+
+<pre><code class="language-python"># Keep only the numeric columns for the model
+numeric_cols = data_encoded.select_dtypes(include=["int64", "float64", "uint8"]).columns</code></pre>
+
+<p class="serif">
+  After encoding, this step filters down to the numeric columns that will go into the clustering model.
+  It ensures that only valid, model-ready features are passed forward, keeping the pipeline clean and explicit.
+</p>
+
+
+<h4>Step 5: Scale Features for K-Means</h4>
+
+<pre><code class="language-python"># Scale the numeric data so the clustering algorithm treats all features equally
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X = scaler.fit_transform(data_encoded[numeric_cols])
+</code></pre>
+
+<p class="serif">
+  Finally, all numeric features are standardized so they are on a comparable scale.
+  This is critical for K-Means, which is distance-based: without scaling, features with larger numeric ranges would
+  dominate the distance calculations and bias the cluster assignments.
+</p>
+<h4>Step 6: Test for K using the Elbow method</h4>
+
+<pre><code class="language-python">## Using the elbow method to determine the optimal number of clusters
+
+# List to store the inertia (within-cluster sum of squares)
+inertia = []
+
+# Range of possible cluster numbers to test (k = 2 through 10)
+K_range = range(2, 11)
+
+for k in K_range:
+    # Create a KMeans model for this value of k
+    km = KMeans(n_clusters=k, random_state=42)
+
+    # Fit the model and store the inertia score
+    km.fit(X)
+    inertia.append(km.inertia_)
+
+# Plot the inertia values to visualize the "elbow"
+plt.plot(K_range, inertia, marker='o')
+plt.xlabel('Number of clusters (k)')
+plt.ylabel('Inertia (Within-Cluster Sum of Squares)')
+plt.title('Elbow Method for Determining Optimal k')
+plt.show()
+</code></pre>
+
+<figure class="cs-figure">
+  <img src="images/elbow.jpg" alt="Elbow plot for selecting the optimal number of clusters">
+  <figcaption>Elbow plot showing inertia values for different cluster counts.</figcaption>
+</figure>
+
+<p class="serif">
+  <strong class="sans">Observations:</strong>
+  In our results, the elbow clearly appears at four clusters, meaning: Increasing from 2 → 3 → 4 clusters improves the model significantly.
+  Adding more clusters beyond 4 gives only small, diminishing benefits.
+  Four clusters capture the natural structure in the customer base without over-complicating the segmentation.
+  This method ensures that our segmentation is data-driven, justified, and optimized for real business insights.
+</p>
+
+
+
+<h4>Step 7: Finalize the number of clusters using the Silhouette Score</h4>
+<pre><code class="language-python"># Silhouette scores for different numbers of clusters
+
+sil_scores = []
+
+for k in range(2, 11):
+    km = KMeans(n_clusters=k, random_state=42)
+    labels = km.fit_predict(X)
+
+    # check how well the clusters are separated at this k
+    score = silhouette_score(X, labels)
+    sil_scores.append(score)
+    print(f"k = {k}, silhouette score = {score:.4f}")
+
+# plot the silhouette curve
+plt.figure(figsize=(8,5))
+plt.plot(range(2, 11), sil_scores, marker='o')
+plt.xlabel("Number of clusters")
+plt.ylabel("Silhouette score")
+plt.title("Silhouette scores")
+plt.show()
+</code></pre>
+
+<figure class="cs-figure">
+  <img src="images/silhouette.jpg" alt="Silhouette score plot for evaluating cluster quality">
+  <figcaption>Silhouette score curve evaluated across k = 2 to k = 10.</figcaption>
+</figure>
+
+<p class="serif">
+  <strong class="sans">Observations:</strong>
+  The silhouette scores peaked at k = 2, meaning four clusters give the best separation in the data.
+  Beyond the point of 4 the scores drop, which suggests that adding more clusters does not improve the structure and only creates weaker groupings.
+</p>
+<h2>Final Model Fit and Timing </h2>
+
+<p class="serif">
+ I did a final fit with the appropriate number of clusters by testing
+  how much total time it took for the model to fit the data.
+</p>
+
+<pre><code class="language-python">import time
+
+# number of clusters decided
+k_final = 4
+
+start = time.time()
+km_final = KMeans(n_clusters=k_final, random_state=42)
+km_final.fit(X)
+end = time.time()
+
+print(f"Final model fit time: {end - start:.4f} seconds")
+# Final model fit time: 0.0097 seconds
+</code></pre>
+
+<p class="serif">
+  This runs the final K-Means model with the chosen value of <em>k = 4</em> and measured how long it took
+  to fit on the prepared feature set. Timing the fit gives a quick check on how computationally demanding the
+  clustering process is and helps confirm that the chosen configuration is practical for repeated use or scaling.
+</p>
+
+<p class="serif">
+  <strong class="sans">Observations:</strong>
+  The dataset is small and easy for K-Means to process at 0.0097 seconds, and the chosen number of clusters isn’t
+  computationally heavy. The model can be trained quickly and efficiently without needing extra optimization or resources.
+</p>
+<h3>Extra: PCA Visualization of Final K-Means Clusters</h3>
+
+<pre><code class="language-python"># Run PCA to reduce the scaled data into 2 principal components
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+
+# Print explained variance for the first two components
+print("Explained variance ratio:", pca.explained_variance_ratio_)
+
+# Make a 2D scatterplot of the PCA results colored by cluster
+plt.figure(figsize=(8,6))
+plt.scatter(X_pca[:,0], X_pca[:,1], c=km_final.labels_, cmap='viridis', s=40)
+plt.xlabel("Principal Component 1")
+plt.ylabel("Principal Component 2")
+plt.title("PCA Projection of Final K-Means Clusters")
+plt.show()</code></pre>
+
+<figure class="cs-figure">
+  <img src="images/pca.png" alt="PCA projection of K-Means clusters">
+  <figcaption>
+    Two-component PCA projection showing the separation of the four final clusters.
+  </figcaption>
+</figure>
+
+<p class="serif">
+  PCA was applied to reduce the high-dimensional dataset into two principal components for visualization. The resulting 2D projection shows clear separation between the four clusters, supporting the earlier conclusion that k = 4 is the most meaningful and interpretable segmentation.
+</p>
+<h1 id="profiling">Cluster Profiling and Comparison</h1>
+
+<p class="serif">
+  <strong class="sans">Task:</strong> Perform cluster profiling using boxplots for the K-Means algorithm.
+  Analyze key characteristics of each cluster and provide detailed observations.
+</p>
+
+<pre><code class="language-python"># Columns to profile (spending + income + age)
+profile_cols = [
+    "Income", "Age",
+    "MntWines", "MntMeatProducts", "MntFishProducts",
+    "MntSweetProducts", "MntGoldProds",
+    "NumWebPurchases", "NumCatalogPurchases", "NumStorePurchases"
+]
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Grid of subplots (3 rows x 4 columns = 12 slots for 10 variables)
+rows, cols = 3, 4
+fig, axes = plt.subplots(rows, cols, figsize=(18, 10))
+axes = axes.flatten()
+
+# Draw one boxplot per feature in the grid
+for i, col in enumerate(profile_cols):
+    ax = axes[i]
+    sns.boxplot(x="Cluster", y=col, data=data_encoded, ax=ax)
+    ax.set_title(f"{col} by Cluster", fontsize=11)
+    ax.set_xlabel("Cluster", fontsize=9)
+    ax.set_ylabel(col, fontsize=9)
+
+# Turn off any unused subplot axes (since we have 10 vars but 12 slots)
+for j in range(len(profile_cols), len(axes)):
+    fig.delaxes(axes[j])
+
+plt.suptitle("Cluster Profiles: Income, Age, Spending, and Purchase Behavior", y=1.02, fontsize=14)
+plt.tight_layout()
+plt.show()</code></pre>
+
+<figure class="cs-figure">
+  <img src="images/clusterbar.png" alt="Cluster profile boxplot grid comparing income, age, spending, and purchase behavior across clusters">
+  <figcaption>
+    Boxplot grid used to compare the distribution of income, age, spending behaviors, and purchasing channels across the four K-Means clusters.
+  </figcaption>
+</figure>
+
+<p class="serif">
+  <strong class="sans">Observations:</strong>
+  The clusters show four distinct customer groups. Cluster 0 (Budget Shoppers) has the lowest income and spending
+  across all categories. Cluster 3 (Moderate Family Spenders) shows average income and steady but modest purchasing.
+  Cluster 1 (Affluent Food Enthusiasts) has higher income and strong spending on premium food items. Cluster 2
+  (High-Value Heavy Spenders) leads in both income and total spending, showing the highest engagement across
+  channels. Together, these groups form a clear progression from low spenders to top-value customers.
+</p>
+
+<h3>Cluster Profiling Using Barplots</h3>
+
+<p class="serif">
+  <strong class="sans">Task:</strong> Perform cluster profiling on the data using a barplot for the K-Means algorithm.
+  Provide insights and key observations for each cluster based on the visual analysis.
+</p>
+
+<pre><code class="language-python"># Barplot cluster profiling
+
+profile_cols = [
+    "Income", "Age",
+    "MntWines", "MntMeatProducts", "MntFishProducts",
+    "MntSweetProducts", "MntGoldProds",
+    "NumWebPurchases", "NumCatalogPurchases", "NumStorePurchases"
+]
+
+# Compute average values per cluster
+cluster_means = data_encoded.groupby("Cluster")[profile_cols].mean()
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Create a 3x4 grid for the 10 barplots
+rows, cols = 3, 4
+fig, axes = plt.subplots(rows, cols, figsize=(18, 10))
+axes = axes.flatten()
+
+# Loop through each feature and plot its cluster means
+for i, col in enumerate(profile_cols):
+    ax = axes[i]
+    sns.barplot(x=cluster_means.index, y=cluster_means[col], ax=ax)
+    ax.set_title(f"{col} by Cluster", fontsize=11)
+    ax.set_xlabel("Cluster", fontsize=9)
+    ax.set_ylabel(col, fontsize=9)
+
+# Disable any empty leftover subplots
+for j in range(len(profile_cols), len(axes)):
+    fig.delaxes(axes[j])
+
+plt.suptitle(
+    "Cluster Profiles (Mean Values): Income, Age, Spending, and Purchase Behavior",
+    y=1.02, fontsize=14
+)
+plt.tight_layout()
+plt.show()</code></pre>
+
+<figure class="cs-figure">
+  <img src="images/barsfinal.png" alt="Barplot grid showing mean income, age, spending amounts, and purchase behaviors by cluster">
+  <figcaption>
+    Barplot grid comparing mean values across all clusters for income, age, spending categories, and purchasing channels.
+  </figcaption>
+</figure>
+
+<p class="serif">
+  <strong class="sans">Observations:</strong>
+  The barplots show that Clusters 1 and 2 are the most active groups in terms of both store and catalog purchases,
+  while Cluster 0 has the weakest activity and Cluster 3 falls in between. This confirms that the strongest purchasing
+  behavior is concentrated in Clusters 1 and 2, and the cluster labels (0–3) are arbitrary rather than tied to a fixed
+  “type” across runs.
+</p>
+<div class="section-divider"></div>
+<h1 id="business">Business Recommendations</h1>
+
+<p class="serif">
+  <strong class="sans">Task:</strong> Based on the cluster insights, determine what business recommendations can be provided.
+</p>
+
+<p class="serif">
+  The cluster insights highlight several opportunities to improve marketing performance and customer engagement.
+  Customers in <strong>Cluster 0</strong> show low purchasing activity, so focusing on basic promotions,
+  introductory discounts, and value-focused messaging can help encourage more frequent shopping. 
+  <strong>Cluster 3</strong> represents moderate buyers who could be moved upward through targeted product suggestions,
+  loyalty points, and personalized offers based on their shopping patterns. 
+  <strong>Clusters 1 and 2</strong> are the strongest and most active groups, and they should be prioritized with 
+  premium bundles, subscription options, exclusive product drops, and tailored campaigns that reward their higher 
+  engagement levels. Strengthening retention efforts for these two clusters will yield the highest return, while 
+  nurturing Clusters 0 and 3 with smaller, consistent incentives can gradually increase overall customer value.
+</p>
+
+
+<h3>Campaign Strategy</h3>
+
+<p class="serif">
+  Use a tiered campaign approach tailored to each cluster’s behavior. For <strong>Clusters 1 and 2</strong>, which show
+  the highest purchasing activity, launch premium-focused campaigns such as curated product bundles, early-access offers,
+  and loyalty rewards that emphasize exclusivity and value. For <strong>Cluster 3</strong>, send personalized
+  recommendations and moderate incentives to encourage more frequent purchases, helping move them toward higher
+  engagement. For <strong>Cluster 0</strong>, deploy simple awareness and reactivation campaigns using discounts,
+  first-purchase offers, and value messaging to increase basic participation. This targeted structure ensures each
+  cluster receives messaging that matches its spending level and likelihood to convert.
+</p>
+<div id="summary">
+<div class="summary-card">
+  <strong>In summary:</strong>  
+  This project highlights my ability to take a high-dimensional dataset and transform it into a clear, structured understanding of customer behavior. I cleaned and prepared the data using Python, Pandas, and NumPy, engineered meaningful features, handled missing values, and ensured all variables were properly encoded and scaled for modeling.  
+
+  I applied K-Means clustering, evaluated cluster quality using the Elbow Method and Silhouette Scores, and used visualizations to validate the separation and interpretability of the segments. Throughout the process, I combined statistical reasoning with practical coding skills to identify patterns, reveal high-value customer groups, and translate complex outputs into insights that support targeted marketing and stronger business making decisions.
+</div>
+</div>
+</main>
+<script src="customersegmentation/describe-table.js"></script>
+<script>
+document.addEventListener("scroll", function() {
+  const scrollTop = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const progress = (scrollTop / height) * 100;
+  document.getElementById("reading-progress").style.width = progress + "%";
+});
+</script>
+<script src="JS/nav.js" defer></script>
+<script src="customersegmentation/toc-highlight.js" defer></script>
+
+</body>
+</html>

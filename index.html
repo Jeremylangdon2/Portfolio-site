@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://use.typekit.net/oop4far.css">
 <!--* google fonts */-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <link rel="stylesheet" href="https://use.typekit.net/bru1ugp.css">
@@ -19,9 +20,6 @@
 
 </head>
 <body class="about-page">
-<div class="clouds-bg">
-  <!-- <img src="img/backgray.jpg" alt="3d render background image" /> -->
-</div>
 
  <!-- left side header -->
 <header class="header">
@@ -36,8 +34,8 @@
   </button>
 
   <nav class="top-nav" id="site-nav">
-    <a href="/" aria-current="page">About</a>
-    <a href="portfolio">Portfolio</a>
+    <a href="/" aria-current="page">Portfolio</a>
+    <!-- <a href="portfolio">Portfolio</a> -->
     <a href="contact">Contact</a>
   </nav>
 
@@ -53,10 +51,9 @@
  
  <!-- Bio -->
 <div class="bio-section">
-<h1 class="bio-name">Hey, i'm Jeremy Langdon</h1>
+<h1 class="bio-name">Hi, i'm Jeremy Langdon</h1>
 <div class="bio-content">
-<h3 class="bio-box">here's my story...</h3>
-<p class="bio-text">I live in, and am from the San Francisco Bay Area. I am a UX designer, researcher, and product strategist. My current role is UX research, and that is where my focus is. I am a Visual Communications Design student at the San Francisco State University's school of design. I enjoy data science, research, and designing. I have spent time doing research for non-profits, while also working as a product strategist and UX designer. Additionally, I am an agile coach, and have experience teaching teams how to be agile and self-organize.
+<p class="bio-text">I live in the San Francisco Bay Area. I am a UX designer, researcher, and product strategist. My current role is UX research, and that is where my focus is. I am a Visual Communications Design student at the San Francisco State University's school of design. I enjoy data science, research, and designing. I have spent time doing research for non-profits, while also working as a product strategist and UX designer. Additionally, I am an agile coach, and have experience teaching teams how to be agile and self-organize.
 </div>
  <!-- Icons for portfolio -->
 <section class="nav-buttons">
@@ -68,12 +65,84 @@
     <i class="fa-brands fa-linkedin nav-icon"></i>
   </a>
 <div>
-  <!-- <a href="lists.html" class="gif-link">
-    <img src="gifs/eye.gif" alt="fun gif" class="nav-gif">
-    <span class="gif-label">Lists</span>
-  </a> -->
+  
   </section>
 </div>
+  <!-- Case Studies preview on About page -->
+  <section class="about-cs">
+    <!-- Data Science section -->
+    <div class="about-cs-block">
+      <p class="about-cs-label">Data Science</p>
+      <h2 class="about-cs-heading">Selected analytical projects</h2>
+
+      <div class="about-cs-grid">
+        <!-- Card 1 – you can replace href, image, and text later -->
+        <a href="Customersegmentation" class="about-cs-card">
+         <div class="about-cs-media cs-zoom-segment">
+  <img src="images/pca.png" alt="Customer segmentation cover">
+</div>
+
+          <div class="about-cs-body">
+            <p class="about-cs-tag">Clustering · Python · K-Means</p>
+            <h3 class="about-cs-title">Customer Segmentation</h3>
+          </div>
+        </a>
+
+        <!-- Placeholder cards you can wire up later -->
+        <!-- <a href="#" class="about-cs-card">
+          <div class="about-cs-media"></div>
+          <div class="about-cs-body">
+            <p class="about-cs-tag">EDA · Visualization</p>
+            <h3 class="about-cs-title">Data exploration project</h3>
+          </div>
+        </a>
+
+        <a href="#" class="about-cs-card">
+          <div class="about-cs-media"></div>
+          <div class="about-cs-body">
+            <p class="about-cs-tag">Modeling · Evaluation</p>
+            <h3 class="about-cs-title">Machine learning workflow</h3>
+          </div>
+        </a> -->
+      </div>
+    </div>
+
+    <!-- UX section -->
+    <div class="about-cs-block">
+      <p class="about-cs-label">UX & Product Design</p>
+      <h2 class="about-cs-heading">Selected UX and product work</h2>
+
+      <div class="about-cs-grid">
+        <a href="FIC" class="about-cs-card">
+          <div class="about-cs-media">
+            <img src="img/ficnew.jpg" alt="UX case study cover">
+          </div>
+          <div class="about-cs-body">
+            <p class="about-cs-tag">Research · Strategy</p>
+            <h3 class="about-cs-title">Product  strategy</h3>
+          </div>
+        </a>
+
+        <a href="case-study-1" class="about-cs-card">
+          <div class="about-cs-media">
+            <img src="img/strat.jpg" alt="UX case study cover"></div>
+          <div class="about-cs-body">
+            <p class="about-cs-tag">Mobile UX · Flows · Research</p>
+            <h3 class="about-cs-title">Agile UX Research Tech Fleet</h3>
+          </div>
+        </a>
+
+        <!-- <a href="#" class="about-cs-card">
+          <div class="about-cs-media"></div>
+          <div class="about-cs-body">
+            <p class="about-cs-tag">Admin tools · Dashboards</p>
+            <h3 class="about-cs-title">Philly Truce incident board</h3>
+          </div>
+        </a> -->
+      </div>
+    </div>
+  </section>
+
 </main>
  <!-- Footer -->
 <!-- <footer class="footer">
