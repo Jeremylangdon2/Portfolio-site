@@ -3200,3 +3200,21 @@ main#about-page {
     transform: translateY(-108px);  /* move up; tweak this number */
   }
 }
+
+
+.porth1 {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 34px;
+  margin: 50px 0 30px;
+  color: #1b1b1b;
+}
+
+/* Desktop-only inset margin for ROW 2 (Data Science) */
+@media (min-width: 761px) {
+  .row-2 .cards {
+    padding: 0 30px;   /* match the inset you like */
+    box-sizing: border-box;
+  }
+}
