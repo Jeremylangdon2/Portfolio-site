@@ -3080,3 +3080,123 @@ main#about-page {
     padding-top: 67px !important;  /* tweak this number up/down */
   }
 }
+
+/* FINAL MOBILE FIX – About hero layout */
+@media (max-width: 760px) {
+  /* Make the hero a simple vertical stack */
+  .about-page #container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;  /* text can use full width */
+    width: 100%;
+    padding: 24px 16px;
+    margin: 0 auto;
+    gap: 12px;
+  }
+
+  /* Image first, then text */
+  .about-page .profile-pic {
+    order: 1;
+    width: 100%;
+  }
+  .about-page .profile-pic img {
+    width: min(72vw, 320px);
+    height: auto;
+    margin: 16px auto 8px;   /* center the photo */
+    display: block;
+  }
+
+  .about-page .bio-section {
+    order: 2;
+    width: 100%;
+    max-width: 680px;
+    margin-top: 4px;
+    padding-top: 0;
+    text-align: left;
+  }
+
+  .about-page .bio-text {
+    max-width: 100%;
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+}
+
+/* Mobile: center the bio name */
+@media (max-width: 760px) {
+  .about-page .about-cs-label-name {
+    text-align: center !important;
+    width: 100% !important;
+    display: block;
+  }
+}
+
+/* MOBILE CARDS – Medium style */
+@media (max-width: 760px) {
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.16), 
+            0 0 1px rgba(0,0,0,0.12);
+
+    margin: 0 12px; /* inset from screen edges */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 16px 18px 22px; /* inner spacing like Medium */
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1b1b1b;
+    margin: 0 0 6px;
+    line-height: 1.25;
+  }
+
+  .desc {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+
+  .meta,
+  .meta2 {
+    font-size: 14px;
+    color: #666;
+    margin: 2px 0;
+  }
+
+  .meta2 em {
+    font-style: normal;
+    opacity: 0.8;
+  }
+
+}
+
+/* Only the FIC card */
+@media (max-width: 760px) {
+  .row-3 .card-image img[src$="ficnew.jpg"] {
+    display: block;
+    transform: translateY(-108px);  /* move up; tweak this number */
+  }
+}
