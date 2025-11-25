@@ -610,3 +610,33 @@ code[class*="language-"] {
     box-sizing: border-box;
   }
 }
+
+/* Dataset fields grid – make it scroll nicely on small screens */
+.data-fields {
+  margin-top: 1.5rem;
+}
+
+/* desktop / normal */
+.data-fields .fields-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 12px 24px;
+}
+
+/* horizontal scroll on mobile */
+@media (max-width: 760px) {
+  .data-fields {
+    overflow-x: auto;
+  }
+
+  .data-fields .fields-grid {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    min-width: max-content;   /* makes the content wider than the box */
+  }
+
+  .data-fields .field {
+    min-width: 140px;
+  }
+}

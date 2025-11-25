@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("describe-table");
   if (!container) return;
 
-  fetch("describe.json")
+  fetch("customersegmentation/describe.json")
     .then((response) => response.json())
     .then((data) => {
       const stats = ["count", "mean", "std", "min", "25%", "50%", "75%", "max"];

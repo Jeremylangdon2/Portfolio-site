@@ -8,7 +8,7 @@ body {
 
 body.about-page {
   /* background-image: url("../img/white.jpg"); */
-  background-color: #ece7de;
+  background-color: #ffffff;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -99,7 +99,7 @@ html, body {
 
 .profile-pic img {
   width: auto;
-  height: 280px;
+  height: 70px;
   /* transition: transform 3s; */
   margin-top: 45px;
 }
@@ -155,16 +155,19 @@ html, body {
  text-decoration: none;
  color: #000;
 }
+
 #container {
-  width: 1440px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
-  display: flex;
-  flex-direction: row;
-  /* align-items: center; */
+  padding: 40px 20px;
+
+  display: grid;  /* KEEP THIS */
+  grid-template-columns: auto 1fr;  /* LEFT = photo, RIGHT = bio */
   gap: 40px;
-  /* padding-top: 90px; */
+  align-items: center;
 }
+
 
 .bio-name {
   font-family: "Caveat", "Lato", sans-serif;
@@ -594,6 +597,7 @@ html, body {
   }
 }
 
+
 @media (max-width: 760px) {
   .about-page #container {
     padding: 2px 16px;  /* ← change to e.g. 8px 16px */
@@ -639,7 +643,7 @@ html, body {
 @media (min-width: 761px) {
   body.portfolio-page {
     /* use the new image */
-    background: url("../img/white.jpg") no-repeat 100% 100% / cover !important;
+    background: none !important;
     min-height: 100vh;
   }
 }
@@ -1553,11 +1557,12 @@ body.contact-page form label {
   /* Make cover area black and hide the image inside it */
   .about-page .clouds-bg,
   .portfolio-page .clouds-bg {
-    background: #000;
+    background: none;
   }
   .about-page .clouds-bg img,
   .portfolio-page .clouds-bg img {
     display: none;
+    object-fit: cover;
   }
 
   /* Header text (name) and hamburger bars to white */
@@ -2167,7 +2172,7 @@ Add this **once at the very end of `style.css`** to pull the bottom up a bit and
   body.about-page {
     overflow: visible !important;   /* was hidden */
     position: static !important;    /* undo any position:relative from experiments */
-    background: url("../img/white.jpg") no-repeat center top / 100% auto !important;
+    /* background: url("../img/white.jpg") no-repeat center top / 100% auto !important; */
     background-position: 0px 100px / 160% auto !important;   /* try 0%–30% to aim the white area */
 
     background-attachment: scroll !important;  /* make bg move with content */
@@ -2189,6 +2194,12 @@ Add this **once at the very end of `style.css`** to pull the bottom up a bit and
 }
 /* --- About page ONLY, Mobile ONLY --- */
 
+/* Reduce top gap above cards ONLY on mobile */
+@media (max-width: 760px) {
+  .about-page .about-cs {
+    margin-top: 24px !important;   /* <-- adjust this value to tighten */
+  }
+}
 
 
 @media (max-width: 760px) {
@@ -2484,6 +2495,15 @@ FIC PAGE
   margin: 0 0 24px;
 }
 
+.about-page .about-cs-label-name {
+ font-family: "proxima-nova", sans-serif !important;
+  font-weight:600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: #111;
+  margin: 0 0 0px;
+}
+
 /* Grid of cards */
 .about-page .about-cs-grid {
   display: grid;
@@ -2633,5 +2653,430 @@ FIC PAGE
   /* If you have very big hero headings */
   .page-title, .title-hero {
     line-height: 1.03 !important;
+  }
+}
+
+/* =========================
+   GLOBAL SANS (Proxima Nova)
+   ========================= */
+:root {
+  --font-sans: "proxima-nova", "Proxima Nova",
+               system-ui, -apple-system, BlinkMacSystemFont,
+               "Lato", sans-serif;
+}
+
+/* =========================
+   INDEX / ABOUT – MEDIUM STYLE
+   ========================= */
+
+/* Main content width like Medium’s container */
+.about-page main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px 80px;
+  box-sizing: border-box;
+}
+
+/* Top hero row: profile on left, bio on right */
+.about-page #container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  display: grid;  /* KEEP THIS */
+  grid-template-columns: auto 1fr;  /* LEFT = photo, RIGHT = bio */
+  gap: 40px;
+  align-items: center;
+}
+
+/* Profile image same feel as Medium hero image */
+.about-page .profile-pic img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-top: 0;
+}
+
+/* Bio text block */
+.about-page .bio-section {
+  padding: 0;
+  max-width: 640px;
+}
+
+/* “Meet Jeremy Langdon” – large Proxima Nova heading */
+.about-page .about-cs-label-name {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 0px;
+}
+
+/* Bio copy in Proxima Nova regular */
+.about-page .bio-text {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: #444;
+  margin: 0;
+}
+
+/* Social icons sit just under the bio */
+.about-page .nav-buttons {
+  margin-top: 16px;
+}
+
+/* --- Sections: Data Science + UX --- */
+
+.about-page .about-cs {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 40px;
+}
+
+/* Section wrapper */
+.about-page .about-cs-block {
+  margin-bottom: 48px;
+}
+
+/* Small all-caps label line: “Data Science”, “UX & Product Design” */
+.about-page .about-cs-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #757575;
+  margin: 0 0 6px;
+}
+
+/* Section headings like Medium category headings */
+.about-page .about-cs-heading {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 26px;
+  color: #111;
+  margin: 0 0 24px;
+}
+
+/* Card grid – equal width cards, responsive */
+.about-page .about-cs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+/* Card shell – match Medium article tiles */
+.about-page .about-cs-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Card image: fixed aspect, same for all cards */
+.about-page .about-cs-media {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.about-page .about-cs-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card text block */
+.about-page .about-cs-body {
+  padding-top: 12px;
+}
+
+/* Small tag line above title */
+.about-page .about-cs-tag {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #757575;
+  margin: 0 0 4px;
+}
+
+/* Card title – Proxima Nova bold */
+.about-page .about-cs-title {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111;
+  margin: 0 0 6px;
+}
+
+/* Description snippet */
+.about-page .about-cs-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.45;
+  color: #555;
+  margin: 0 0 10px;
+}
+
+/* Meta row: org · date · read time (no avatar) */
+.about-page .about-cs-meta {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: #757575;
+}
+
+.about-page .about-cs-org {
+  font-weight: 600;
+}
+
+.about-page .about-cs-dot {
+  margin: 0 4px;
+}
+
+/* --------- Responsive tweaks (mobile) ---------- */
+@media (max-width: 760px) {
+  /* Stack hero: photo on top, bio below (you already had this, just keep it tight) */
+  .about-page #container {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0 32px;
+  }
+
+  .about-page .profile-pic img {
+    max-width: 280px;
+  }
+
+  .about-page .bio-section {
+    max-width: 100%;
+  }
+
+  .about-page .about-cs-grid {
+    grid-template-columns: 1fr; /* one card per row on phone */
+    gap: 24px;
+  }
+}
+
+/* ROW 1 — PROFILE + BIO */
+.row-1 {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.profile-photo img {
+  width: 320px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.bio {
+  flex: 1;
+}
+
+
+
+/* HEADERS */
+.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+
+
+/* ROW 2 + ROW 3 — CARD ROWS */
+.row-2, .row-3 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+
+
+/* GRID OF CARDS */
+.cards {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+
+
+/* CARD STYLING */
+.card {
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #eee;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.desc {
+  font-size: 14px;
+  color: #555;
+}
+
+.meta {
+  font-size: 12px;
+  color: #777;
+}
+
+
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .row-1 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-photo img {
+    width: 260px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
+/* ============================
+   TIGHTER CARD TEXT SPACING
+   ============================ */
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* was too wide, now tight */
+}
+
+.tag {
+  margin: 3px 0px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.card-title {
+  margin: 15px 0 5px 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.1; /* tighter vertical rhythm */
+}
+
+.desc {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.25; /* tighter spacing */
+   font-weight: 600;
+}
+
+.meta {
+  margin: 0;
+  font-size: 14px;
+  color: #222222;
+  line-height: 1.2;
+}
+
+.meta2 {
+  margin: 0;
+  font-size: 14px;
+  color: #222222;
+  line-height: 1.2;
+}
+
+/* Make entire card clickable */
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ======================
+   MAIN GRID LAYOUT
+   ====================== */
+
+main#about-page {
+  display: grid;
+  grid-template-columns: 1fr;     /* 1 column layout */
+  grid-template-rows: auto auto auto;  /* 3 rows */
+  row-gap: 40px;                  /* space between profile row + card rows */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+
+/* ======================
+   ROW 1 — PROFILE + BIO
+   ====================== */
+
+.profile-row {
+  display: grid;
+  grid-template-columns: 320px 1fr;   /* photo left, bio right */
+  column-gap: 40px;
+  align-items: start;
+}
+
+
+
+/* MOBILE: photo and bio stack */
+@media (max-width: 760px) {
+  .profile-row {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    text-align: center;
+  }
+}
+
+
+/* About page: nudge bio heading + text down on DESKTOP only */
+@media (min-width: 761px) {
+  .about-page .bio-section {
+    padding-top: 67px !important;  /* tweak this number up/down */
   }
 }
