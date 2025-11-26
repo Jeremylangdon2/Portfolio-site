@@ -217,7 +217,7 @@ warnings.filterwarnings("ignore")
 <section class="data-fields">
   <h3>Dataset Fields</h3>
 
-  <div class="fields-grid">
+  <!-- <div class="fields-grid">
 
     <div class="field">
       <strong>ID</strong><br>int64
@@ -276,10 +276,10 @@ warnings.filterwarnings("ignore")
     <div class="field"><strong>Z_Revenue</strong><br>int64</div>
     <div class="field"><strong>Response</strong><br>int64</div>
     
-  </div>
+  </div> -->
 </section>
  <p><strong class="sans">Observations:</strong> <span class="serif">The data types observed across the columns are <em>Int64, object, and float64</em></span></p>
-<h3>Objective</h3>
+<h3>Task</h3>
 <p>Analyze the statistical summaries of the dataset and determine the average household income.</p>
 <pre><code class="language-python">data.describe()</code></pre>
 <section class="describe-table-section">
@@ -558,6 +558,18 @@ plt.show()</code></pre>
   profile that indicates the consumers who spend a lot on one category tend to spend a lot on others as well.
 </p>
 <div class="section-divider"></div>
+<h2>Turning Data Into an Interactive Experience</h2>
+<figure class="cs-video">
+  <video src="vid/dash.mp4"
+         autoplay
+         muted
+         loop
+         playsinline
+         preload="metadata">
+  </video>
+  <figcaption>Dashboard screen demonstrating cluster UI flow with PowerBI.</figcaption>
+</figure>
+
 <h1 id="clustering">K-means Clustering</h1>
 
 <p>I used the K-means algorithim to cluster the data, and started by preparing the data to determine K, the appropriate amount of clusters.</p>
