@@ -640,3 +640,16 @@ code[class*="language-"] {
     min-width: 140px;
   }
 }
+
+.cs-video {
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.cs-video video {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  object-fit: cover;
+}
