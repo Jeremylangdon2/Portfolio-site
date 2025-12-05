@@ -2889,8 +2889,8 @@ FIC PAGE
 
 /* HEADERS */
 .section-title {
-  font-size: 26px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 200;
   margin-bottom: 20px;
 }
 
@@ -3214,7 +3214,258 @@ main#about-page {
 /* Desktop-only inset margin for ROW 2 (Data Science) */
 @media (min-width: 761px) {
   .row-2 .cards {
-    padding: 0 30px;   /* match the inset you like */
+    padding: 0;   /* match the inset you like */
     box-sizing: border-box;
+  }
+}
+
+/* ============================================
+   DESKTOP — FORCE MOBILE CARD PROPORTIONS
+   ============================================ */
+@media (min-width: 761px) {
+
+  /* Keep cards the SAME SIZE as mobile */
+  .row-2 .card,
+  .row-3 .card {
+    width: 360px;                 /* mobile card width */
+    max-width: 100%;
+    margin: 0;                    /* remove left offset */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  /* Keep image scale identical to mobile */
+  .row-2 .card-image img,
+  .row-3 .card-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Match mobile card BODY padding + spacing */
+  .row-2 .card-body,
+  .row-3 .card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+ /* ============================================
+   DESKTOP — COPY MOBILE INTERNAL CARD STYLING
+   WITHOUT TOUCHING LAYOUT
+   ============================================ */
+@media (min-width: 761px) {
+
+
+  .about-page .card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+}
+
+
+
+/* Desktop: center FIC logo inside its card image */
+@media (min-width: 761px) {
+  .about-page .card-link[href="FIC"] .card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-page .card-link[href="FIC"] .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* show full logo */
+    object-position: center center;
+    background-color: #ffffff;    /* clean white around it */
+                   /* breathing room so it doesn’t hug the edge */
+  }
+}
+
+/* ============================================
+   DESKTOP — TIGHTER INTERNAL CARD SPACING
+   ============================================ */
+@media (min-width: 761px) {
+
+  /* Tighter padding inside the card body */
+  .about-page .card-body {
+    padding: 14px 16px 18px !important;  /* was 16px 18px 22px */
+  }
+
+  /* Title spacing tighter */
+  .about-page .card-title {
+    margin: 0 0 4px !important;  /* was 6px */
+    line-height: 1.2 !important;
+  }
+
+  /* Description spacing tighter */
+  .about-page .desc {
+    margin-bottom: 6px !important; /* was 10px */
+    line-height: 1.35 !important; /* slightly tighter */
+  }
+
+  /* Meta lines closer together */
+  .about-page .meta,
+  .about-page .meta2 {
+    margin: 0 0 2px !important; /* less vertical air */
+    line-height: 1.2 !important;
+  }
+}
+}
+
+/* ============================================
+   ABOUT PAGE – DESKTOP CARD INTERNAL STYLING
+   (copy mobile look, no layout changes)
+   ============================================ */
+@media (min-width: 761px) {
+
+  /* Card box */
+  .about-page .row-2 .card,
+  .about-page .row-3 .card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.16),
+                0 0 1px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Image inside card */
+  .about-page .row-2 .card-image img,
+  .about-page .row-3 .card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Inner padding */
+  .about-page .row-2 .card-body,
+  .about-page .row-3 .card-body {
+    padding: 16px 18px 22px;
+  }
+
+  /* Title */
+  .about-page .row-2 .card-title,
+  .about-page .row-3 .card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1b1b1b;
+    margin: 0 0 6px;
+    line-height: 1.25;
+  }
+
+  /* Description */
+  .about-page .row-2 .desc,
+  .about-page .row-3 .desc {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+
+  /* Meta lines */
+  .about-page .row-2 .meta,
+  .about-page .row-2 .meta2,
+  .about-page .row-3 .meta,
+  .about-page .row-3 .meta2 {
+    font-size: 14px;
+    color: #666;
+    margin: 2px 0;
+  }
+}
+
+/* Desktop: make all About-page cards the same height */
+@media (min-width: 761px) {
+  .about-page .card-body {
+    min-height: 155px;   /* tweak up/down if you want tighter/looser */
+  }
+}
+
+/* Standalone left-aligned section title */
+.leftSectionTitle {
+  text-align: left !important;
+  display: block;
+  width: 100%;
+}
+
+/* ============================================
+   DESKTOP — AIRBNB STYLE CARDS (using your existing meta2)
+   ============================================ */
+/* Desktop layout for card rows — Airbnb style */
+@media (min-width: 761px) {
+
+  /* Row contains cards but does NOT stretch them full width */
+  .about-page .cards {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;                 /* Airbnb spacing */
+    justify-content: flex-start;
+    flex-wrap: nowrap;         /* keeps cards in a single row */
+  }
+
+  /* Card width limit so they stop becoming huge */
+  .about-page .card {
+    max-width: 360px !important;   /* Airbnb card width */
+    width: 100%;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Image */
+  .about-page .card-image img {
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+  }
+
+  /* Body */
+  .about-page .card-body {
+    padding: 12px 0 0 0 !important;
+  }
+
+  /* Title */
+  .about-page .card-title {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    margin: 0 0 6px 0 !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Description */
+  .about-page .desc {
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Meta (your existing <p class="meta2"><em> ... >) */
+  .about-page .meta2 {
+    font-size: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.3 !important;
+  }
+
+  .about-page .meta2 em {
+    font-style: normal !important;
+    opacity: 0.9;
   }
 }

@@ -653,3 +653,52 @@ code[class*="language-"] {
   display: block;
   object-fit: cover;
 }
+
+/* === COLLAPSIBLE CODE BLOCKS === */
+.code-toggle-btn {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  background: #f0f0f0;
+  border: 1px solid #dcdcdc;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 0.4rem;
+  display: inline-block;
+}
+
+.code-toggle-btn:hover {
+  background: #e6e6e6;
+}
+
+.collapsed {
+  display: none !important;
+}
+
+/* White background behind Prism code */
+pre {
+  background: #ffffff !important;    /* white behind code */
+  border: 1px solid #e0e0e0 !important;
+}
+
+pre code {
+  background: none !important;        /* remove gray overlapping layer */
+}
+
+.arrow-down, .arrow-up {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 6px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* small chevrons */
+.arrow-down {
+  background-image: url("data:image/svg+xml;utf8,<svg width='12' height='12' xmlns='http://www.w3.org/2000/svg'><path d='M2 4l4 4 4-4' stroke='%23333' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+}
+
+.arrow-up {
+  background-image: url("data:image/svg+xml;utf8,<svg width='12' height='12' xmlns='http://www.w3.org/2000/svg'><path d='M2 8l4-4 4 4' stroke='%23333' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+}
