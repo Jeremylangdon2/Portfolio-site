@@ -6,12 +6,39 @@ body {
   flex-direction: column;
 }
 
-body.about-page {
-  /* background-image: url("../img/white.jpg"); */
+/* body.about-page {
+  background-image: url("../img/7461.jpg");
   background-color: #ffffff;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-size: 100%;   /* only 20% of screen height */
+  /* background-position: top center;
+}  */
+
+/* TOP HERO BACKGROUND — DOES NOT MOVE, DOES NOT SQUASH */
+.about-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh; /* shows only top 20% of the screen */
+  background-image: url("../img/7461.jpg");
+  background-size: cover;
+  background-position: center 19%;
+  background-repeat: no-repeat;
+  z-index: -1; /* behind all content */
+}
+
+/* Make sure the page itself doesn't overwrite the background */
+body.about-page {
+  position: relative;
+  background: white !important;
+}
+
+/* Make sure MAIN is transparent */
+.about-page main {
+  background: transparent !important;
 }
 
 
@@ -29,6 +56,9 @@ p {
 
 main {
   flex: 1;
+  background: transparent;
+  position: relative;
+  z-index: 1;
 }
 
 html, body {
@@ -135,7 +165,7 @@ html, body {
 
 
 .bio-section { position: relative; }
-.bio-section > * { transform: translateY(30px); }  /* adjust number */
+.bio-section > * { transform: translateY(-15px); }  /* adjust number */
 
 .nav-buttons {
   display: flex;
@@ -1957,7 +1987,7 @@ padding-bottom: 0;
 }
 
 /* Put header above everything site-wide */
-.header { position: relative; z-index: 1000; }
+.header { position: relative; z-index: 9999; }
 
 /* Mobile: menu sits above content, links are clickable when open */
 @media (max-width: 760px) {
@@ -2673,7 +2703,7 @@ FIC PAGE
 .about-page main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 16px 80px;
+  margin-top: 30px;
   box-sizing: border-box;
 }
 
@@ -2682,7 +2712,7 @@ FIC PAGE
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 6px 20px; 
 
   display: grid;  /* KEEP THIS */
   grid-template-columns: auto 1fr;  /* LEFT = photo, RIGHT = bio */
@@ -2890,7 +2920,7 @@ FIC PAGE
 /* HEADERS */
 .section-title {
   font-size: 22px;
-  font-weight: 200;
+  font-weight: 600;
   margin-bottom: 20px;
 }
 
@@ -2903,6 +2933,22 @@ FIC PAGE
   margin: 0 auto 60px;
 }
 
+.about-page .row-2,
+.about-page .row-3 {
+  background: rgba(255, 255, 255, 0.94);   /* soft white, a little see-through */
+  border-radius: 24px;
+  padding: 24px 28px 28px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);  /* similar to the bio card */
+}
+
+.about-page .row-2 .section-title,
+.about-page .row-3 .section-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #1a73e8;
+  margin: 0 0 12px;
+}
 
 
 /* GRID OF CARDS */
@@ -3077,7 +3123,7 @@ main#about-page {
 /* About page: nudge bio heading + text down on DESKTOP only */
 @media (min-width: 761px) {
   .about-page .bio-section {
-    padding-top: 67px !important;  /* tweak this number up/down */
+    padding-top: 10px !important;  /* tweak this number up/down */
   }
 }
 
@@ -3115,12 +3161,14 @@ main#about-page {
     text-align: left;
   }
 
+
   .about-page .bio-text {
     max-width: 100%;
     line-height: 1.6;
     margin-top: 8px;
   }
 }
+
 
 /* Mobile: center the bio name */
 @media (max-width: 760px) {
@@ -3235,7 +3283,8 @@ main#about-page {
     flex-direction: column;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.16),
+                0 0 1px rgba(0,0,0,0.12);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
@@ -3396,11 +3445,15 @@ main#about-page {
 
 /* Standalone left-aligned section title */
 .leftSectionTitle {
-  text-align: left !important;
-  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  text-align: left;
   width: 100%;
+  max-width: 1200px;
+  margin: 40px auto 8px;   /* lines up with row-2/row-3 */
+  padding: 0 20px;         /* same side padding as the rows */
 }
-
 /* ============================================
    DESKTOP — AIRBNB STYLE CARDS (using your existing meta2)
    ============================================ */
@@ -3469,3 +3522,528 @@ main#about-page {
     opacity: 0.9;
   }
 }
+
+
+
+.portfolio-divider {
+  height: 70px; /* adjust height */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.7),
+    rgba(0,0,0,0)
+  );
+}
+
+.full-bleed {
+  position: relative;
+  width: 100%;
+}
+
+/* let any child go full viewport width without shifting siblings */
+.full-bleed > * {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  height: 30px;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+
+
+/* FULL-BLEED GRADIENT DIVIDER DIRECTLY UNDER HEADER */
+/* Full-width gradient strip directly under the header */
+/* wrapper that controls how far down the nav fade starts */
+.nav-fade {
+  margin-top: 40px;      /* move the gradient lower under the nav */
+}
+
+/* the actual thin gradient line */
+.nav-divider {
+ margin-top: 15px;          /* thickness of the line */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.16),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+
+@media (min-width: 761px) {
+  .about-page .bio-section {
+    display: flex;
+    align-items: flex-start; /* don't center the block, keep its position */
+    position: relative;
+  }
+
+  .about-page .bio-inner {
+    position: relative;
+    top: 45px;   /* ← THIS is the manual adjustment you want */
+  }
+}
+
+/* ==== TYPE SYSTEM – ABOUT PAGE (non-card text) ==== */
+
+/* Nav brand + nav links */
+.head-name {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;       /* small, uppercase name */
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.top-nav a {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;       /* 14–15px */
+  font-weight: 500;
+}
+
+/* "Meet Jeremy Langdon" */
+.about-page .about-cs-label-name {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.375rem;     /* ~22px */
+  letter-spacing: 0;
+  color: #111;
+}
+
+/* Bio paragraph */
+.bio-text {
+  font-family: "source-serif-pro", serif !important;
+  font-size: 1rem;         /* 16px */
+  line-height: 1.65;
+  color: #444;
+}
+
+/* "My Latest Projects" */
+.leftSectionTitle {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;       /* 24px */
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Section labels like "Data Science" */
+.section-title {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;       /* 17–18px */
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* .about-page main {
+  background: linear-gradient(
+    to bottom,
+    #f9fafc 0%,
+    #ffffff 60%
+  );
+} */
+
+.leftSectionTitle {
+  position: relative;
+}
+
+.leftSectionTitle::after {
+  content: "";
+  position: absolute;
+  left: 23px;                
+  bottom: -8px;
+  width: 48px;
+  height: 3px;
+  border-radius: 999px;
+  background-color: #2563eb; 
+}
+.about-page #container {
+  /* background: #ffffff; */
+  padding: 48px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+}
+
+
+.top-nav {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.03),
+    rgba(0,0,0,0)
+  );
+  backdrop-filter: blur(6px);
+}
+
+/* ===== About page color system ===== */
+
+/* Soft blue background behind hero + projects */
+ /* body.about-page main {
+  background: linear-gradient(
+    to bottom,
+    #f5f7ff 0%,
+    #ffffff 55%
+  );
+}*  */ */
+
+/* Hero card: keep it bright white with a stronger shadow */
+body.about-page #container {
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+} */
+
+/* Accent underline under "My Latest Projects" */
+.about-page .leftSectionTitle {
+  position: relative;
+}
+
+
+/* =========================================
+   MOBILE TYPOGRAPHY (ABOUT PAGE ONLY)
+   Trigger: screens 760px and below
+   ========================================= */
+@media (max-width: 760px) {
+
+  /* Nav brand + nav links */
+  .about-page .head-name,
+  .about-page .top-nav a {
+    font-size: 0.8rem;        /* was 0.95rem */
+    letter-spacing: 0.06em;
+  }
+
+  /* "Meet Jeremy Langdon" */
+  .about-page .about-cs-label-name {
+    font-size: 1.2rem;        /* was 1.45rem */
+    margin-bottom: 6px;
+  }
+
+  /* Bio text paragraph */
+  .about-page .bio-text {
+    font-size: 0.95rem;       /* was 1rem */
+    line-height: 1.55;
+  }
+
+  /* "My Latest Projects" */
+  .about-page .leftSectionTitle {
+    font-size: 1.3rem;        /* was 1.6rem */
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  /* Data Science / UX section labels */
+  .about-page .section-title {
+    font-size: 0.8rem;        /* was 0.9rem */
+    letter-spacing: 0.10em;
+  }
+
+  /* Accent underline – make shorter on mobile */
+  .about-page .leftSectionTitle::after {
+    width: 36px;              /* was 52px */
+    height: 3px;
+  }
+}
+
+/* Fix: add side padding for titles on mobile */
+@media (max-width: 760px) {
+  /* "My Latest Projects" */
+  .leftSectionTitle {
+    padding: 0 16px;
+  }
+
+  /* Section labels like "DATA SCIENCE", "UX & PRODUCT" */
+  .row-2 .section-title,
+  .row-3 .section-title {
+    padding: 0 16px;
+  }
+}
+
+
+/* Fix underline positioning on mobile */
+@media (max-width: 760px) {
+  .leftSectionTitle::after {
+    left: 16px !important;   /* match the text padding */
+    width: 36px;             /* slightly shorter underline */
+  }
+}
+
+
+@media (max-width: 760px) {
+  .about-page #container {
+    padding: 16px !important; 
+  
+  }
+}
+
+@media (max-width: 760px) {
+  .top-nav {
+    padding-bottom: 4px !important; 
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Mobile: pull hero card closer to nav and reduce top padding */
+@media (max-width: 760px) {
+  .about-page #container {
+    padding-top: 0px !important;   /* was effectively ~60px */
+  }
+
+  .nav-divider {
+    margin-top: 0px !important;     /* was 27px */
+  }
+}
+
+@media (max-width: 760px) {
+  .about-page #container img {
+    margin-top: -34px !important;
+  }
+
+  .about-page .bio-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+.about-page #container {
+  margin-top: 0px !important;
+}
+
+.about-page .bio-section {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.about-page .profile-pic img {
+  margin-top: 0 !important;
+}
+
+@media (min-width: 761px) {
+  #container {
+    display: grid !important;
+    grid-template-columns: 160px 1fr !important;
+    gap: 40px !important;
+    align-items: center !important;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.card-image {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.bio-text {
+  max-width: 550px;
+}
+
+/* About page: remove the full-bleed gradient under the header */
+.about-page .full-bleed,
+.about-page .nav-divider {
+  display: none;
+}
+
+/* About page: hide the global full-bleed gradient under the hero card */
+.about-page .full-bleed,
+.about-page .nav-divider {
+  display: none !important;
+}
+
+/* Kill the gradient strip + any leftovers everywhere */
+.full-bleed,
+.nav-fade,
+.nav-divider {
+  display: none !important;
+}
+
+.leftSectionTitle {
+  margin-top: 32px;  /* or even 24px if you want it tighter */
+}
+/* FORCE DESKTOP ABOUT LAYOUT */
+@media (min-width: 900px) {
+  .about-page #container {
+    display: grid !important;
+    grid-template-columns: 140px 1fr !important;
+    align-items: start !important;
+    justify-items: start !important;
+    gap: 40px !important;
+  }
+
+  .about-page .profile-pic img {
+    margin-top: 38px !important;   /* stops random centering from overrides */
+    justify-self: start !important;
+  }
+
+  .about-page .bio-section {
+    text-align: left !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+
+
+/* --- ABOUT PAGE REDESIGN (v2) --- */
+
+.about-page main {
+  padding-top: 56px;              /* pull card up a bit */
+  background: #ffffff;            /* softer grey behind card + projects */
+}
+
+/* Main bio card */
+#container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 40px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 18px 55px rgba(0,0,0,0.08);
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+/* Profile image */
+.profile-pic {
+  flex-shrink: 0;
+}
+
+.profile-pic img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;                 /* make it a clean circle */
+  /* border: px solid #ffffff; */
+  margin-top: 0 !important;           /* kill old offsets */
+}
+
+/* Heading: “Meet Jeremy Langdon” */
+.about-cs-label-name {
+  font-family: "Lora", serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 10px;
+}
+
+/* Body copy */
+.bio-text {
+  font-family: "source-serif-pro", serif !important;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #4b5563;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* LinkedIn button spacing */
+.nav-buttons {
+  margin-top: 18px;
+}
+
+/* “My Latest Projects” alignment + spacing */
+.leftSectionTitle {
+  max-width: 980px;
+  margin: 40px auto 8px;   /* lines it up with the card */
+  padding: 0 40px;
+}
+
+/* Make the grey column align for rows under it */
+.row-2,
+.row-3 {
+  max-width: 980px;
+  margin: 0 auto 40px;
+  padding: 0 40px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 760px) {
+  #container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .profile-pic img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .bio-text {
+    text-align: left;
+    margin-top: 6px;
+  }
+
+  .leftSectionTitle,
+  .row-2,
+  .row-3 {
+    padding: 0 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Make whole page white but card spaced cleanly */
+.about-page main {
+  /* background: #ffffff !important; */
+}
+
+
+
+/* FORCE profile pic to be an actual circular avatar with circular shadow */
+.about-page .profile-pic {
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 50% !important;
+}
+
+.about-page main {
+  background: transparent !important;
+}
+
+/* Make bio card + heading + project sections same width */
+.about-page #container,
+.about-page .leftSectionTitle,
+.about-page .row-2,
+.about-page .row-3 {
+  max-width: 980px;   /* pick any value you like */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Remove extra white space at bottom of the project cards */
+.about-page .row-2,
+.about-page .row-3 {
+  padding-bottom: 0 !important;
+}
+
+.about-page .card {
+  margin-bottom: 0 !important;
+  padding-bottom: 24px !important; /* tighten the bottom of each card */
+}
+
+.about-page .cards {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+
