@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SFAIF customer segmentation</title>
+    <title>SFIAF customer segmentation</title>
 
     <link rel="stylesheet" href="customersegmentation/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
@@ -25,20 +25,20 @@
 
 <main id="start">
   <div class="cs-title">
-    <h1>San Francisco International Arts Festival Audience Segmentation,</h1>
-    <h1>Tag Cleanup, & Marketing Strategy Case Study</h1>
+    <h1>San Francisco International Arts Festival</h1>
+    <h1>Customer Segmentation, Data Analytics & Marketing Strategy Case Study</h1>
   </div>
   <br>
 
   <div class="case-summary-grid">
-    <div><strong class="sans">Tools</strong><br>Python, Pandas, NationBuilder</div>
-    <div><strong class="sans">Methods</strong><br>Tag filtering, normalization, segmentation</div>
-    <div><strong class="sans">Dataset</strong><br>14,809 customers<br>1300+ raw tags</div>
+    <div><strong class="sans">Tools</strong><br>Python, CRM</div>
+    <div><strong class="sans">Methods</strong><br>Data Cleaning, normalization, segmentation</div>
+    <div><strong class="sans">Dataset</strong><br>14,809 customer dataset<br>1300+ unique tags</div>
     <div><strong class="sans">Outcome</strong><br>1,415 targetable users<br>12 genre groups</div>
   </div>
 
   <section class="case-study-header">
-    <h1>SFAIF Customer Segmentation</h1>
+    <h1>SFIAF Customer Segmentation Report</h1>
     <aside class="toc">
       <h4>On this page</h4>
       <ul>
@@ -53,29 +53,21 @@
     </aside>
 
     <p>
-      This case study shows how I turned messy NationBuilder audience data into a usable segmentation system for the
-      San Francisco International Arts Festival. The dataset contained customer names, emails, and long histories of tags,
-      but those tags were inconsistent, incomplete, and often unusable for targeted outreach. My role was to clean that
-      structure, identify meaningful audience groupings, and translate the results into marketing recommendations the
-      organization could actually use.
+      This case study shows how I used and cleaned a disorganized CRM of over 14,800 customers, and turned it into segmentable list for marketing outreach for the San Francisco International Arts Festival. The dataset contained customer names, emails, and long histories of inconsistent customer preference tags, which had duplicates, multiple varions of the same feature, and was incomplete and unusable for targeted outreach. My role was to help increase conversions and overall effetiveness on mailing lists. During this report I identified and segemented audience groupings, and translated the results into marketing recommendations, and consulted for better data collection management practices that the company has now adopted.
     </p>
   </section>
 
   <figure class="cs-figure">
-    <img src="images/segmentation-overview.png" alt="Genre segmentation overview for SFAIF audience">
+    <img src="images/segmentation-overview.png" alt="Genre segmentation overview for SFIAF audience">
     <figcaption>
-      After filtering usable artist tags and grouping them into broader genres, the audience could be organized into a set of
-      clear segments for targeted marketing and cross-promotion.
+      Here is a distrubution of genres across customer preferences. This is the result of having over 1300 unique tags be grouped by genre, then by customers with a history of purchases of those artists/event types.
     </figcaption>
   </figure>
 
   <section class="case-study-header">
-    <h1>SFAIF Customer Segmentation</h1>
+    <h1>SFIAF Customer Segmentation</h1>
     <p>
-      A data strategy case study focused on audience segmentation, tag cleanup, and identifying the strongest groups for
-      targeted marketing. Rather than building a predictive model, this project centered on making an existing CRM dataset
-      structurally useful by converting scattered historical labels into a segmentation framework that could support campaigns,
-      recommendations, and future audience growth.
+      This is a data analytics case study that focused on audience segmentation, customer tag cleanup, and creating groups for targeted marketing. This study explores applications used with python, a customer relationship management system (Nationbuilder), and a presentation to stakeholders showcasing the findings and translating them into actionable results.
     </p>
   </section>
 
@@ -84,19 +76,13 @@
   <section id="overview" class="business-context">
     <h2>Project Overview</h2>
     <p>
-      SFAIF had a large audience database, but most of it could not be used for preference-based marketing. Historical tagging
-      practices were inconsistent, artist names appeared in multiple forms, and many audience records had no usable tags at all.
-      That meant the organization had a valuable pool of customer history, but very little of it could be turned into precise
-      targeting.
+      Over the course of a decade, SFIAF has accumulated a large audience database of over 15,000 emails (14,800 unique customers). On this mailing list customers were given tags on purchases. If a customer a made a purchase for a show, they would be tagged in the sytem related to the name of the show. In this way customers could be tracked by preference or purchasing behavior. I identified this opportunity and presented the case to stakeholders saying this is was an opportunity to segments their customers and create segments from these lists to creat targeted emailing groups, increasing conversion potential on marketing outreach, but due to data consitency, onyl a small fraction could be used for preference-based marketing. 
     </p>
     <p>
-      I analyzed the NationBuilder mailing list and filtered the tags into usable artist and genre categories. Across 22
-      events and artists with usable naming patterns, I identified 65 unique tags and 1,415 customers who had at least one
-      usable tag. Those 1,415 users became the targetable audience subset for this analysis.
+      I was given a list of artists/show names (organized by genre), that needed to be used to group customers into. I analyzed their NationBuilder (CRM system) mailing list and began cleaning the data by combining duplicate emails that had different information, removing noise that weren't customers, and doing some exploratory data analysis to understand the dataset. From the list of relevant(current artists), out of the 14,800 unique users, only 1,415 users became the targetable audience subset for this analysis.
     </p>
     <p>
-      From there, I grouped those customers into 12 genre categories so the organization could see where audience density,
-      affinity, and cross-promotion potential were strongest.
+      From there, I grouped those customers into 12 genre categories so the organization could have a targeted emailing list, and understand how much of their dataset was useful.
     </p>
   </section>
 
@@ -115,7 +101,7 @@
     </ul>
 
     <p>
-      My role was not just to count tagged users, but to create a cleaned structure that could support real campaign strategy
+      My role was to understand and translate the dateset into clear and actionable results, not just count tagged users and create a list, but to create a cleaned structure that could support real campaign strategy
       and future CRM improvements.
     </p>
   </section>
@@ -123,8 +109,8 @@
   <section class="data-dictionary">
     <h2>Data Source and Working Structure</h2>
     <p>
-      The analysis was based on a NationBuilder people export containing customer names, emails, and historical tag data.
-      The most important working field was the tag history, which included artist names, event references, and inconsistent
+      The analysis was based on a NationBuilder customer export containing customer names, emails, and historical tag (artist/venue history) data.
+      The most important working feature was the tag history, which included artist names, event references, and inconsistent
       label variants that had to be interpreted and standardized before they could support segmentation.
     </p>
 
@@ -212,7 +198,12 @@ usable_customer_tags = df["tags_split"].apply(
   </p>
 
   <br>
-
+ <figure class="cs-figure">
+    <img src="images/segmentdis.png" alt="total usable segment overview for SFIAF audience">
+    <figcaption>
+Segmented campaigns typically produce 2–5× higher open rates and 3–10× higher conversion rates, meaning this 9.6% subset represents the most actionable portion of the audience. Expanding tag coverage is the single largest opportunity to improve marketing effectiveness.
+    </figcaption>
+  </figure>
 
 <strong class="sans">Step 3:</strong> Resolve inconsistent artist naming (manual + attempted automation).
 
@@ -247,9 +238,7 @@ process.extract("Green Room", unique_tags, limit=5)
 
 <p class="serif">
   <strong class="sans">Observations:</strong>
-  I tested fuzzy similarity and clustering approaches to group similar tag names automatically. However, these methods produced
-  unreliable groupings. Tags that shared common words such as “Green” or “Dance” were incorrectly grouped together, even when
-  they referred to completely different artists or events.
+  In order to group the similar tags, I tested fuzzy similarity and ML clustering approaches to group similar tag names automatically. However, these methods produced unreliable groupings. Tags that shared common words such as “Green” or “Dance” were incorrectly grouped together, even when they referred to completely different artists or events.
 </p>
 
 <br>
@@ -288,18 +277,18 @@ artist_map = {
 
 df["genre_matches"] = df["tags_split"].apply(assign_genre_groups)</code></pre>
 
-  <figure class="cs-figure">
-    <img src="images/tag-cleanup-process.png" alt="Tag cleanup and normalization process for SFAIF NationBuilder data">
+  <!-- <figure class="cs-figure">
+    <img src="images/tag-cleanup-process.png" alt="Tag cleanup and normalization process for SFIAF NationBuilder data">
     <figcaption>
       The segmentation process depended on translating inconsistent historical labels into standardized artist and genre
       groupings that could be used for campaign strategy.
     </figcaption>
-  </figure>
+  </figure> -->
 
   <p class="serif">
     <strong class="sans">Observations:</strong>
     This step turned fragmented CRM labels into a structure the organization could use. Instead of treating each artist tag
-    as a separate silo, I grouped them into broader genres so SFAIF could identify concentrated audience behavior and plan
+    as a separate silo, I grouped them into broader genres so SFIAF could identify concentrated audience behavior and plan
     cross-promotion more strategically.
   </p>
 
@@ -354,11 +343,11 @@ df["genre_matches"] = df["tags_split"].apply(assign_genre_groups)</code></pre>
   <p class="serif">
     <strong class="sans">Interpretation:</strong>
     This concentration makes the prioritization decision much clearer. Rather than trying to build custom campaigns for every
-    category, SFAIF can focus most segmentation effort on the largest groups and fold smaller genres into broader outreach.
+    category, SFIAF can focus most segmentation effort on the largest groups and fold smaller genres into broader outreach.
   </p>
 
   <figure class="cs-figure">
-    <img src="images/genre-distribution.png" alt="Distribution of customers across SFAIF genre segments">
+    <img src="images/genre-distribution.png" alt="Distribution of customers across SFIAF genre segments">
     <figcaption>
       Most of the targetable audience is concentrated in a small number of genres, with Spoken Word and World Music carrying
       the largest share of usable audience data.
@@ -383,8 +372,8 @@ df["genre_matches"] = df["tags_split"].apply(assign_genre_groups)</code></pre>
   <h1 id="labels">Label System and Structural Gaps</h1>
 
   <p>
-    One of the most important takeaways from this project was that the main limitation was not audience interest. It was data
-    structure. A total of 36 artists had no usable tags, which meant their audiences could not be identified or targeted at all.
+    One of the most important takeaways from this was that the main limitation was not audience interest. It was data
+    structure. A total of 36 current (and historical) artists had no usable tags, which meant their audiences could not be identified or targeted at all.
     This prevented retention, cross-promotion, and behavior-based outreach for a large portion of the festival's programming.
   </p>
 
@@ -423,7 +412,7 @@ len(artists_without_tags)
   <p class="serif">
     <strong class="sans">2. Use genre-based cross-promotion.</strong>
     Customers who attended one artist within a genre are statistically more likely to respond to similar artists in that same
-    category. Instead of promoting each event in isolation, SFAIF can use existing affinity signals to expand discovery.
+    category. Instead of promoting each event in isolation, SFIAF can use existing affinity signals to expand discovery.
   </p>
 
   <p class="serif">
@@ -447,9 +436,9 @@ len(artists_without_tags)
   <div id="summary">
     <div class="summary-card">
       <strong>In summary:</strong>
-      This project highlights my ability to take a messy real-world dataset and turn it into a usable strategic framework.
-      I audited inconsistent NationBuilder tags, isolated the portion of the audience that could support segmentation,
-      grouped users into meaningful genres, and translated those findings into concrete marketing recommendations.
+      Hello, If you are reading this, I'm Jeremy, and this work highlights my ability to take a messy real-world dataset and turn it into a usable strategic framework.
+      I audited an inconsistent messy CRM dataset, cleaned and organized it, and isolated the portion of the audience that could support segmentation, while
+      grouping users into meaningful genres, and translated those findings into concrete marketing recommendations.
       <br><br>
       It also shows that my process goes beyond surface-level reporting. Instead of only describing audience counts, I identified
       the structural reason targeting was limited and framed a path for improving the system over time. The result was not just
