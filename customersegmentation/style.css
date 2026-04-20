@@ -1,5 +1,5 @@
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 
@@ -303,7 +303,7 @@ main * {
   left: 0;
   height: 4px;
   width: 0;
-  background: #ffe601;
+  background: #2563EB;
   z-index: 9999;
   transition: width 0.1s linear;
 }
@@ -318,29 +318,38 @@ main * {
 .toc {
   position: fixed;
   top: 120px;
-  right: 40px;
-  width: 180px;
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
-  line-height: 1.5;
+  left: calc(50% + 464px);
+  width: 190px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.45;
 }
 .toc h4 {
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  display: none;
 }
 .toc ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
+  margin: 0;
+  border-left: 1px solid #e0e0e0;
 }
 .toc li {
-  margin-bottom: 0.4rem;
+  margin: 0;
+  padding: 7px 8px 7px 20px;
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+}
+.toc li:has(a.active) {
+  border-left-color: #111;
 }
 .toc a {
-  color: #666;
+  display: inline;
+  color: #888;
   text-decoration: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 .toc a:hover {
-  color: #000;
+  color: #222;
 }
 @media (max-width: 1100px) {
   .toc { display: none; }
@@ -505,7 +514,8 @@ code[class*="language-"] {
 }
 
 .toc a.active {
-  color: #000 !important;
+  color: #111 !important;
+  font-weight: 600;
 }
 
 /* =========================
@@ -708,4 +718,275 @@ pre code {
   flex-direction: column;
   align-items: flex-start;
   gap: 6px;
+}
+
+/* ── Healthcare case study ─────────────────────────────────────── */
+
+.project-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.cs-title { margin-bottom: 28px; }
+.cs-title h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px;
+}
+.cs-title .deck {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.06rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1px;
+  background: #e1e1e1;
+  border: 1px solid #e1e1e1;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0 0 2rem;
+}
+.metric-cell { background: #fff; padding: 18px 12px; text-align: center; }
+.metric-val {
+  font-family: var(--font-sans);
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #222;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.metric-lab {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-family: var(--font-sans);
+}
+
+.pull-quote {
+  background: #f6f6f6;
+  border-left: 4px solid #ccc;
+  border-radius: 0 6px 6px 0;
+  padding: 18px 20px;
+  margin: 2rem 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.callout {
+  background: #FFFBEB;
+  border: 1px solid #FCD34D;
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin: 24px 0;
+  font-size: 0.92rem;
+  font-family: var(--font-sans);
+}
+.callout strong { color: #92400E; }
+.callout.blue { background: #EFF6FF; border-color: #93C5FD; }
+.callout.blue strong { color: #1E40AF; }
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 20px 0 28px;
+}
+.data-table th {
+  background: #f6f6f6;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  padding: 10px 12px;
+  text-align: left;
+  border: 1px solid #e1e1e1;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.data-table td {
+  font-family: var(--font-serif);
+  padding: 9px 12px;
+  border: 1px solid #e1e1e1;
+  vertical-align: top;
+}
+.data-table tr:nth-child(even) td { background: #fafafa; }
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+.comparison-col h3 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #666;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e8e8e8;
+}
+.comparison-col.win h3 { color: #16A34A; border-color: #16A34A; }
+.comparison-col.lose h3 { color: #DC2626; border-color: #DC2626; }
+.comparison-col.blue h3 { color: #1D4ED8; border-color: #1D4ED8; }
+.comparison-col li { font-family: var(--font-sans); font-size: 0.9rem; margin-bottom: 8px; }
+
+.comparison-question {
+  background: #f6f6f6;
+  border: 1px solid #e1e1e1;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 16px;
+}
+.comparison-question span {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 0 0 2rem;
+}
+.response-box {
+  border-radius: 8px;
+  padding: 20px 22px;
+}
+.response-box .rb-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: block;
+}
+.response-box .rb-text {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+.response-box .rb-verdict {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  font-style: italic;
+}
+.response-box.base { background: #fafafa; border: 1px solid #e1e1e1; }
+.response-box.base .rb-label { color: #666; }
+.response-box.base .rb-verdict { color: #DC2626; }
+.response-box.finetuned { background: #f0fdf4; border: 1px solid #86efac; }
+.response-box.finetuned .rb-label { color: #16A34A; }
+.response-box.finetuned .rb-verdict { color: #15803d; }
+
+.fails-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 12px;
+  row-gap: 6px;
+  margin: 16px 0 24px;
+  align-items: stretch;
+}
+.fails-row-title {
+  grid-column: 1 / -1;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999;
+  padding: 14px 0 2px;
+}
+.fails-col-header {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+.fails-col-base-header { color: #DC2626; background: #fff5f5; border: 1px solid #fecaca; }
+.fails-col-ft-header   { color: #16A34A; background: #f0fdf4; border: 1px solid #86efac; }
+.fails-item { padding: 12px 14px; border-radius: 8px; }
+.fails-item.base-fail { background: #fff5f5; border: 1px solid #fecaca; }
+.fails-item.ft-win    { background: #f0fdf4; border: 1px solid #86efac; }
+.fails-item p { font-family: var(--font-sans); font-size: 0.88rem; margin: 0; line-height: 1.5; color: #333; }
+@media (max-width: 700px) { .fails-grid { grid-template-columns: 1fr; } }
+
+.live-app-link {
+  display: inline-block;
+  margin: 10px 0 20px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: #1D4ED8;
+  text-decoration: none;
+}
+.live-app-link:hover { text-decoration: underline; }
+
+.live-app-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #1D4ED8;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  letter-spacing: 0.01em;
+  transition: background 0.15s;
+}
+.live-app-btn:hover { background: #1e40af; }
+
+.footer-app-btn {
+  display: inline-block;
+  padding: 6px 18px;
+  background: #2e6b2b;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow:
+    inset 0 2px 4px rgba(0,0,0,0.25),
+    0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.15s;
+}
+.footer-app-btn:hover { background: #255823; }
+
+@media (max-width: 700px) {
+  .before-after { grid-template-columns: 1fr; }
+  .comparison-grid { grid-template-columns: 1fr; }
+  .metrics-row { grid-template-columns: repeat(2, 1fr); }
 }

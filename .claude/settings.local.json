@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import matplotlib; print\\('matplotlib ok'\\)\")",
+      "Bash(py --version)",
+      "Bash(py -c \"import matplotlib; print\\('matplotlib ok'\\)\")",
+      "Bash(py -c ' *)"
+    ]
+  }
+}
