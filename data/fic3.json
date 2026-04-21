@@ -1,0 +1,251 @@
+[
+  {
+    "Tickets": "Secondary Research on Membership Copywriting for Tiered Access & PWYC Models",
+    "Type": "Task \ud83d\udd28",
+    "Status": "Sprint In Progress",
+    "Sprint": "Sprint 2",
+    "User Stories": {
+      "type": "ul",
+      "items": [
+        "As a UX researcher, I want to analyze how other mission-aligned organizations communicate their membership tiers and pricing so I can guide FIC and the UX writing team.",
+        "As an FIC stakeholder, I want to understand how similar orgs explain membership systems so our messaging feels clear, inviting, and values-aligned."
+      ]
+    },
+    "Background": "FIC is rolling out a new membership system with PWYC options, premium features behind a paywall, and multiple audience types. Values-aligned copy is critical; research will gather patterns from mission-aligned platforms (e.g., sliding-scale, gated content, nonprofit/co-op models).",
+    "Problem to Solve": {
+      "type": "ul",
+      "items": [
+        "Explain tier differences simply",
+        "Encourage fair PWYC payment",
+        "Reduce confusion around locked features",
+        "Build trust with value-focused messaging"
+      ]
+    },
+    "Task Goals": {
+      "type": "ol",
+      "items": [
+        "Identify how mission-driven platforms explain tiers, PWYC, members-only features, and upgrade CTAs",
+        "Document strengths/pitfalls and value-communication patterns",
+        "Summarize approaches that fit FIC\u2019s audiences"
+      ]
+    },
+    "Task Scope": {
+      "type": "ol",
+      "items": [
+        "Collect public examples from nonprofits/co-ops/sliding-scale services/open-source/IC directories",
+        "Analyze tier names/framing, benefits, locked-content framing, PWYC language, tone",
+        "Organize findings into deck/report + reference doc",
+        "Coordinate with writing/strategy to align with values and timeline"
+      ]
+    },
+    "Expected Outcomes": {
+      "type": "ul",
+      "items": [
+        "Curated examples of membership experiences and language",
+        "Summary of effective patterns/strategies",
+        "Reference doc for writing team",
+        "Strategic talking points for client"
+      ]
+    },
+    "Supported Use Cases": {
+      "type": "ul",
+      "items": [
+        "Give FIC leadership confidence in PWYC/membership messaging",
+        "Equip copywriters with examples and best practices",
+        "Guide UX writers on pricing/feature-access messaging",
+        "Clarify paid feature value and rationale"
+      ]
+    },
+    "Acceptance Criteria": {
+      "type": "ol",
+      "items": [
+        "Multiple membership/PWYC examples included",
+        "Report highlights strengths/risks, tier/gating explanations, persuasive values-aligned language",
+        "Findings shared with writing team and client",
+        "Collaboration with UX writers on how findings inform copy",
+        "Delivered by end of sprint"
+      ]
+    }
+  },
+  {
+    "Tickets": "Subscription and Membership Business Strategy",
+    "Type": "Task \ud83d\udd28",
+    "Status": "Sprint In Progress",
+    "Sprint": "Sprint 2",
+    "User Stories": {
+      "type": "ul",
+      "items": [
+        "As an FIC executive director, I want to increase retention to sustain revenue.",
+        "As a product manager, I want to help FIC make informed strategy decisions so the org can grow."
+      ]
+    },
+    "Background": "FIC is defining/structuring paid services with a clearer understanding of the customer journey across exploration, joining, and ongoing engagement.",
+    "Problem to Solve": "User needs evolve over time; without alignment, drop-off threatens revenue and stability.",
+    "Task Goals": {
+      "type": "ol",
+      "items": [
+        "Develop a framework aligning offerings and membership states with business goals and user needs across the lifecycle"
+      ]
+    },
+    "Task Scope": {
+      "type": "ol",
+      "items": [
+        "Run CX Strategy Workshop (Seekers & Community Owners)",
+        "Share takeaways; build current flows and future funnels for both audiences",
+        "Identify research needs"
+      ]
+    },
+    "Expected Outcomes": {
+      "type": "ul",
+      "items": [
+        "Workshop takeaways",
+        "Customer experience funnel (Seekers, Community Owners)",
+        "UX flows (Seekers, Community Owners)",
+        "Workshop report with insights/recommendations"
+      ]
+    },
+    "Supported Use Cases": {
+      "type": "ul",
+      "items": [
+        "What to show to logged-in vs new visitors",
+        "When to promote subscriptions vs memberships",
+        "Tracking progression from visitors to members",
+        "Clarity on goals of paid services",
+        "Shared framework for updating offerings"
+      ]
+    },
+    "Acceptance Criteria": {
+      "type": "ol",
+      "items": [
+        "Workshop completed; conversion points documented for both audiences",
+        "Services defined: subscription vs membership; targets; features/benefits; overlaps/edge cases",
+        "Journey maps/flows of current and future states (visual + table)",
+        "Short- vs long-term goals; touchpoints; retention tactics",
+        "Framework for adapting offerings by auth state (visitor/user/member)"
+      ]
+    }
+  },
+  {
+    "Tickets": "Defining Membership for Research",
+    "Type": "Task \ud83d\udd28",
+    "Status": "Sprint In Progress",
+    "Sprint": "Sprint 2",
+    "User Stories": {
+      "type": "ul",
+      "items": [
+        "As an FIC director, I want to reflect membership ideas to users via research on existing models.",
+        "As strategy, I want to progress/define membership to guide client strategy and enable design/research.",
+        "As research, I want to understand membership strategy, materials, and info to plan studies with stakeholders."
+      ]
+    },
+    "Background": "Membership changes are being discussed; site is ready for design but membership definition is incomplete. Strategy must inform research materials/data.",
+    "Problem to Solve": {
+      "type": "ul",
+      "items": [
+        "Too many options; unclear fit for user stages and goals; risk of lower conversions",
+        "Membership state incomplete \u2192 teams unprepared for research/strategy/design"
+      ]
+    },
+    "Task Goals": {
+      "type": "ol",
+      "items": [
+        "Help FIC make informed membership decisions by defining structure, interpreting insights, and analyzing client work with them"
+      ]
+    },
+    "Task Scope": {
+      "type": "ol",
+      "items": [
+        "Meet with research",
+        "Understand client priorities",
+        "Assist with insights gathering",
+        "Co-define recommendations for membership structure"
+      ]
+    },
+    "Expected Outcomes": {
+      "type": "ul",
+      "items": [
+        "Document showing full understanding of membership strategy including proposed features and pricing"
+      ]
+    },
+    "Supported Use Cases": {
+      "type": "ul",
+      "items": [
+        "Research team receives inputs to conduct studies",
+        "Stakeholders build new membership structure"
+      ]
+    },
+    "Acceptance Criteria": {
+      "type": "ol",
+      "items": [
+        "Features & pricing fully documented per tier (features, access level, pricing model, audiences)",
+        "Key artifacts reviewed (Payment Tiers doc, Figma, Miro)",
+        "Synthesis doc for research: current/proposed structures, gaps/overlaps, what\u2019s testable",
+        "Research & strategy alignment on priorities, RQs, next steps",
+        "Client alignment with documented open questions"
+      ]
+    }
+  },
+  {
+    "Tickets": "Develop the Community Listing Page",
+    "Type": "Task \ud83d\udd28",
+    "Status": "Complete",
+    "Sprint": "Sprint 2",
+    "User Stories": {
+      "type": "ul",
+      "items": [
+        "As a seeker, I want to browse communities in a clear and trustworthy directory so I can find ones that fit my needs.",
+        "As an intentional community admin, I want my listing to be accurate and appealing so seekers can engage with us."
+      ]
+    },
+    "Background": "The community listing page is central to FIC's directory. It must balance seeker needs (search, filtering, clarity) with community needs (accurate, appealing listings).",
+    "Problem to Solve": {
+      "type": "ul",
+      "items": [
+        "Current listings are inconsistent, hard to browse, and may not instill trust or clarity for seekers."
+      ]
+    },
+    "Task Goals": {
+      "type": "ol",
+      "items": [
+        "Design a new community listing page that improves discoverability and clarity",
+        "Ensure listings support seeker decision-making and community visibility",
+        "Align design with membership model and premium features"
+      ]
+    },
+    "Task Scope": {
+      "type": "ol",
+      "items": [
+        "Audit current listing structure and content",
+        "Gather requirements from seekers and communities",
+        "Design new layout and filtering system",
+        "Implement updated listing page in product"
+      ]
+    },
+    "Expected Outcomes": {
+      "type": "ul",
+      "items": [
+        "A redesigned listing page live on the site",
+        "Improved seeker experience (clarity, trust, discoverability)",
+        "Improved community experience (accurate, appealing representation)"
+      ]
+    },
+    "Supported Use Cases": {
+      "type": "ul",
+      "items": [
+        "Seeker browsing/filtering listings",
+        "Seeker viewing a specific community",
+        "Community admin ensuring their listing is up-to-date and appealing"
+      ]
+    },
+    "Acceptance Criteria": {
+      "type": "ol",
+      "items": [
+        "New listing page implemented and deployed",
+        "Listings include clear and consistent details",
+        "Filtering/search functions tested and validated",
+        "Seeker feedback collected and addressed",
+        "Community admin feedback incorporated"
+      ]
+    }
+  }
+]

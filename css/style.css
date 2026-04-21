@@ -1,0 +1,4049 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* body.about-page {
+  background-image: url("../img/7461.jpg");
+  background-color: #ffffff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100%;   /* only 20% of screen height */
+  /* background-position: top center;
+}  */
+
+/* TOP HERO BACKGROUND — DOES NOT MOVE, DOES NOT SQUASH */
+.about-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh; /* shows only top 20% of the screen */
+  background-image: url("../img/7461.jpg");
+  background-size: cover;
+  background-position: center 19%;
+  background-repeat: no-repeat;
+  z-index: -1; /* behind all content */
+}
+
+/* Make sure the page itself doesn't overwrite the background */
+body.about-page {
+  position: relative;
+  background: white !important;
+}
+
+/* Make sure MAIN is transparent */
+.about-page main {
+  background: transparent !important;
+}
+
+
+.about-page .bio-section {
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+main {
+  flex: 1;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Desktop/base: header matches main container width */
+/* ===== SIMPLE HEADER FOR CASE STUDY (MATCH WIDTH) ===== */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 6px 16px 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  position: static;
+  box-sizing: border-box;
+}
+
+.left-header {
+  display: flex;
+  align-items: center;
+}
+
+.head-name {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.top-nav {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.top-nav a {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #333;
+  padding-bottom: 4px;
+}
+
+.top-nav a:hover,
+.top-nav a:focus {
+  color: #1a73e8;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+.top-nav a[aria-current="page"] {
+  color: #1a73e8;
+}
+
+
+.top-nav a:hover {
+  /* text-decoration: underline;  */
+   /* transform: scale(1.1); */
+}
+
+
+.profile-pic img {
+  width: auto;
+  height: 70px;
+  /* transition: transform 3s; */
+  margin-top: 45px;
+}
+
+/* profile photo styling */
+
+
+
+/* end style of profile photo  */
+
+
+.profile-pic img:hover {
+  /* transform: scale(1.4); */
+}
+
+.bio-section {
+  padding: 60px 20px;
+  max-width: 800px;
+  text-align: left;
+}
+
+.bio-box {
+  font-size: 18pt;
+  font-weight: 700;               /* bold */
+  margin-bottom: 20px;
+
+  /* New font: Lora */
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;               /* change number: 400 = regular, 700 = bold */
+  font-style: italic;
+}
+
+
+.bio-section { position: relative; }
+.bio-section > * { transform: translateY(-15px); }  /* adjust number */
+
+.nav-buttons {
+  display: flex;
+  /* margin-top: 10px; spacing below the bio */
+  justify-content: flex-start; /* align left */
+  gap: 2px;
+  padding-left: 14px;
+}
+
+.footer {
+  padding: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.footer a {
+ text-decoration: none;
+ color: #000;
+}
+
+#container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  display: grid;  /* KEEP THIS */
+  grid-template-columns: auto 1fr;  /* LEFT = photo, RIGHT = bio */
+  gap: 40px;
+  align-items: center;
+}
+
+
+.bio-name {
+  font-family: "Caveat", "Lato", sans-serif;
+  font-size: 25px;        /* your chosen size */
+  font-weight: 600;       /* strong but not ultra-heavy */
+  color: #1b1b1b;         /* deep neutral, softer than pure black */
+  margin-bottom: 8px;     /* tight gap to subheading */
+}
+
+.bio-box {
+  font-family: "Lora", serif;
+font-weight: 400;
+font-style: italic;
+  font-size: 19px;        /* smaller than name */       /* semi-bold for subheading */
+  color: #333;            /* slightly lighter for hierarchy */
+  margin-top: 0;
+  margin-bottom: 6px;    /* space before paragraph */
+}
+
+.bio-text {
+  font-family: "source-serif-pro", serif !important;
+  font-size: 16px;
+  color: #444;
+  max-width: 600px;
+  text-align: left;
+  font-weight: 400;
+  line-height: 1.35rem;
+  margin-top: 0;
+
+  /* TURN OFF HYPHENATION */
+    hyphens: none !important;
+  -webkit-hyphens: none !important;
+  -ms-hyphens: none !important;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+
+
+
+@media (max-width: 760px) {
+  .about-page .bio-text {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;   /* lighter than the default 700 */
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+  }
+}
+
+
+
+.nav-gif {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+#iconhome {
+  margin-bottom: 20px;
+}
+.bio-content {
+  position: relative;
+  /* top: 59px; */
+  margin-top: 9px;
+}
+
+/* .about-page .clouds-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px; 
+  z-index: -1;
+  overflow: hidden;
+}
+
+.about-page .clouds-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: 40% 80%;
+} */
+
+.icon-link {         /*layout alignment and position of Icon containers */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin: 0 -15px; 
+}
+
+
+.nav-icon {        /* Behance and linkdin position and size */
+  font-size: 30px;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  color: #0A66C2;
+  align-items: flex-start;
+padding-top: 8px; 
+}
+
+.nav-icon .contact-page {        /* Behance and linkdin position and size */
+  font-size: 30px;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  color: #0A66C2;
+  align-items: flex-start;
+padding-top: 8px; 
+}
+
+/* =========================
+   HAMBURGER NAVIGATION
+   ========================= */
+.hamburger {
+  display: none;            /* hidden on desktop */
+  width: 40px;
+  height: 36px;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  height: 4px;      /* thickness */
+  width: 27px;      /* length */
+  background: #333; /* color */
+  margin: 4px 0;    /* space between bars */
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+
+/* base nav animation hook */
+.top-nav {
+  transition: max-height 240ms ease, opacity 180ms ease;
+  will-change: max-height, opacity;
+}
+
+/* =====================================
+   MOBILE LAYOUT (≤ 760px)
+   ===================================== */
+@media (max-width: 760px) {
+  /* show hamburger on small screens */
+  .hamburger { display: inline-block; }
+
+  .header {
+    position: relative;
+    padding: 16px 20px;
+  }
+
+  /* collapse nav by default */
+  .top-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 16px;
+
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .top-nav a {
+    padding: 10px 6px;
+    font-size: 16px;
+  }
+
+  /* when nav is open (JS toggles .open) */
+  .top-nav.open {
+    max-height: 240px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* About page container: stack vertically */
+  .about-page #container {
+    width: 100%;
+    padding: 24px 16px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;   /* stack items */
+    align-items: center;
+    gap: 18px;
+  }
+
+  /* 1. profile image */
+  .about-page .profile-pic { order: 1; }
+  .about-page .profile-pic img {
+    width: min(72vw, 320px);
+    height: auto;
+    margin-top: 8px;
+  }
+
+  /* 2. name + bio text */
+  .about-page .bio-section { 
+    order: 2;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    max-width: 680px;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .about-page .bio-name {
+    font-size: clamp(28px, 7vw, 40px);
+    text-align: center;
+    margin: 12px 0 8px;
+  }
+  .about-page .bio-box {
+    font-size: clamp(18px, 4.8vw, 22px);
+    text-align: left;
+    margin-top: 8px;
+  }
+  .about-page .bio-text {
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 10px 0 0;
+    padding: 0 2px;
+  }
+
+  /* 3. icons */
+  .about-page .nav-buttons {
+    order: 3;
+    justify-content: center;
+    gap: 16px;
+    padding-left: 0;
+    margin-top: 8px;
+  }
+  .about-page .nav-icon {
+    font-size: 28px;
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+  }
+
+  /* background cover smaller on phones */
+  .about-page .clouds-bg { height: 160px; }
+}
+
+/* smaller tweaks for very small devices */
+@media (max-width: 380px) {
+  .about-page .bio-text { font-size: 15px; }
+  .about-page .nav-icon { width: 52px; height: 52px; }
+}
+
+/* Only affect screens smaller than 760px */
+@media (max-width: 760px) {
+  /* Container: go full width instead of locked 1440px */
+  .about-page #container {
+    width: 100%;
+    padding: 24px 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    box-sizing: border-box;
+  }
+
+  /* Profile photo scales down */
+  .about-page .profile-pic img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-top: 8px;
+  }
+
+  /* Text fits the viewport */
+  .about-page .bio-section {
+    width: 100%;
+    max-width: 680px;
+  }
+  .about-page .bio-text {
+    overflow-wrap: anywhere;
+    hyphens: none;
+    line-height: 1.7;
+  }
+
+  /* Disable the hover zoom effect on small screens */
+  .about-page .profile-pic img:hover {
+    transform: none;
+  }
+}
+
+/* Prevent accidental horizontal scrolling globally */
+html, body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 760px) {
+  .about-page .bio-section {
+    margin-top: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .about-page .bio-box {
+    margin-top: 8px;
+    margin-bottom: 12px;
+  }
+  .about-page .bio-text {
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 760px) {
+  .about-page .bio-box {
+    text-align: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .about-page .profile-pic img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-top: 60px;   /* was 8px → push it down below cover */
+  }
+}
+
+@media (max-width: 760px) {
+  /* Lower the photo so it clears the cover */
+  .about-page .profile-pic img {
+     width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-top: 60px;      /* was 8px; this is what wasn’t applying */
+    margin-bottom: 12px;
+  }
+
+  /* Pull text section up closer */
+  .about-page .bio-section {
+    margin-top: 0;      /* remove extra vertical gap */
+    padding-top: 0;     /* no extra top padding */
+  }
+
+   .about-page .bio-section {
+    margin-top: 0;
+    padding: 12px 16px 0;
+  }
+
+  /* cancel the desktop translateY on mobile only */
+  .about-page .bio-section > * {
+    transform: none;
+  }
+}
+
+/* --- Tighten About spacing (desktop + mobile) --- */
+.about-page .bio-section > * { 
+  transform: none;                 /* cancel the hidden 30px push */
+}
+
+.bio-section {
+  padding: 24px 20px;              /* was 60px 20px */
+}
+
+.about-page .bio-section {
+  margin-top: 16px;                /* was 70px */
+}
+
+/* Mobile-only fine-tune: photo clears cover, but text sits closer */
+@media (max-width: 760px) {
+  .about-page .profile-pic img {
+    margin-top: 44px;              /* lower if still touching cover */
+    margin-bottom: 8px;            /* smaller gap before text */
+  }
+  .about-page .bio-section { 
+    padding-top: 0;                /* no extra top padding on mobile */
+  }
+}
+
+/* FINAL MOBILE GAP FIX — place at end of style.css */
+@media (max-width: 760px) {
+  /* 1) Remove vertical gap between photo block and bio block */
+  .about-page #container {
+    gap: 0 !important;
+    row-gap: 0 !important;   /* explicit for column flex */
+  }
+
+  /* 2) Photo clears the cover, but almost no space before text */
+  .about-page .profile-pic img {
+    width: min(72vw, 320px);
+    height: auto;
+    margin-top: 48px !important;   /* adjust if it still touches cover */
+    margin-bottom: 4px !important; /* tighten photo -> text gap */
+  }
+
+  /* 3) Pull bio block up; remove inner top padding */
+  .about-page .bio-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0;              /* optional: keep it snug */
+  }
+
+  /* 4) Cancel the hidden 30px push on all bio children */
+  .about-page .bio-section > * {
+    transform: none !important;
+  }
+
+  /* 5) Trim heading margins so they don’t add space */
+  .about-page .bio-name { margin: 4px 0 6px !important; }
+  .about-page .bio-box  { margin: 2px 0 8px !important; }
+}
+
+@media (max-width: 760px) {
+  .about-page .clouds-bg {
+    height: 73px;   /* was 160px on mobile */
+  }
+
+  /* Optional: nudge the photo up so spacing still looks tight */
+  .about-page .profile-pic img {
+    margin-top: 10px !important;  /* was 48–60px in various spots */
+  }
+}
+
+
+@media (max-width: 760px) {
+  .about-page #container {
+    padding: 2px 16px;  /* ← change to e.g. 8px 16px */
+  }
+}
+
+@media (max-width: 760px) {
+  .about-page .clouds-bg {
+    background: #000;          /* pure black */
+  }
+  .about-page .clouds-bg img {
+    display: none;             /* hide the existing cover image */
+  }
+  .about-page .head-name {
+    color: #fff;               /* white name in header */
+  }
+  .about-page .hamburger span {
+    background: #fff;          /* white hamburger bars */
+  }
+}
+
+/* Desktop: floating rounded nav bar */
+/* @media (min-width: 761px) {
+  .header {
+    top: 16px;
+    z-index: 1000;
+
+  
+    width: 100%;
+    max-width: 1440px;              
+    margin: 12px auto 0;             
+    padding: 14px 24px;             
+    box-sizing: border-box;
+
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+} */
+
+/* === Portfolio background: desktop only, resize-safe === */
+@media (min-width: 761px) {
+  body.portfolio-page {
+    /* use the new image */
+    background: none !important;
+    min-height: 100vh;
+  }
+}
+
+/* === Hide background on mobile === */
+@media (max-width: 760px) {
+  body.portfolio-page {
+    background: none !important;         /* no image on mobile */
+    background-color: #000;              /* optional fallback color */
+  }
+}
+
+/* =========================
+   Portfolio Page (scoped)
+   ========================= */
+
+.portfolio-page {
+  font-family: "Lato", sans-serif;
+}
+
+/* Optional cover at top (if you use .clouds-bg on this page) */
+.portfolio-page .clouds-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: -1;
+  overflow: hidden;
+}
+.portfolio-page .clouds-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 80%;
+  display: block;
+}
+
+.portfolio-page h1.cs-heading {
+  margin-bottom: 32px; /* remove !important so media queries can adjust */
+  /* text-decoration: underline 1px;
+    text-underline-offset: 7px; */
+}
+
+
+
+/* Section heading between cover and cards */
+.portfolio-page .cs-heading {
+  margin: 90px 0 47px;       /* space down from cover */
+  text-align: center;           /* your chosen size */
+  font-weight: 900;
+  color: #000000;
+    font-family: "lato";
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 40px;        /* your chosen size */ 
+}
+
+/* Cards grid container (exactly 3 per row on desktop) */
+.portfolio-page .cs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 across */
+  gap: 20px;
+  max-width: 800px;   /* total grid width cap */
+  margin: 0 auto 180px;/* centered, with bottom space */
+  padding: 0 12px;    /* small side padding for tiny screens */
+}
+
+/* Individual card */
+.portfolio-page .cs-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.6s ease, box-shadow 180ms ease;
+  font-family: "lato";
+  font-weight: 500;
+  margin: -5px 10px -5px;
+}
+.portfolio-page .cs-card:hover,
+.portfolio-page .cs-card:focus-visible {
+  transform: scale(1.03);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+  outline: none;
+}
+
+.portfolio-page .cs-card-3 .cs-media {
+  position: relative;
+  overflow: hidden;
+}
+
+/* show the real pixels, don’t upscale */
+.portfolio-page .cs-card-3 .cs-media img {
+  height: 100%;       /* lock the image to the container height */
+  width: auto;        /* maintain natural width */
+  transform: translateX(-20%); /* pan left/right without resampling */
+}
+/* Cover image inside card (portrait) */
+.portfolio-page .cs-media {
+  width: 100%;
+  aspect-ratio: 3 / 4;     /* taller than wide */
+  background: #ddd;
+  overflow: hidden;
+}
+
+.portfolio-page .cs-media img.fit-cover {
+  object-fit: contain !important;  /* or cover, fill, etc. depending on look */
+  background: #91b69180;  /* optional: adds neutral background behind it */
+}
+
+.portfolio-page .cs-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* adjust per card if needed */
+  display: block;
+}
+
+.portfolio-page .cs-card {
+  position: relative;
+}
+.portfolio-page .cs-media {
+  position: relative;          /* so the overlay anchors to this box */
+  overflow: hidden;            /* keep overlay inside the card image */
+}
+
+/* Only apply logo overlay to the first card */
+.portfolio-page .cs-card:first-child .logo-overlay {
+  position: absolute;
+  top: 20px;   /* put it in upper right */
+  right: 20px;
+  width: 60px;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Card title */
+.portfolio-page .cs-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #222;
+  background: #fff;
+  border-top: 1px solid #eee;
+
+  /* center horizontally & vertically */
+  display: flex;
+  align-items: center;   /* vertical center */
+  justify-content: center; /* horizontal center */
+  min-height: 70px;      /* gives the rectangle a uniform height */
+  text-align: center;    /* keeps text centered if it wraps */
+  padding: 0 12px;       /* side padding for longer text */
+}
+
+
+/* -----------------
+   Responsive tweaks
+   ----------------- */
+
+/* Two columns when space is tight */
+@media (max-width: 860px) {
+  .portfolio-page .cs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 720px; /* keeps cards comfy */
+  }
+}
+
+/* Single column on small phones */
+@media (max-width: 560px) {
+  .portfolio-page .cs-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-bottom: 90px;
+  }
+  .portfolio-page .cs-heading {
+    font-size: 30px;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-page .cs-card {
+    transition: none;
+  }
+  .portfolio-page .cs-card:hover,
+  .portfolio-page .cs-card:focus-visible {
+    transform: none;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  }
+}
+
+/* =========================
+   MOBILE CARD OVERRIDES
+   ========================= */
+@media (max-width: 760px) {
+  /* Stack cards full-width */
+  .portfolio-page .cs-card {
+    padding: 0;              /* remove outer padding for full-bleed image */
+    border-radius: 12px;        /* optional: square edges on small screens */
+    margin-bottom: 24px;     /* space between cards */
+  }
+
+  /* Media section fills full width with fixed height */
+  .portfolio-page .cs-card .cs-media {
+    width: 100%;
+    height: 220px;           /* adjust height for mobile */
+    overflow: hidden;
+    border-radius: 0;
+  }
+
+  .portfolio-page .cs-card .cs-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* makes it fill without green sides */
+    object-position: center;  /* change to "center 80%" if you want to bias lower part */
+    display: block;
+  }
+
+  /* Put padding back only for the text areas */
+  .portfolio-page .cs-card .cs-title,
+  .portfolio-page .cs-card .cs-desc {
+    padding: 12px 16px;
+  }
+}
+
+/* =========================
+   MOBILE FIC CARD OVERRIDES
+   ========================= */
+@media (max-width: 760px) {
+  /* Only target FIC card */
+  .portfolio-page .fic-card {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .portfolio-page .fic-card .cs-media {
+    width: 100%;
+    height: 240px;              /* adjust for how tall you want it */
+    overflow: hidden;
+  }
+
+  .portfolio-page .fic-card .cs-media img {
+    display: block;
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover !important;    /* no more white bars */
+    object-position: center 70%;     /* adjust number to reveal more bottom */
+  }
+
+  .portfolio-page .fic-card .cs-title,
+  .portfolio-page .fic-card .cs-desc {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  .portfolio-page .clouds-bg { height: 73px; }  /* match index/about */
+}
+
+
+/* Pull portfolio content up on mobile (match ~73px cover height) */
+@media (max-width: 760px) {
+  .portfolio-page .cs-heading {
+     margin: 110px 0 16px; /* adjust the first value (top) as needed */
+  }
+}
+
+@media (max-width: 760px) {
+  .portfolio-page h1.cs-heading {
+    margin-bottom: 30px !important;  /* try 8–12px to taste */
+  }
+}
+
+
+/* Mobile only: force Card 2 to match Card 1 */
+@media (max-width: 760px) {
+  /* target the 2nd card regardless of its class name */
+  .portfolio-page .cs-grid .cs-card:nth-child(2) {
+    padding: 0 !important;
+    border-radius: 12px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .portfolio-page .cs-grid .cs-card:nth-child(2) .cs-media {
+    width: 100% !important;
+    height: 220px !important;     /* same as your mobile card media height */
+    overflow: hidden !important;
+    border-radius: 0 !important;
+  }
+
+  .portfolio-page .cs-grid .cs-card:nth-child(2) .cs-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;  /* override any .fit-cover contain */
+    object-position: center !important;
+    transform: none !important;    /* cancel any translate from per-card rules */
+    background: transparent !important;
+  }
+
+  .portfolio-page .cs-grid .cs-card:nth-child(2) .cs-title,
+  .portfolio-page .cs-grid .cs-card:nth-child(2) .cs-desc {
+    padding: 12px 16px !important; /* match Card 1 text padding on mobile */
+  }
+}
+
+/* Mobile only: make Card 3 match Card 1 */
+@media (max-width: 760px) {
+  .portfolio-page .cs-grid .cs-card:nth-child(3) {
+    padding: 0 !important;
+    border-radius: 12px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .portfolio-page .cs-grid .cs-card:nth-child(3) .cs-media {
+    width: 100% !important;
+    height: 220px !important;      /* same as Card 1 mobile media height */
+    overflow: hidden !important;
+    border-radius: 0 !important;
+  }
+
+  .portfolio-page .cs-grid .cs-card:nth-child(3) .cs-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;   /* override any contain/fit-cover */
+    object-position: center !important;
+    transform: none !important;     /* cancel per-card translate */
+  }
+
+  .portfolio-page .cs-grid .cs-card:nth-child(3) .cs-title,
+  .portfolio-page .cs-grid .cs-card:nth-child(3) .cs-desc {
+    padding: 12px 16px !important;  /* match Card 1 text padding */
+  }
+}
+
+
+
+
+/* ========= Portfolio: About/Accordion under cards ========= */
+/* ========= Portfolio: text-only accordion (no backgrounds/borders) ========= */
+.portfolio-page .pf-section { 
+  max-width: 900px;
+  margin: 0 auto 80px;
+  padding: 0 12px;
+}
+
+.portfolio-page .pf-lefttitle {
+  font-size: 28px;
+  font-weight: 900;
+  margin-top: -40px;
+  text-align: left;         /* not centered */
+  color: #9fc092;  
+  font-family: lora;
+  font-style: italic;
+  font-weight: 400;      /* white title */
+}
+
+
+
+/* Reset any boxes/panels */
+.portfolio-page .tf-accordion details,
+.portfolio-page .tf-accordion summary,
+.portfolio-page .tf-accordion .content {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Summary (click target) */
+.portfolio-page .tf-accordion summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 0 10px 28px;   /* space for caret only */
+  color: #fff;                 /* white summary text */
+  position: relative;
+  user-select: none;
+  font-family: "Lora", serif;
+  font-weight: 400;
+  display: inline-block;
+
+}
+.portfolio-page .tf-accordion summary::-webkit-details-marker { display: none; }
+
+/* Caret (white) */
+.portfolio-page .tf-accordion summary::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-right: 3px solid currentColor;  /* chevron stroke */
+  border-bottom: 3px solid currentColor; /* chevron stroke */
+  transform: translateY(-50%) rotate(45deg); /* ">" when closed */
+  transition: transform .2s ease;
+  opacity: .9;            /* white caret */
+  color: #9fc092;
+}
+
+/* Open state */
+.portfolio-page .tf-accordion details[open] summary::before {
+  transform: translateY(-50%) rotate(225deg);
+  
+}
+
+/* underline the open (selected) heading */
+.portfolio-page .tf-accordion details[open] > summary span {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: #dfd5a8;
+}
+
+/* Hover/focus feedback without backgrounds */
+.portfolio-page .tf-accordion summary:hover span { text-decoration: underline; }
+
+
+/* Content (white body text) */
+.portfolio-page .tf-accordion .content {
+  padding: 0 0 8px 28px;
+   color: #fcfffc;                /* white content text */
+  line-height: 1.7;
+}
+.portfolio-page .tf-accordion .content p { margin: 8px 0 0; }
+
+
+
+/* Small screens */
+@media (max-width: 640px) {
+  /* Title stays white on mobile */
+  .portfolio-page .pf-lefttitle { 
+    color: #000000;
+    text-align: center;
+    margin-bottom: 30px; 
+    font-size: clamp(24px, 6vw, 32px)
+  }
+  
+
+  /* Frames (boxes) for each accordion item on mobile */
+  .portfolio-page .tf-accordion details {
+    background: #fff;
+    border: 1px solid #e5e7eb;   /* light gray frame */
+    border-radius: 12px;
+    margin: 10px 0;
+  }
+
+  /* Heading (click target) — black text + full-width block */
+  .portfolio-page .tf-accordion summary {
+    color: #000;                 /* makes arrow black too (uses currentColor) */
+    display: block;              /* full-width tap area */
+    padding: 14px 16px 14px 39px;/* keep space for the chevron */
+  }
+
+  /* Ensure chevron is black even if you later change summary color */
+  .portfolio-page .tf-accordion summary::before {
+     border-right-color: #000;
+      border-bottom-color: #000;
+  }
+
+  #about-techfleet .tf-accordion details[open] > summary { color: #b19376; }  /* selected heading color on mobile */
+.portfolio-page .pf-testimonials .pf-lefttitle { color: #000000; }            /* testimonial title black on mobile */
+
+
+  
+
+  /* Body text — black in mobile frames */
+  .portfolio-page .tf-accordion .content {
+    color: #000;
+    padding: 0 16px 16px 44px;
+  }
+
+  /* Optional: subtle open-state border emphasis */
+  .portfolio-page .tf-accordion details[open] {
+    border-color: #d1d5db;
+  }
+
+  @media (max-width: 640px) {
+  /* Selected/open heading color on mobile */
+  .portfolio-page #about-techfleet .tf-accordion details[open] > summary span {
+    color: #854012;   /* or your new hex */
+  }
+}
+
+}
+
+@media (max-width: 760px) {
+  .portfolio-page .testimonial__body,
+  .portfolio-page .testimonial__quote {
+    hyphens: none;         
+    overflow-wrap: normal; 
+    word-break: normal;    
+  }
+}
+
+/* ===== Portfolio: Testimonials (under About Tech Fleet) ===== */
+.portfolio-page .pf-testimonials { max-width: 900px; padding: 0 12px; }
+
+.portfolio-page .pf-testimonials .pf-lefttitle {
+  color: #9fc092;                 /* white title for this section */
+  margin: 0 0 30px;
+  text-align: left;
+}
+
+.portfolio-page .testimonial {
+  display: grid;
+  grid-template-columns: 1fr 100px ;  
+  gap: 20px;
+  align-items: start;
+}
+
+.portfolio-page .testimonial__img {
+ width: 100px;
+  height: 100px;
+  grid-column: 2;    
+  grid-row: 1;
+  object-fit: cover;
+}
+
+.portfolio-page .testimonial__body { color: #fff; line-height: 1.7;  grid-column: 1;     grid-row: 1; }
+.portfolio-page .testimonial__quote {
+  margin: 0 10px 10px;
+  font-family: "lato", serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.portfolio-page .testimonial__name { margin: 8px 10px 0; font-weight: 700; opacity: .9; }
+
+@media (max-width: 640px) {
+  .portfolio-page .pf-testimonials .pf-lefttitle { text-align: center; color: #000; }
+  .portfolio-page .testimonial { grid-template-columns: 1fr; }
+
+  /* image (closed properly) */
+  .portfolio-page .testimonial__img {
+    width: 100%;
+    height: auto;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* body text: black on mobile */
+  .portfolio-page .testimonial__body { color: #000; }
+}
+
+
+
+/* /* =========================
+   RESPONSIVE UPSHIFTS
+   ========================= */
+@media (min-width: 560px) {
+  .portfolio-page .cs-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .portfolio-page .cs-card .cs-title { font-size: 19px; padding: 14px 16px 16px; }
+}
+
+@media (min-width: 920px) {
+  .portfolio-page .cs-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .portfolio-page .cs-card { border-radius: 18px; }
+  .portfolio-page .cs-card .cs-title { font-size: 20px; }
+}
+
+
+/*contact page css*/
+
+body.contact-page {
+  background: url("../img/backgray.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;  /* optional: parallax effect */
+}
+
+.contact-page .contact-container {   /* contact page is body class*/
+  display: flex;            /* flex and column vertical layout*/
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;         /* relative position but now movable with css */
+  z-index: 1;           /*z index for above video */
+  padding: 60px 20px 10px;
+  max-width: 800px;
+  margin: 0 auto;   /* centers element container */
+  margin-top: 38px;
+}
+
+/* Contact page: prevent scrolling on desktop only */
+@media (min-width: 1025px) {
+  body.contact-page {
+    overflow: auto;   /* no scrollbars */      /* lock to viewport height */
+  }
+}
+
+
+
+.contact-page .bio-name {
+  margin-bottom: 20px;  /*move element below down */
+  margin-top: 40px;
+}
+/* --- Contact page only: bio name in Lora italic --- */
+.contact-page .bio-name {
+  font-size: 18pt;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: "Lora", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+
+.contact-page .bio-text {            /* spacing and width of text and page, only affecting bio text with contact page*/
+  margin-top: 0;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.contact-page .contact-form {    /* width and positioning of contact containers */
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 19px;
+}
+
+.contact-page .contact-form input,             /*Selecting input and textarea*/
+.contact-page .contact-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.contact-page .contact-form button {
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* === Contact Form text in Lato === */
+body.contact-page form,
+body.contact-page form input,
+body.contact-page form textarea,
+body.contact-page form button,
+body.contact-page form label {
+  font-family: 'Lato', sans-serif !important;
+}
+
+/* Contact form focus state */
+body.contact-page input:focus,
+body.contact-page textarea:focus,
+body.contact-page select:focus {
+  outline: none;                        /* remove default browser outline */
+  border: 2px solid #155713;            /* black border when active */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* subtle shadow if you want */
+}
+
+
+body.contact-page form label {
+  display: block;
+  margin-bottom: -15.5px;  /* space between label and box */
+}
+
+
+.contact-page .nav-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 0px;
+}
+
+.contact-page .contact-page-clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 240px; /* or match your layout */
+  z-index: -1;
+  overflow: hidden;
+}
+
+.contact-page .contact-page-clouds img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  object-position: top center; /* adjust if needed */
+  display: block;
+}
+
+/* Contact page — info block below the form */
+.contact-page .contact-details {
+  margin-top: 16px;                    /* sits right under the form */
+  margin-bottom: 10px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-family: "Lato", sans-serif;     /* ensure Lato */
+}
+
+.contact-page .contact-details__title {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;           /* down from 18px */
+  font-weight: 700;
+  letter-spacing: 0.04em;    /* subtle polish */
+  text-transform: uppercase; /* optional: gives it a label feel */
+  color: #1b1b1b;
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eaeaea;  /* clean divider under the title */
+}
+
+.contact-page .contact-details__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.contact-page .contact-details__list li {
+  display: grid;
+  grid-template-columns: 96px 1fr;     /* label | value */
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.contact-page .contact-details__label {
+  font-weight: 600;
+  color: #333;
+}
+
+.contact-page .contact-details a {
+  color: #333;
+  text-decoration: none;
+}
+.contact-page .contact-details a:hover {
+  text-decoration: underline;
+}
+/* Contact page: make long links wrap and look clean */
+.contact-page .contact-details a {
+  overflow-wrap: anywhere;   /* wrap long URLs on small screens */
+}
+
+.contact-page .contact-details__sub {
+  margin: 6px 0 10px;        /* sits just under the title */
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+
+
+/* MOBILE */
+/* Prevent inputs from spilling past the right edge */
+.contact-page .contact-form input,
+.contact-page .contact-form textarea {
+  box-sizing: border-box;   /* include padding inside the width */
+}
+
+/* Mobile: add a bit more breathing room on the right (and left) */
+@media (max-width: 760px) {
+  .contact-page .contact-container {
+    padding-left: 16px;     /* was 20px */
+    padding-right: 16px;    /* was 20px */
+  }
+}
+
+/* Mobile tightening */
+@media (max-width: 760px) {
+  .contact-page .contact-details {
+    padding: 12px 14px;
+    margin-top: 14px;
+  }
+  .contact-page .contact-details__list li {
+    grid-template-columns: 88px 1fr;
+    font-size: 15px;
+  }
+}
+
+/* Contact (mobile): black cover, white header, tighter gap */
+@media (max-width: 760px) {
+  /* make the cover black & thinner; hide the image */
+  .contact-page .contact-page-clouds {
+    height: 73px;        /* match your other pages */
+    background: #000;
+  }
+  .contact-page .contact-page-clouds img { display: none; }
+
+  /* white site name + hamburger bars over black cover */
+  .contact-page .head-name { color: #fff; }
+  .contact-page .hamburger span { background: #fff; }
+
+  /* pull the content up closer to the black bar */
+  .contact-page .contact-container {
+    margin-top: 8px !important;   /* was 40px */
+    padding-top: 10px !important; /* was 60px */
+  }
+
+  /* if you show a heading on contact, trim its top margin too */
+  .contact-page .bio-name { margin-top: 8px !important; } /* was 40px */
+}
+
+/* Contact page: white card container */
+.contact-page .contact-container {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+  max-width: 800px;          /* your existing width */
+  margin: 24px auto 60px;    /* separates from bg and centers */
+  padding: 32px 28px;        /* comfortable interior spacing */
+  box-sizing: border-box;
+}
+
+/* Mobile tweaks */
+@media (max-width: 760px) {
+  .contact-page .contact-container {
+    margin: 12px 16px 28px;  /* keep space from edges/black header */
+    padding: 20px 16px;
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+  }
+}
+
+/* Desktop: reduce space above Contact */
+@media (min-width: 761px) {
+  /* 1) The fixed header offset — shrink it */
+  body { padding-top: 72px; }   /* was ~96px; tweak to 64–80px to taste */
+
+  /* 2) Pull the Contact card up */
+  .contact-page .contact-container { margin-top: 60px; }  /* was ~24px */
+
+  /* 3) Kill the H1’s default top margin inside the card */
+  .contact-page .contact-container > *:first-child { margin-top: -7px; }
+}
+
+/* --- Remove background image on Contact page (mobile only) --- */
+@media (max-width: 760px) {
+  body.contact-page {
+    background: none !important;
+    background-color: #ffffff; /* optional: set plain white background */
+  }
+}
+
+@media (max-width: 760px) {
+  .contact-page section,
+  .contact-page .contact-container {
+    margin-bottom: -10px !important;
+    margin-top: 20px !important;
+  }
+}
+
+
+/* =========================
+   Case Study Page (image render)
+   ========================= */
+.case-study-page { font-family: "Lato", sans-serif; }
+
+/* keep the cover visible but behind */
+
+/* stack header/content above cover */
+.case-study-page .header,
+.case-study-page main { position: relative; z-index: 1; }
+
+/* centered “page” that matches your other pages’ width rhythm */
+.case-study-page .cs3-frame {
+  max-width: 1000px;             /* feel free to bump to 1200 if you want bigger */
+  margin: 240px auto 60px;       /* 200 cover + spacing */
+  padding: 0 16px;
+}
+
+/* the tall image itself */
+.case-study-page .cs3-longimg {
+  display: block;
+  width: 100%;
+  height: auto;                  /* keeps native pixel density, no upscaling blur */
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  image-rendering: auto;         /* best-quality resampling */
+}
+
+/* Center captions to the image width */
+.case-study-page .cs-figure .video-caption{
+  display: inline-block;      /* shrink to image width */
+  margin: 0 auto 0;           /* center the figure in the section */
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+}
+.case-study-page .cs-figure img { display: block; }
+.case-study-page .cs-figure .video-caption { margin-top: 6px; }
+
+
+/* back button */
+.case-study-page .cs3-cta {
+  text-align: center;
+  margin: 0 0 80px;
+}
+.case-study-page .cs3-button {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #fff;
+  background: #111;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.case-study-page .cs3-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+/* Mobile: black cover + white header (About + Portfolio) */
+@media (max-width: 760px) {
+  /* Make cover area black and hide the image inside it */
+  .about-page .clouds-bg,
+  .portfolio-page .clouds-bg {
+    background: none;
+  }
+  .about-page .clouds-bg img,
+  .portfolio-page .clouds-bg img {
+    display: none;
+    object-fit: cover;
+  }
+
+  /* Header text (name) and hamburger bars to white */
+  .about-page .head-name,
+  .portfolio-page .head-name {
+    color: #fff;
+  }
+  .about-page .hamburger span,
+  .portfolio-page .hamburger span {
+    background: #fff;
+  }
+}
+
+
+
+
+/* =========================
+   Case Study (your cs1 HTML)
+   Scoped to: body.case-study-page
+   ========================= */
+.case-study-page { 
+  font-family: "Lato", sans-serif; 
+  color: #333; 
+  line-height: 1.6;
+}
+
+/* keep the cover image behind content */
+.case-study-page .clouds-bg {
+  position: absolute; 
+  top: 0; left: 0; 
+  width: 100%; 
+  height: 200px; 
+  z-index: 0; 
+  overflow: hidden;
+}
+.case-study-page .clouds-bg img {
+  width: 100%; 
+  height: 100%; 
+  display: block; 
+  object-fit: cover; 
+  object-position: 100% 45%;
+}
+
+/* stack header/content above cover */
+.case-study-page .header,
+.case-study-page main { 
+  position: relative; 
+  z-index: 1; 
+  /* background: transparent; */
+}
+
+.case-study-page .header { 
+  position: relative; 
+  z-index: 2; 
+ background: #fff; 
+}
+
+/* main container that wraps the whole case study */
+.case-study-page .cs1-container {
+  max-width: 1000px;
+  margin: 70px auto 100px; /* 200px cover + spacing */
+  padding: 0 20px;
+}
+
+/* headings */
+.case-study-page .cs1-title {
+  font-size: 56px;
+  font-weight: 900;
+  text-align: center;
+  margin: 0 0 8px;
+  color: #1b1b1b;
+}
+.case-study-page .cs1-subtitle {
+  text-align: center;
+  font-weight: 700;
+  color: #555;
+  margin: 0 0 28px;
+}
+
+/* sections & lists */
+.case-study-page .cs1-section { 
+  margin: 36px 0; 
+}
+.case-study-page .cs1-section h2 { 
+  font-size: 28px; 
+  font-weight: 900; 
+  margin: 0 0 12px; 
+  color: #1b1b1b; 
+}
+.case-study-page .cs1-section h3 { 
+  font-size: 22px; 
+  font-weight: 400; 
+  margin: 6px 0 0; 
+  color: #1b1b1b; 
+  font-family: "Lato";
+}
+
+/* override for Step headings */
+.case-study-page .cs1-section h3.step {
+  font-style: normal;            /* not 'none' */
+}
+
+.case-study-page .cs1-list { 
+  padding-left: 18px; 
+}
+.case-study-page .cs1-list li { 
+  margin: 6px 0; 
+}
+
+/* “img” placeholders are links in your HTML — style them like buttons/thumbs */
+.case-study-page a[href^="img/"] {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  border: 1px solid #e9e9e9;
+  text-decoration: none;
+  color: #222;
+  font-weight: 700;
+}
+
+.case-study-page .cs1-section img:has(+ .video-caption) { margin-bottom: 2px; }
+.case-study-page .cs1-section img.cs1-image.magnify-target { margin-bottom: 2px; }
+
+
+.case-study-page a[href^="img/"]:hover {
+  background: #efefef;
+}
+
+.cs1-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.cs1-image.concept-img {
+  width: 600px;                 /* fixed target width */
+  max-width: 70%;              /* shrink on small screens */
+  height: auto;
+  display: block;               /* needed for margin centering */
+  float: none !important;       /* undo any float */
+  margin-left: auto !important; /* center in normal/block layout */
+  margin-right: auto !important;
+  /* Handle flex/grid parents too */
+  align-self: center !important;   /* works if parent is flex */
+  justify-self: center !important; /* works if parent is grid */
+  place-self: center !important;   /* shorthand for many grid cases */
+}
+
+/* CTA section & button (your HTML uses class="cs1-section cs3-cta") */
+.case-study-page .cs3-cta { 
+  text-align: center; 
+  margin-top: 40px; 
+}
+.case-study-page .cs1-button {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #fff;
+  background: #111;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.case-study-page .cs1-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.18);
+}
+
+/* Images you might add directly later */
+.case-study-page .cs1-section img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0px 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+/* small responsive tweaks */
+@media (max-width: 640px) {
+  .case-study-page .cs1-title { font-size: 40px; }
+  .case-study-page .cs1-subtitle { font-size: 16px; }
+}
+
+/* Only shrink & center THIS one image */
+.case-study-page .cs1-section img.cs1-image.interview-notes {
+  width: 600px;        /* pick your size */
+  max-width: 90%;      /* stay responsive on small screens */
+  height: auto;
+  display: block;
+   margin: 2px 0px;   /* centers it */
+   margin-bottom: 7px;
+}
+
+
+
+
+
+/* Cursor hint for magnifiable images */
+.magnify-target {
+  cursor: zoom-in;
+}
+
+
+/* Tight image→caption gap for magnify images */
+.case-study-page .cs1-section img.cs1-image.magnify-target { margin-bottom: 2px; }
+
+
+/* Lens styling */
+.magnify-lens {
+  mix-blend-mode: normal;
+}
+
+
+
+/* ===== Phone videos: layout, sizing, cropping, captions ===== */
+
+/* Row layout for the two phones */
+.video-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;                 /* spacing between phones */
+  margin: 40px 0;
+  flex-wrap: wrap;           /* stack on narrow screens */
+}
+
+/* Each phone + its caption live inside .video-item
+   WIDTH is controlled by CSS var --w on .video-item */
+.video-item {
+  width: var(--w, 260px);    /* set per item: style="--w:260px;" */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Rounded “phone” frame with iPhone 14-ish screen ratio */
+.phone-frame {
+  width: 100%;
+  aspect-ratio: 9 / 19.5;    /* ~iPhone 14 screen ratio */
+  border-radius: 40px;       /* outer curve */
+  background: #fff;          /* ensures no black shows behind video */
+  overflow: hidden;          /* crop to rounded shape */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  position: relative;
+  flex-shrink: 0;
+  margin-bottom: 8px;        /* space before caption */
+}
+
+/* Inner viewport: we’ll zoom/pan the video to remove black bars */
+.phone-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Video fills the frame. Zoom & offsets come from CSS vars:
+   --zoom (number), --x (px), --y (px) set on .phone-frame */
+.phone-viewport video {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* crop instead of letterbox */
+  transform-origin: center;
+  transform:
+    translate(calc(-50% + var(--x, 0px)),
+              calc(-50% + var(--y, 0px)))
+    scale(var(--zoom, 1));
+  display: block;
+}
+
+/* Subtle Lato caption sized to phone width */
+.video-caption {
+  width: 100%;               /* exactly as wide as the phone */
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: #797979;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* If a paragraph directly wraps an image, don’t add extra gap below it */
+.case-study-page .cs1-section p:has(> img) { margin-bottom: 6px; }
+
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .video-gallery { gap: 48px; }
+  .video-item { width: min(var(--w, 260px), 300px); }
+}
+
+@media (max-width: 640px) {
+  .video-gallery { gap: 32px; }
+  /* stack vertically for very small screens */
+  .video-gallery { flex-direction: column; align-items: center; }
+}
+
+/* --- GLOBAL SPACING SYSTEM FOR CASE STUDY PAGE --- */
+
+/* Sections: give each block clear breathing room */
+.case-study-page .cs1-section {
+  margin: 60px 0;   /* more separation between big chunks */
+}
+
+/* Headings: keep close to their text */
+.case-study-page .cs1-section h2,
+.case-study-page .cs1-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Paragraphs: comfortable reading rhythm */
+.case-study-page .cs1-section p {
+  margin: 0 0 1.5rem;
+  line-height: 1.7;
+  font-size: 18px;
+  max-width: 700px;   /* stops lines from being too wide */
+}
+
+.case-study-page .cs1-section li { 
+  font-size: 18px; 
+  line-height: 1.7;
+}
+
+/* Images: always centered, with generous top/bottom space */
+.case-study-page .cs1-section img {
+  display: block;
+  margin: 2.5rem 0;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+/* If multiple images appear inside one section, make the gap smaller so they feel grouped */
+.case-study-page .cs1-section img + img {
+  margin-top: 1.5rem;
+}
+
+
+
+
+/* Text directly after an image: tighten gap slightly */
+.case-study-page .cs1-section img + p {
+  margin-top: 1rem;
+}
+
+/* Optional: captions under images */
+.case-study-page figure {
+  margin: 2.5rem 0;
+  text-align: center;
+  max-width: 700px;
+}
+
+.case-study-page figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 2px;
+  font-style: italic;
+
+}
+
+/* Tighten image→caption gap (handles both <figcaption> and .video-caption) */
+.case-study-page .cs1-section img + figcaption,
+.case-study-page .cs1-section img:has(+ .video-caption) {
+  margin-bottom: 1px;   /* overrides the 2.5rem bottom from the global img rule */
+}
+
+.case-study-page figure img { margin-bottom: 0px;
+padding-bottom: 0;
+}
+
+/* Make sure the header stack is above everything on the case-study page */
+.case-study-page .header { position: relative; z-index: 1000; }  /* was 1 */
+
+/* MOBILE: ensure the open menu is clickable and sits above the page */
+@media (max-width: 760px) {
+  .hamburger { position: relative; z-index: 1002; }     /* button on top */
+  .top-nav    { position: absolute; z-index: 1001; }    /* menu just under button */
+
+  /* Safety: only block clicks when CLOSED; allow clicks when OPEN */
+  .top-nav { pointer-events: none; }
+  .top-nav.open { pointer-events: auto; }
+
+  /* Extra safety so each link is definitely clickable */
+  .top-nav a { position: relative; z-index: 1003; }
+}
+
+/* Put header above everything site-wide */
+.header { position: relative; z-index: 9999; }
+
+/* Mobile: menu sits above content, links are clickable when open */
+@media (max-width: 760px) {
+  .hamburger { position: relative; z-index: 1002; } /* button on top */
+  .top-nav   { position: absolute; z-index: 1001; pointer-events: none; }
+  .top-nav.open { pointer-events: auto; }
+
+  /* extra safety: ensure each link receives clicks */
+  .top-nav a { position: relative; z-index: 1003; }
+}
+
+/* Case Study 1 (mobile): black cover, white header, thinner cover, tighter gap */
+@media (max-width: 760px) {
+  /* Cover: make it black and thin, hide the image */
+  .case-study-page .clouds-bg {
+    height: 73px;          /* match index/about mobile cover */
+    background: #000;
+  }
+  .case-study-page .clouds-bg img { display: none; }
+
+  /* Header text + hamburger in white */
+  .case-study-page .head-name { color: #fff; }
+  .case-study-page .hamburger span { background: #fff; }
+
+  /* Reduce the big top gap before the content */
+  .case-study-page .cs1-container {
+    margin: 42px auto 60px; /* was 240px top on desktop; tighten for mobile */
+  }
+}
+
+@media (max-width: 760px) {
+  .case-study-page .clouds-bg {
+    background: #000;
+  }
+  .case-study-page .clouds-bg img {
+    display: none;
+  }
+  .case-study-page .head-name {
+    color: #000000;
+  }
+  .case-study-page .hamburger span {
+    background: #000000;
+  }
+  .case-study-page .header {
+    background: transparent;  /* remove the white bar */
+  }
+}
+
+
+
+/* KILLS ALL TRANSFORMS MOBILE */
+
+
+/* Mobile: remove all transforms on navs, profile photos, and cards */
+@media (max-width: 760px) {
+  /* NAV LINKS (scale on hover) */
+  .top-nav a,
+  .top-nav a:hover,
+  .top-nav a:focus {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* PROFILE PHOTO (zoom on hover) */
+  .profile-pic img,
+  .profile-pic img:hover,
+  .profile-pic img:focus {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* CARDS (portfolio) */
+  .portfolio-page .cs-card,
+  .portfolio-page .cs-card:hover,
+  .portfolio-page .cs-card:focus-visible {
+    transform: none !important;
+    transition: none !important;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08) !important; /* keep the non-zoom look */
+  }
+
+  /* Card-specific image pan on Card 3 */
+  .portfolio-page .cs-card-3 .cs-media img {
+    transform: none !important;
+  }
+}
+
+/* ALL NAV */
+/* Desktop: blue/underline on hover, blue dot for active page */
+@media (min-width: 761px) {
+  .top-nav a {
+    position: relative;                 /* needed for the dot */
+    color: #333;
+    text-decoration: none;
+    padding-bottom: 6px;                /* room for the dot */
+    transition: color .2s ease;
+  }
+
+  /* Hover state */
+  .top-nav a:hover,
+  .top-nav a:focus {
+    color: #1a73e8;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+  }
+
+  /* Active/current page: blue text + centered dot (no underline) */
+  .top-nav a[aria-current="page"] {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  .top-nav a[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -6px;                       /* adjust if it sits too low/high */
+    width: 6px;
+    height: 6px;
+    background: #1a73e8;
+    border-radius: 50%;
+  }
+
+  /* If you can't add aria-current, use page-class targeting instead */
+  .about-page    .top-nav a[href="/"],
+  .about-page    .top-nav a[href*="about"],
+  .about-page    .top-nav a[href*="index"],
+  .portfolio-page .top-nav a[href*="portfolio"],
+  .case-study-page .top-nav a[href*="case"],
+  .contact-page  .top-nav a[href*="contact"] {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  .about-page    .top-nav a[href="/"]::after,
+  .about-page    .top-nav a[href*="about"]::after,
+  .about-page    .top-nav a[href*="index"]::after,
+  .portfolio-page .top-nav a[href*="portfolio"]::after,
+  .case-study-page .top-nav a[href*="case"]::after,
+  .contact-page  .top-nav a[href*="contact"]::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -6px;
+    width: 6px;
+    height: 6px;
+    background: #1a73e8;
+    border-radius: 50%;
+  }
+}
+
+/* Desktop: NOT fixed — scrolls with the page */
+@media (min-width: 761px) {
+  .header {     /* change from fixed → sticky (or use 'static') */
+    top: -4px;             /* small breathing room from the top */
+    left: auto;           /* cancel any centering from the fixed version */
+    transform: none;      /* cancel translateX */
+    margin: 32px auto 0;  /* centered pill */
+    width: 100%;
+    max-width: 1440px;    /* same as your main container */
+    /* keep your existing background/blur/border/shadow */
+  }
+
+  /* Remove the offset we added for the fixed header */
+  body { padding-top: 0; }
+
+  /* Keep a tidy gap below the nav on Contact (tune as you like) */
+  .contact-page .contact-container { margin-top: 16px; }
+  /* If it feels too tight, try 20–24px */
+}
+
+.contact-page .contact-container {
+  /* … */
+  margin: 24px auto 0px;   /* ← this “60px” makes the big gap */
+  padding: 32px 28px;
+}
+``` :contentReference[oaicite:0]{index=0}
+
+Add this **once at the very end of `style.css`** to pull the bottom up a bit and neutralize any child margins:
+
+```css
+/* Tighten space under the Contact card (desktop + mobile) */
+.contact-page .contact-container {
+  margin-bottom: 16px !important;   /* was 60px */
+  padding-bottom: 10px !important;  /* small inner breathing room */
+}
+.contact-page .contact-container > *:last-child {
+  margin-bottom: -60px !important;      /* stop last child from adding extra gap */
+}
+.contact-page .nav-buttons {         /* icons row */
+  margin-bottom: 10px !important;
+}
+ 
+/* === About (index) MOBILE: parallax-style background === */
+@media (max-width: 760px) {
+  /* Kill the old black cover */
+  .about-page .clouds-bg { display: none !important; }
+  .about-page .clouds-bg {
+    display: none !important;
+  }
+
+  /* Make body relative so we can add a fixed bg layer */
+  body.about-page {
+    position: relative;
+    background: none !important; /* no scrolling bg on body */
+  }
+
+  /* Fixed background layer */
+ /* --- MOBILE ABOUT: enable scrolling and use tall scrolling bg --- */
+@media (max-width: 760px) {
+  /* 1) Do NOT clip the page (this was preventing scroll) */
+  body.about-page {
+    overflow: visible !important;   /* was hidden */
+    position: static !important;    /* undo any position:relative from experiments */
+    /* background: url("../img/white.jpg") no-repeat center top / 100% auto !important; */
+    background-position: 0px 100px / 160% auto !important;   /* try 0%–30% to aim the white area */
+
+    background-attachment: scroll !important;  /* make bg move with content */
+  }
+
+  /* 2) Remove any fixed pseudo-layer you tried earlier */
+  body.about-page::before { content: none !important; }
+
+  /* 3) Make sure the black cover isn’t masking the body background */
+  .about-page .clouds-bg { display: none !important; }
+
+  /* 4) Let the document be taller than the viewport */
+  html, body { 
+    height: auto !important; 
+    min-height: 100vh; 
+    overflow-y: auto !important;     /* re-enable vertical scroll */
+  }
+}
+}
+/* --- About page ONLY, Mobile ONLY --- */
+
+/* Reduce top gap above cards ONLY on mobile */
+@media (max-width: 760px) {
+  .about-page .about-cs {
+    margin-top: 24px !important;   /* <-- adjust this value to tighten */
+  }
+}
+
+
+@media (max-width: 760px) {
+  /* About page only */
+  body.about-page .site-name,
+  body.about-page .head-name {
+    color: #000000b2 !important;   /* black text */
+  }
+
+  body.about-page .hamburger span,
+  body.about-page .menu-toggle span {
+    background-color: #000000bd !important; /* black bars */
+  }
+}
+
+/* ----- Portfolio page: switch layouts by breakpoint ----- */
+
+
+/* === Portfolio: mobile title fix (final override) === */
+@media (max-width: 760px) {
+  .portfolio-page .cs-heading {
+    margin: 24px 0 12px !important;          /* small, predictable top gap */
+    font-size: clamp(24px, 6vw, 32px) !important;
+    position: relative;                       /* ensure we can layer it */
+    z-index: 2;                               /* sit above any backgrounds */
+  }
+
+  /* mild nudge so the title doesn't collide with the black bar */
+  .portfolio-page #portcontainer { 
+    padding-top: 8px !important; 
+  }
+}
+
+
+/* === Portfolio → Mobile: make the title visible === */
+@media (max-width: 760px) {
+  .portfolio-page .cs-heading {
+    color: #111 !important;                 /* was white */
+    margin: 24px 0 12px !important;         /* small, reliable gap */
+    font-size: clamp(24px, 6vw, 32px) !important;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+  }
+  /* tiny nudge so it clears the black bar and sits over the white section */
+  .portfolio-page #portcontainer { padding-top: 8px !important; }
+}
+
+
+/* Card titles split into big (Lora) + small (Lato) */
+.portfolio-page .cs-title {
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  align-items: center;      /* center horizontally */
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 12px 0;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.portfolio-page .cs-title .cs-main {
+  font-family: "lato";   /* keep Lora */
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.2;
+}
+
+.portfolio-page .cs-title .cs-sub {
+  font-family: "Lato", sans-serif;  /* small text in Lato */
+  font-size: 16px;
+  font-weight: 400;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* === Accordion open/close speed & animation === */
+.portfolio-page {
+  /* change this to taste (e.g., 900ms for slower, 400ms for faster) */
+  --acc-speed: 700ms;
+  --acc-ease: cubic-bezier(0.33, 1, 0.68, 1); /* easeOutQuint-ish */
+}
+
+/* Make the caret rotate at the same slower speed */
+.portfolio-page .tf-accordion summary::before {
+  transition: transform var(--acc-speed) var(--acc-ease);
+}
+
+/* Smoothly reveal the panel body */
+.portfolio-page .tf-accordion .content {
+  /* it already has padding/color set earlier; we’re only adding animation */
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height var(--acc-speed) var(--acc-ease),
+    opacity calc(var(--acc-speed) * 0.85) var(--acc-ease);
+  will-change: max-height, opacity;
+}
+
+/* When the details is open, expand to a generous max-height */
+.portfolio-page .tf-accordion details[open] .content {
+  max-height: 800px; /* adjust if a panel is taller than this */
+  opacity: 1;
+}
+
+
+/* 
+
+FIC PAGE
+
+*/
+
+/* =========================
+   FIC Kanban (scoped)
+   ========================= */
+.fic-page .kanban-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  margin: 1rem 0 .5rem;
+  border-radius: 14px;
+  background: transparent;
+}
+
+.fic-page .kanban-board {
+  display: flex;
+  gap: 16px;
+  padding: 4px 2px 12px;
+  min-height: 320px;
+  flex-wrap: wrap;
+}
+
+/* Columns */
+.fic-page .kanban-column {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  background: #f6f6f7;
+  border-radius: 12px;
+  border: 1px solid #ececef;
+}
+.fic-page .kanban-col-head {
+  padding: 12px 14px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8e8ea;
+  background: #f6f6f7;
+}
+.fic-page .kanban-col-head .count {
+  font-weight: 700;
+  font-size: .8rem;
+  opacity: .7;
+}
+.fic-page .kanban-col-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Cards */
+.fic-page .kanban-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #ececef;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.fic-page .kanban-card details {
+  padding: 10px 12px;
+}
+.fic-page .kanban-card summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;   /* ← add this */
+  text-align: left; 
+}
+.fic-page .kanban-card summary::-webkit-details-marker { display: none; }
+.fic-page .kanban-card .type {
+  font-size: .75rem;
+  font-weight: 700;
+  opacity: .7;
+}
+.fic-page .kanban-card .title {
+  font-size: .98rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: left;
+}
+.fic-page .kanban-card .meta {
+  margin-top: 8px;
+  font-size: .86rem;
+  display: grid;
+  gap: 4px;
+}
+
+/* Keyboard focus ring */
+.fic-page .kanban-card:focus-within,
+.fic-page .kanban-card summary:focus-visible {
+  outline: 2px solid #4d8dff;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Small screens: slightly narrower columns */
+@media (max-width: 680px) {
+  .fic-page .kanban-column { flex-basis: 280px; }
+}
+
+
+/* ===== Kanban detail modal (scoped) ===== */
+.fic-page .fic-modal{position:fixed;inset:0;display:none}
+.fic-page .fic-modal.is-open{display:block;z-index:1000}
+.fic-page .fic-modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.fic-page .fic-modal__dialog{
+  position:relative;
+  box-sizing:border-box;
+  width:min(920px, 92vw);
+  max-height:88vh;
+  margin:6vh auto;
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  overflow:hidden;
+}
+.fic-page .fic-modal__close{
+  position:absolute;top:10px;right:12px;
+  background:#f3f4f6;border:1px solid #e5e7eb;
+  border-radius:8px;font-size:22px;line-height:1;width:36px;height:32px;
+  cursor:pointer
+}
+.fic-page .fic-modal__content{
+  padding:18px 22px;
+  max-height:calc(88vh - 20px);
+  overflow:auto;
+}
+.fic-page .fic-modal__content h3{margin:.8rem 0 .4rem;font-weight:800; text-align: left;}
+.fic-page .fic-modal__content ul{margin:.4rem 0 .8rem 1.1rem}
+.fic-page .fic-modal__content li{margin:.25rem 0;line-height:1.4}
+
+/* === FIC page cover image tweaks === */
+.fic-page .clouds-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 23%;
+}
+
+.fic-page h3 {
+  text-align: center;
+}
+
+/* =========================
+   About page – Case Study preview
+   ========================= */
+
+.about-page .about-cs {
+  max-width: 1100px;
+  margin: 16px auto 180px;   /* big top + big bottom space */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.about-page .about-cs-block + .about-cs-block {
+  margin-top: 72px;           /* space between Data Science and UX sections */
+}
+
+/* Label where “Latest” would be on portfolio */
+.about-page .about-cs-label {
+  font-family: "Lora", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+  margin: 0 0 4px;
+}
+
+/* Section heading (similar vibe to portfolio cs-heading) */
+.about-page .about-cs-heading {
+ font-family: "proxima-nova", sans-serif !important;
+  font-weight:700;
+  font-size: 30px;
+  letter-spacing: -0.01em;
+  color: #111;
+  margin: 0 0 24px;
+}
+
+.about-page .about-cs-label-name {
+ font-family: "proxima-nova", sans-serif !important;
+  font-weight:600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: #111;
+  margin: 0 0 0px;
+}
+
+/* Grid of cards */
+.about-page .about-cs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* Individual card */
+.about-page .about-cs-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  color: #222;
+    width: 100%;
+  min-width: 0;
+}
+
+.about-page .about-cs-card:hover,
+.about-page .about-cs-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+  outline: none;
+}
+
+/* Image area (you'll drop in cover images later) */
+.about-page .about-cs-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;      /* clean replacement for padding-top hack */
+  overflow: hidden;
+  background: #f1f3f5;
+  border-radius: 8px 8px 0 0;
+}
+
+.about-page .about-cs-media img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* crop without stretching */
+  image-rendering: auto;     /* ensures smooth edges */
+}
+
+/* Text block inside card */
+.about-page .about-cs-body {
+  padding: 14px 16px 16px;
+}
+
+/* Small tag line */
+.about-page .about-cs-tag {
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #777;
+  margin: 0 0 6px;
+}
+
+/* Card title */
+.about-page .about-cs-title {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* --------- Responsive tweaks --------- */
+
+/* 2 columns on medium screens */
+@media (max-width: 960px) {
+  .about-page .about-cs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 1 column on small screens, keep bottom breathing room */
+@media (max-width: 640px) {
+  .about-page .about-cs {
+    margin: 80px auto 140px;
+  }
+
+  .about-page .about-cs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Adjust crop window for ONLY this image */
+.about-page .cs-zoom-segment img {
+  object-fit: cover;             /* keep thumbnail style */
+  object-position: center 35%;   /* <-- THIS is the fix */
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.portfolio-page .cs-grid .cs-card:nth-child(3) .cs-media img {
+  width: 100% !important;
+  height: auto !important;               /* don't stretch to container height */
+  object-fit: contain !important;        /* show the whole pie chart */
+  object-position: center !important;
+  transform: none !important;            /* kill the old translateX */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.header {
+   margin: 19px auto 0;
+}
+
+/* =========================================
+   MOBILE HEADING FIX – FIC + CASE-STUDY-1
+   Tighter line-height for all main headings
+   ========================================= */
+@media (max-width: 760px) {
+
+  /* Global headings */
+  h1, h2, h3 {
+    line-height: 1.05 !important;
+  }
+
+  /* Common case-study headings */
+  .cs-heading,
+  .cs1-heading,
+  .cs1-title,
+  .section-title,
+  .section-heading {
+    line-height: 1.05 !important;
+  }
+
+  /* FIC-specific headings */
+  .fic-title,
+  .fic-section-title,
+  .fic-heading,
+  .fic-subheading {
+    line-height: 1.05 !important;
+  }
+
+  /* If you have very big hero headings */
+  .page-title, .title-hero {
+    line-height: 1.03 !important;
+  }
+}
+
+/* =========================
+   GLOBAL SANS (Proxima Nova)
+   ========================= */
+:root {
+  --font-sans: "proxima-nova", "Proxima Nova",
+               system-ui, -apple-system, BlinkMacSystemFont,
+               "Lato", sans-serif;
+}
+
+/* =========================
+   INDEX / ABOUT – MEDIUM STYLE
+   ========================= */
+
+/* Main content width like Medium’s container */
+.about-page main {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 30px;
+  box-sizing: border-box;
+}
+
+/* Top hero row: profile on left, bio on right */
+.about-page #container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6px 20px; 
+
+  display: grid;  /* KEEP THIS */
+  grid-template-columns: auto 1fr;  /* LEFT = photo, RIGHT = bio */
+  gap: 40px;
+  align-items: center;
+}
+
+/* Profile image same feel as Medium hero image */
+.about-page .profile-pic img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-top: 0;
+}
+
+/* Bio text block */
+.about-page .bio-section {
+  padding: 0;
+  max-width: 640px;
+}
+
+/* “Meet Jeremy Langdon” – large Proxima Nova heading */
+.about-page .about-cs-label-name {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 0px;
+}
+
+/* Bio copy in Proxima Nova regular */
+.about-page .bio-text {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: #444;
+  margin: 0;
+}
+
+/* Social icons sit just under the bio */
+.about-page .nav-buttons {
+  margin-top: 16px;
+}
+
+/* --- Sections: Data Science + UX --- */
+
+.about-page .about-cs {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 40px;
+}
+
+/* Section wrapper */
+.about-page .about-cs-block {
+  margin-bottom: 48px;
+}
+
+/* Small all-caps label line: “Data Science”, “UX & Product Design” */
+.about-page .about-cs-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #757575;
+  margin: 0 0 6px;
+}
+
+/* Section headings like Medium category headings */
+.about-page .about-cs-heading {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 26px;
+  color: #111;
+  margin: 0 0 24px;
+}
+
+/* Card grid – equal width cards, responsive */
+.about-page .about-cs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+/* Card shell – match Medium article tiles */
+.about-page .about-cs-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Card image: fixed aspect, same for all cards */
+.about-page .about-cs-media {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.about-page .about-cs-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card text block */
+.about-page .about-cs-body {
+  padding-top: 12px;
+}
+
+/* Small tag line above title */
+.about-page .about-cs-tag {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #757575;
+  margin: 0 0 4px;
+}
+
+/* Card title – Proxima Nova bold */
+.about-page .about-cs-title {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111;
+  margin: 0 0 6px;
+}
+
+/* Description snippet */
+.about-page .about-cs-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.45;
+  color: #555;
+  margin: 0 0 10px;
+}
+
+/* Meta row: org · date · read time (no avatar) */
+.about-page .about-cs-meta {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: #757575;
+}
+
+.about-page .about-cs-org {
+  font-weight: 600;
+}
+
+.about-page .about-cs-dot {
+  margin: 0 4px;
+}
+
+/* --------- Responsive tweaks (mobile) ---------- */
+@media (max-width: 760px) {
+  /* Stack hero: photo on top, bio below (you already had this, just keep it tight) */
+  .about-page #container {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0 32px;
+  }
+
+  .about-page .profile-pic img {
+    max-width: 280px;
+  }
+
+  .about-page .bio-section {
+    max-width: 100%;
+  }
+
+  .about-page .about-cs-grid {
+    grid-template-columns: 1fr; /* one card per row on phone */
+    gap: 24px;
+  }
+}
+
+/* ROW 1 — PROFILE + BIO */
+.row-1 {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.profile-photo img {
+  width: 320px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.bio {
+  flex: 1;
+}
+
+
+
+/* HEADERS */
+.section-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+
+
+/* ROW 2 + ROW 3 — CARD ROWS */
+.row-2, .row-3 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.about-page .row-2,
+.about-page .row-3 {
+  background: rgba(255, 255, 255, 0.94);   /* soft white, a little see-through */
+  border-radius: 24px;
+  padding: 24px 28px 28px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);  /* similar to the bio card */
+}
+
+.about-page .row-2 .section-title,
+.about-page .row-3 .section-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #1a73e8;
+  margin: 0 0 12px;
+}
+
+
+/* GRID OF CARDS */
+.cards {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+
+
+/* CARD STYLING */
+.card {
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #eee;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.desc {
+  font-size: 14px;
+  color: #555;
+}
+
+.meta {
+  font-size: 12px;
+  color: #777;
+}
+
+
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .row-1 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-photo img {
+    width: 260px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
+/* ============================
+   TIGHTER CARD TEXT SPACING
+   ============================ */
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* was too wide, now tight */
+}
+
+.tag {
+  margin: 3px 0px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.card-title {
+  margin: 15px 0 5px 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.1; /* tighter vertical rhythm */
+}
+
+.desc {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.25; /* tighter spacing */
+   font-weight: 600;
+}
+
+.meta {
+  margin: 0;
+  font-size: 14px;
+  color: #222222;
+  line-height: 1.2;
+}
+
+.meta2 {
+  margin: 0;
+  font-size: 14px;
+  color: #222222;
+  line-height: 1.2;
+}
+
+/* Make entire card clickable */
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ======================
+   MAIN GRID LAYOUT
+   ====================== */
+
+main#about-page {
+  display: grid;
+  grid-template-columns: 1fr;     /* 1 column layout */
+  grid-template-rows: auto auto auto;  /* 3 rows */
+  row-gap: 40px;                  /* space between profile row + card rows */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+
+/* ======================
+   ROW 1 — PROFILE + BIO
+   ====================== */
+
+.profile-row {
+  display: grid;
+  grid-template-columns: 320px 1fr;   /* photo left, bio right */
+  column-gap: 40px;
+  align-items: start;
+}
+
+
+
+/* MOBILE: photo and bio stack */
+@media (max-width: 760px) {
+  .profile-row {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    text-align: center;
+  }
+}
+
+
+/* About page: nudge bio heading + text down on DESKTOP only */
+@media (min-width: 761px) {
+  .about-page .bio-section {
+    padding-top: 10px !important;  /* tweak this number up/down */
+  }
+}
+
+/* FINAL MOBILE FIX – About hero layout */
+@media (max-width: 760px) {
+  /* Make the hero a simple vertical stack */
+  .about-page #container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;  /* text can use full width */
+    width: 100%;
+    padding: 24px 16px;
+    margin: 0 auto;
+    gap: 12px;
+  }
+
+  /* Image first, then text */
+  .about-page .profile-pic {
+    order: 1;
+    width: 100%;
+  }
+  .about-page .profile-pic img {
+    width: min(72vw, 320px);
+    height: auto;
+    margin: 16px auto 8px;   /* center the photo */
+    display: block;
+  }
+
+  .about-page .bio-section {
+    order: 2;
+    width: 100%;
+    max-width: 680px;
+    margin-top: 4px;
+    padding-top: 0;
+    text-align: left;
+  }
+
+
+  .about-page .bio-text {
+    max-width: 100%;
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+}
+
+
+/* Mobile: center the bio name */
+@media (max-width: 760px) {
+  .about-page .about-cs-label-name {
+    text-align: center !important;
+    width: 100% !important;
+    display: block;
+  }
+}
+
+/* MOBILE CARDS – Medium style */
+@media (max-width: 760px) {
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.16), 
+            0 0 1px rgba(0,0,0,0.12);
+
+    margin: 0 12px; /* inset from screen edges */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 16px 18px 22px; /* inner spacing like Medium */
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1b1b1b;
+    margin: 0 0 6px;
+    line-height: 1.25;
+  }
+
+  .desc {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+
+  .meta,
+  .meta2 {
+    font-size: 14px;
+    color: #666;
+    margin: 2px 0;
+  }
+
+  .meta2 em {
+    font-style: normal;
+    opacity: 0.8;
+  }
+
+}
+
+/* Only the FIC card */
+@media (max-width: 760px) {
+  .row-3 .card-image img[src$="ficnew.jpg"] {
+    display: block;
+    transform: translateY(-108px);  /* move up; tweak this number */
+  }
+}
+
+
+.porth1 {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 34px;
+  margin: 50px 0 30px;
+  color: #1b1b1b;
+}
+
+/* Desktop-only inset margin for ROW 2 (Data Science) */
+@media (min-width: 761px) {
+  .row-2 .cards {
+    padding: 0;   /* match the inset you like */
+    box-sizing: border-box;
+  }
+}
+
+/* ============================================
+   DESKTOP — FORCE MOBILE CARD PROPORTIONS
+   ============================================ */
+@media (min-width: 761px) {
+
+  /* Keep cards the SAME SIZE as mobile */
+  .row-2 .card,
+  .row-3 .card {
+    width: 360px;                 /* mobile card width */
+    max-width: 100%;
+    margin: 0;                    /* remove left offset */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.16),
+                0 0 1px rgba(0,0,0,0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  /* Keep image scale identical to mobile */
+  .row-2 .card-image img,
+  .row-3 .card-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Match mobile card BODY padding + spacing */
+  .row-2 .card-body,
+  .row-3 .card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+ /* ============================================
+   DESKTOP — COPY MOBILE INTERNAL CARD STYLING
+   WITHOUT TOUCHING LAYOUT
+   ============================================ */
+@media (min-width: 761px) {
+
+
+  .about-page .card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+}
+
+
+
+/* Desktop: center FIC logo inside its card image */
+@media (min-width: 761px) {
+  .about-page .card-link[href="FIC"] .card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-page .card-link[href="FIC"] .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* show full logo */
+    object-position: center center;
+    background-color: #ffffff;    /* clean white around it */
+                   /* breathing room so it doesn’t hug the edge */
+  }
+}
+
+/* ============================================
+   DESKTOP — TIGHTER INTERNAL CARD SPACING
+   ============================================ */
+@media (min-width: 761px) {
+
+  /* Tighter padding inside the card body */
+  .about-page .card-body {
+    padding: 14px 16px 18px !important;  /* was 16px 18px 22px */
+  }
+
+  /* Title spacing tighter */
+  .about-page .card-title {
+    margin: 0 0 4px !important;  /* was 6px */
+    line-height: 1.2 !important;
+  }
+
+  /* Description spacing tighter */
+  .about-page .desc {
+    margin-bottom: 6px !important; /* was 10px */
+    line-height: 1.35 !important; /* slightly tighter */
+  }
+
+  /* Meta lines closer together */
+  .about-page .meta,
+  .about-page .meta2 {
+    margin: 0 0 2px !important; /* less vertical air */
+    line-height: 1.2 !important;
+  }
+}
+}
+
+/* ============================================
+   ABOUT PAGE – DESKTOP CARD INTERNAL STYLING
+   (copy mobile look, no layout changes)
+   ============================================ */
+@media (min-width: 761px) {
+
+  /* Card box */
+  .about-page .row-2 .card,
+  .about-page .row-3 .card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.16),
+                0 0 1px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Image inside card */
+  .about-page .row-2 .card-image img,
+  .about-page .row-3 .card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Inner padding */
+  .about-page .row-2 .card-body,
+  .about-page .row-3 .card-body {
+    padding: 16px 18px 22px;
+  }
+
+  /* Title */
+  .about-page .row-2 .card-title,
+  .about-page .row-3 .card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1b1b1b;
+    margin: 0 0 6px;
+    line-height: 1.25;
+  }
+
+  /* Description */
+  .about-page .row-2 .desc,
+  .about-page .row-3 .desc {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+
+  /* Meta lines */
+  .about-page .row-2 .meta,
+  .about-page .row-2 .meta2,
+  .about-page .row-3 .meta,
+  .about-page .row-3 .meta2 {
+    font-size: 14px;
+    color: #666;
+    margin: 2px 0;
+  }
+}
+
+/* Desktop: make all About-page cards the same height */
+@media (min-width: 761px) {
+  .about-page .card-body {
+    min-height: 155px;   /* tweak up/down if you want tighter/looser */
+  }
+}
+
+/* Standalone left-aligned section title */
+.leftSectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  text-align: left;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto 8px;   /* lines up with row-2/row-3 */
+  padding: 0 20px;         /* same side padding as the rows */
+}
+/* ============================================
+   DESKTOP — AIRBNB STYLE CARDS (using your existing meta2)
+   ============================================ */
+/* Desktop layout for card rows — Airbnb style */
+@media (min-width: 761px) {
+
+  /* Row contains cards but does NOT stretch them full width */
+  .about-page .cards {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;                 /* Airbnb spacing */
+    justify-content: flex-start;
+    flex-wrap: nowrap;         /* keeps cards in a single row */
+  }
+
+  /* Card width limit so they stop becoming huge */
+  .about-page .card {
+    max-width: 360px !important;   /* Airbnb card width */
+    width: 100%;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Image */
+  .about-page .card-image img {
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+  }
+
+  /* Body */
+  .about-page .card-body {
+    padding: 12px 0 0 0 !important;
+  }
+
+  /* Title */
+  .about-page .card-title {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    margin: 0 0 6px 0 !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Description */
+  .about-page .desc {
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Meta (your existing <p class="meta2"><em> ... >) */
+  .about-page .meta2 {
+    font-size: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.3 !important;
+  }
+
+  .about-page .meta2 em {
+    font-style: normal !important;
+    opacity: 0.9;
+  }
+}
+
+
+
+.portfolio-divider {
+  height: 70px; /* adjust height */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.7),
+    rgba(0,0,0,0)
+  );
+}
+
+.full-bleed {
+  position: relative;
+  width: 100%;
+}
+
+/* let any child go full viewport width without shifting siblings */
+.full-bleed > * {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  height: 30px;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+
+
+/* FULL-BLEED GRADIENT DIVIDER DIRECTLY UNDER HEADER */
+/* Full-width gradient strip directly under the header */
+/* wrapper that controls how far down the nav fade starts */
+.nav-fade {
+  margin-top: 40px;      /* move the gradient lower under the nav */
+}
+
+/* the actual thin gradient line */
+.nav-divider {
+ margin-top: 15px;          /* thickness of the line */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.16),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+
+@media (min-width: 761px) {
+  .about-page .bio-section {
+    display: flex;
+    align-items: flex-start; /* don't center the block, keep its position */
+    position: relative;
+  }
+
+  .about-page .bio-inner {
+    position: relative;
+    top: 45px;   /* ← THIS is the manual adjustment you want */
+  }
+}
+
+/* ==== TYPE SYSTEM – ABOUT PAGE (non-card text) ==== */
+
+/* Nav brand + nav links */
+.head-name {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;       /* small, uppercase name */
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.top-nav a {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;       /* 14–15px */
+  font-weight: 500;
+}
+
+/* "Meet Jeremy Langdon" */
+.about-page .about-cs-label-name {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.375rem;     /* ~22px */
+  letter-spacing: 0;
+  color: #111;
+}
+
+/* Bio paragraph */
+.bio-text {
+  font-family: "source-serif-pro", serif !important;
+  font-size: 1rem;         /* 16px */
+  line-height: 1.65;
+  color: #444;
+}
+
+/* "My Latest Projects" */
+.leftSectionTitle {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;       /* 24px */
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Section labels like "Data Science" */
+.section-title {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;       /* 17–18px */
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* .about-page main {
+  background: linear-gradient(
+    to bottom,
+    #f9fafc 0%,
+    #ffffff 60%
+  );
+} */
+
+.leftSectionTitle {
+  position: relative;
+}
+
+.leftSectionTitle::after {
+  content: "";
+  position: absolute;
+  left: 23px;                
+  bottom: -8px;
+  width: 48px;
+  height: 3px;
+  border-radius: 999px;
+  background-color: #2563eb; 
+}
+.about-page #container {
+  /* background: #ffffff; */
+  padding: 48px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+}
+
+
+.top-nav {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.03),
+    rgba(0,0,0,0)
+  );
+  backdrop-filter: blur(6px);
+}
+
+/* ===== About page color system ===== */
+
+/* Soft blue background behind hero + projects */
+ /* body.about-page main {
+  background: linear-gradient(
+    to bottom,
+    #f5f7ff 0%,
+    #ffffff 55%
+  );
+}*  */ */
+
+/* Hero card: keep it bright white with a stronger shadow */
+body.about-page #container {
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+} */
+
+/* Accent underline under "My Latest Projects" */
+.about-page .leftSectionTitle {
+  position: relative;
+}
+
+
+/* =========================================
+   MOBILE TYPOGRAPHY (ABOUT PAGE ONLY)
+   Trigger: screens 760px and below
+   ========================================= */
+@media (max-width: 760px) {
+
+  /* Nav brand + nav links */
+  .about-page .head-name,
+  .about-page .top-nav a {
+    font-size: 0.8rem;        /* was 0.95rem */
+    letter-spacing: 0.06em;
+  }
+
+  /* "Meet Jeremy Langdon" */
+  .about-page .about-cs-label-name {
+    font-size: 1.2rem;        /* was 1.45rem */
+    margin-bottom: 6px;
+  }
+
+  /* Bio text paragraph */
+  .about-page .bio-text {
+    font-size: 0.95rem;       /* was 1rem */
+    line-height: 1.55;
+  }
+
+  /* "My Latest Projects" */
+  .about-page .leftSectionTitle {
+    font-size: 1.3rem;        /* was 1.6rem */
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  /* Data Science / UX section labels */
+  .about-page .section-title {
+    font-size: 0.8rem;        /* was 0.9rem */
+    letter-spacing: 0.10em;
+  }
+
+  /* Accent underline – make shorter on mobile */
+  .about-page .leftSectionTitle::after {
+    width: 36px;              /* was 52px */
+    height: 3px;
+  }
+}
+
+/* Fix: add side padding for titles on mobile */
+@media (max-width: 760px) {
+  /* "My Latest Projects" */
+  .leftSectionTitle {
+    padding: 0 16px;
+  }
+
+  /* Section labels like "DATA SCIENCE", "UX & PRODUCT" */
+  .row-2 .section-title,
+  .row-3 .section-title {
+    padding: 0 16px;
+  }
+}
+
+
+/* Fix underline positioning on mobile */
+@media (max-width: 760px) {
+  .leftSectionTitle::after {
+    left: 16px !important;   /* match the text padding */
+    width: 36px;             /* slightly shorter underline */
+  }
+}
+
+
+@media (max-width: 760px) {
+  .about-page #container {
+    padding: 16px !important; 
+  
+  }
+}
+
+@media (max-width: 760px) {
+  .top-nav {
+    padding-bottom: 4px !important; 
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Mobile: pull hero card closer to nav and reduce top padding */
+@media (max-width: 760px) {
+  .about-page #container {
+    padding-top: 0px !important;   /* was effectively ~60px */
+  }
+
+  .nav-divider {
+    margin-top: 0px !important;     /* was 27px */
+  }
+}
+
+@media (max-width: 760px) {
+  .about-page #container img {
+    margin-top: -34px !important;
+  }
+
+  .about-page .bio-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+.about-page #container {
+  margin-top: 0px !important;
+}
+
+.about-page .bio-section {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.about-page .profile-pic img {
+  margin-top: 0 !important;
+}
+
+@media (min-width: 761px) {
+  #container {
+    display: grid !important;
+    grid-template-columns: 160px 1fr !important;
+    gap: 40px !important;
+    align-items: center !important;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.card-image {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.bio-text {
+  max-width: 550px;
+}
+
+/* About page: remove the full-bleed gradient under the header */
+.about-page .full-bleed,
+.about-page .nav-divider {
+  display: none;
+}
+
+/* About page: hide the global full-bleed gradient under the hero card */
+.about-page .full-bleed,
+.about-page .nav-divider {
+  display: none !important;
+}
+
+/* Kill the gradient strip + any leftovers everywhere */
+.full-bleed,
+.nav-fade,
+.nav-divider {
+  display: none !important;
+}
+
+.leftSectionTitle {
+  margin-top: 32px;  /* or even 24px if you want it tighter */
+}
+/* FORCE DESKTOP ABOUT LAYOUT */
+@media (min-width: 900px) {
+  .about-page #container {
+    display: grid !important;
+    grid-template-columns: 140px 1fr !important;
+    align-items: start !important;
+    justify-items: start !important;
+    gap: 40px !important;
+  }
+
+  .about-page .profile-pic img {
+    margin-top: 38px !important;   /* stops random centering from overrides */
+    justify-self: start !important;
+  }
+
+  .about-page .bio-section {
+    text-align: left !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+
+
+/* --- ABOUT PAGE REDESIGN (v2) --- */
+
+.about-page main {
+  padding-top: 56px;              /* pull card up a bit */
+  background: #ffffff;            /* softer grey behind card + projects */
+}
+
+/* Main bio card */
+#container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 40px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 18px 55px rgba(0,0,0,0.08);
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+/* Profile image */
+.profile-pic {
+  flex-shrink: 0;
+}
+
+.profile-pic img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;                 /* make it a clean circle */
+  /* border: px solid #ffffff; */
+  margin-top: 0 !important;           /* kill old offsets */
+}
+
+/* Heading: “Meet Jeremy Langdon” */
+.about-cs-label-name {
+  font-family: "Lora", serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 10px;
+}
+
+/* Body copy */
+.bio-text {
+  font-family: "source-serif-pro", serif !important;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #4b5563;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* LinkedIn button spacing */
+.nav-buttons {
+  margin-top: 18px;
+}
+
+/* “My Latest Projects” alignment + spacing */
+.leftSectionTitle {
+  max-width: 980px;
+  margin: 40px auto 8px;   /* lines it up with the card */
+  padding: 0 40px;
+}
+
+/* Make the grey column align for rows under it */
+.row-2,
+.row-3 {
+  max-width: 980px;
+  margin: 0 auto 40px;
+  padding: 0 40px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 760px) {
+  #container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .profile-pic img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .bio-text {
+    text-align: left;
+    margin-top: 6px;
+  }
+
+  .leftSectionTitle,
+  .row-2,
+  .row-3 {
+    padding: 0 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Make whole page white but card spaced cleanly */
+.about-page main {
+  /* background: #ffffff !important; */
+}
+
+
+
+/* FORCE profile pic to be an actual circular avatar with circular shadow */
+.about-page .profile-pic {
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 50% !important;
+}
+
+.about-page main {
+  background: transparent !important;
+}
+
+/* Make bio card + heading + project sections same width */
+.about-page #container,
+.about-page .leftSectionTitle,
+.about-page .row-2,
+.about-page .row-3 {
+  max-width: 980px;   /* pick any value you like */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Remove extra white space at bottom of the project cards */
+.about-page .row-2,
+.about-page .row-3 {
+  padding-bottom: 0 !important;
+}
+
+.about-page .card {
+  margin-bottom: 0 !important;
+  padding-bottom: 24px !important; /* tighten the bottom of each card */
+}
+
+.about-page .cards {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+

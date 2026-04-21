@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+
+
+ <meta charset="UTF-8" />
+
+
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+ <title>Packaging - Series of Three | Jeremy Langdon</title>
+
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+ <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+
+ <style>
+
+
+ :root {
+
+
+ --bg: #f8f6f2;
+
+
+ --text: #1a1a18;
+
+
+ --muted: #6b6860;
+
+
+ --border: #e2ddd6;
+
+
+ --card: #ffffff;
+
+
+ --accent: #2d6a2e;
+
+
+ }
+
+
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+ body { background: var(--bg); color: var(--text); font-family: 'Lato', sans-serif; line-height: 1.6; }
+
+
+
+
+
+ nav {
+
+
+ position: sticky; top: 0; z-index: 100;
+
+
+ height: 60px;
+
+
+ background: rgba(248,246,242,0.92);
+
+
+ backdrop-filter: blur(12px);
+
+
+ border-bottom: 1px solid var(--border);
+
+
+ display: flex; align-items: center;
+
+
+ padding: 0 48px;
+
+
+ }
+
+
+ .nav-back { font-size: 0.9rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+
+
+ .nav-back:hover { color: var(--text); }
+
+
+
+
+
+ .hero {
+
+
+ max-width: 1100px; margin: 0 auto;
+
+
+ padding: 72px 48px 56px;
+
+
+ }
+
+
+ .hero-left { display: flex; flex-direction: column; gap: 16px; max-width: 700px; }
+
+
+ .hero-left h1 { font-family: 'Lora', serif; font-size: 3.2rem; line-height: 1.1; }
+
+
+ .hero-left h1 em { color: var(--accent); font-style: italic; }
+
+
+ .hero-subtitle { color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
+
+
+ .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+
+ .meta-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+
+
+ .meta-card .label { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 4px; }
+
+
+ .meta-card .value { font-size: 0.88rem; font-weight: 500; }
+
+
+
+
+
+ .divider { max-width: 1100px; margin: 0 auto; border: none; border-top: 1px solid var(--border); }
+
+
+
+
+
+ .slides-header {
+
+
+ max-width: 1100px; margin: 0 auto;
+
+
+ padding: 40px 48px 24px;
+
+
+ display: flex; align-items: flex-end; justify-content: space-between;
+
+
+ }
+
+
+ .slides-header-left { display: flex; flex-direction: column; gap: 8px; }
+
+
+ .slides-header h2 { font-family: 'Lora', serif; font-size: 1.6rem; }
+
+
+ .accent-bar { width: 36px; height: 3px; background: var(--accent); border-radius: 2px; }
+
+
+ .slides-count { font-size: 0.875rem; color: var(--muted); }
+
+
+
+
+
+ .slide-grid {
+
+
+ max-width: 1100px; margin: 0 auto;
+
+
+ padding: 0 48px 80px;
+
+
+ display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+
+
+ }
+
+
+ .slide-item { cursor: pointer; transition: transform 0.2s; }
+
+
+ .slide-item:hover { transform: translateY(-3px); }
+
+
+ .slide-thumb {
+
+
+ position: relative; aspect-ratio: 16/9;
+
+
+ border-radius: 10px; overflow: hidden;
+
+
+ border: 1px solid var(--border);
+
+
+ box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+
+
+ transition: box-shadow 0.2s;
+
+
+ }
+
+
+ .slide-item:hover .slide-thumb { box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+
+
+ .slide-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; display: block; }
+
+
+ .slide-item:hover .slide-thumb img { transform: scale(1.02); }
+
+
+ .slide-overlay { position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: flex-end; padding: 10px; }
+
+
+ .slide-num {
+
+
+ background: rgba(0,0,0,0.45); color: #fff;
+
+
+ font-size: 0.72rem; font-weight: 600; padding: 3px 8px; border-radius: 20px;
+
+
+ opacity: 0; transition: opacity 0.2s;
+
+
+ }
+
+
+ .slide-item:hover .slide-num { opacity: 1; }
+
+
+ .slide-caption { padding: 8px 2px 0; line-height: 1.2; }
+
+
+ .slide-caption strong { display: block; font-size: 0.82rem; font-weight: 600; line-height: 1.3; }
+
+
+ .slide-caption span { font-size: 0.75rem; color: var(--muted); line-height: 1.2; }
+
+
+
+
+
+ .page-nav {
+
+
+ border-top: 1px solid var(--border);
+
+
+ max-width: 1100px; margin: 0 auto;
+
+
+ padding: 32px 48px;
+
+
+ display: flex; justify-content: space-between;
+
+
+ }
+
+
+ .page-nav a, .page-nav span {
+
+
+ display: inline-block; padding: 10px 22px;
+
+
+ border: 1.5px solid var(--border); border-radius: 100px;
+
+
+ font-size: 0.875rem; font-weight: 500; text-decoration: none;
+
+
+ color: var(--text); transition: all 0.2s;
+
+
+ }
+
+
+ .page-nav a:hover { border-color: var(--accent); color: var(--accent); }
+
+
+ .page-nav .disabled { color: var(--muted); cursor: default; }
+
+
+
+
+
+ .lightbox {
+
+
+ position: fixed; inset: 0;
+
+
+ display: none; flex-direction: column; align-items: center; justify-content: center;
+
+
+ background: rgba(10,10,8,0.92); backdrop-filter: blur(6px);
+
+
+ z-index: 1000; padding: 20px;
+
+
+ }
+
+
+ .lightbox.open { display: flex; }
+
+
+ .lb-close {
+
+
+ position: absolute; top: 20px; right: 20px;
+
+
+ width: 40px; height: 40px; border-radius: 50%;
+
+
+ background: rgba(255,255,255,0.15); border: none; color: #fff;
+
+
+ font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+
+
+ transition: background 0.2s;
+
+
+ }
+
+
+ .lb-close:hover { background: rgba(255,255,255,0.25); }
+
+
+ .lb-img-wrap img { max-width: 92vw; max-height: 78vh; border-radius: 8px; display: block; }
+
+
+ .lb-info { margin-top: 16px; text-align: center; color: #fff; }
+
+
+ .lb-info h3 { font-family: 'Lora', serif; font-size: 1.1rem; margin-bottom: 4px; }
+
+
+ .lb-info p { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+
+
+ .lb-counter { margin-top: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+
+
+ .lb-nav { display: flex; gap: 12px; margin-top: 16px; }
+
+
+ .lb-nav button {
+
+
+ padding: 9px 22px; border-radius: 100px;
+
+
+ background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+
+
+ color: #fff; font-size: 0.875rem; cursor: pointer; transition: background 0.2s;
+
+
+ font-family: 'Lato', sans-serif;
+
+
+ }
+
+
+ .lb-nav button:hover { background: rgba(255,255,255,0.22); }
+
+
+
+
+
+ @media (max-width: 900px) {
+
+
+ .hero { grid-template-columns: 1fr; }
+
+
+ .slide-grid { grid-template-columns: repeat(2, 1fr); }
+
+
+ nav, .hero, .slides-header, .slide-grid, .page-nav { padding-left: 24px; padding-right: 24px; }
+
+
+ }
+
+
+ @media (max-width: 520px) {
+
+
+ .slide-grid { grid-template-columns: 1fr; }
+
+
+ .hero-left h1 { font-size: 2rem; }
+
+
+ }
+
+
+ </style>
+
+
+</head>
+
+
+<body>
+
+
+
+
+
+<nav>
+
+
+ <a href="design-hub.html" class="nav-back">&larr; Back to Design Hub</a>
+
+
+</nav>
+
+
+
+
+
+<section class="hero">
+
+
+ <div class="hero-left">
+
+
+ <h1>Packaging, <em>Series of Three</em></h1>
+
+
+ <p class="hero-subtitle">A packaging redesign project for Tazo Tea's organic line - three flavors, one cohesive series. Research-driven design across brand analysis, competitor study, and four iterations toward a final shelf-ready system.</p>
+
+
+ </div>
+
+
+</section>
+
+
+
+
+
+<hr class="divider">
+
+
+
+
+
+<div class="slides-header">
+
+
+ <div class="slides-header-left">
+
+
+ <h2>Full Slide Deck</h2>
+
+
+ <div class="accent-bar"></div>
+
+
+ </div>
+
+
+ <span class="slides-count">32 slides - click any to expand</span>
+
+
+</div>
+
+
+
+
+
+<div class="slide-grid">
+
+
+ <div class="slide-item" onclick="openLightbox(0)"><div class="slide-thumb"><img src="slides/cs1-03.jpg" alt="Packaging - Series of Three" loading="lazy"><div class="slide-overlay"><span class="slide-num">01</span></div></div><div class="slide-caption"><strong>Packaging - Series of Three</strong><span>Title Slide</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(1)"><div class="slide-thumb"><img src="slides/cs1-04.jpg" alt="Research" loading="lazy"><div class="slide-overlay"><span class="slide-num">02</span></div></div><div class="slide-caption"><strong>Research</strong><span>Section Header</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(2)"><div class="slide-thumb"><img src="slides/cs1-05.jpg" alt="Tazo - Brand Overview" loading="lazy"><div class="slide-overlay"><span class="slide-num">03</span></div></div><div class="slide-caption"><strong>Tazo - Brand Overview</strong><span>Certifications &amp; Mission</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(3)"><div class="slide-thumb"><img src="slides/cs1-06.jpg" alt="Tazo Tea - Product Categories" loading="lazy"><div class="slide-overlay"><span class="slide-num">04</span></div></div><div class="slide-caption"><strong>Tazo Tea - Product Categories</strong><span>Pick me up / Refresh / Wind down / Sleep / Indulgence</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(4)"><div class="slide-thumb"><img src="slides/cs1-07.jpg" alt="Tazo Tea - Social Media" loading="lazy"><div class="slide-overlay"><span class="slide-num">05</span></div></div><div class="slide-caption"><strong>Tazo Tea - Social Media</strong><span>Youth-Oriented Marketing</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(5)"><div class="slide-thumb"><img src="slides/cs1-08.jpg" alt="Tazo Tea - Communication Goals" loading="lazy"><div class="slide-overlay"><span class="slide-num">06</span></div></div><div class="slide-caption"><strong>Tazo Tea - Communication Goals</strong><span>Marketing Tea as Experience</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(6)"><div class="slide-thumb"><img src="slides/cs1-09.jpg" alt="Tazo Tea - External Impressions" loading="lazy"><div class="slide-overlay"><span class="slide-num">07</span></div></div><div class="slide-caption"><strong>Tazo Tea - External Impressions</strong><span>Consumer Perception</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(7)"><div class="slide-thumb"><img src="slides/cs1-10.jpg" alt="Tazo Tea - Contradictions" loading="lazy"><div class="slide-overlay"><span class="slide-num">08</span></div></div><div class="slide-caption"><strong>Tazo Tea - Contradictions</strong><span>Brand Disconnect Analysis</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(8)"><div class="slide-thumb"><img src="slides/cs1-11.jpg" alt="Tazo Tea - Brand Summary" loading="lazy"><div class="slide-overlay"><span class="slide-num">09</span></div></div><div class="slide-caption"><strong>Tazo Tea - Brand Summary</strong><span>Strategic Assessment</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(9)"><div class="slide-thumb"><img src="slides/cs1-12.jpg" alt="Yogi Tea - Strengths" loading="lazy"><div class="slide-overlay"><span class="slide-num">10</span></div></div><div class="slide-caption"><strong>Yogi Tea - Strengths</strong><span>Wellness Identity &amp; Sustainability</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(10)"><div class="slide-thumb"><img src="slides/cs1-13.jpg" alt="Yogi Tea - Weaknesses" loading="lazy"><div class="slide-overlay"><span class="slide-num">11</span></div></div><div class="slide-caption"><strong>Yogi Tea - Weaknesses</strong><span>Limited Flavors &amp; Youth Engagement</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(11)"><div class="slide-thumb"><img src="slides/cs1-14.jpg" alt="Yogi Tea - Threats" loading="lazy"><div class="slide-overlay"><span class="slide-num">12</span></div></div><div class="slide-caption"><strong>Yogi Tea - Threats</strong><span>Commoditization &amp; Cultural Appropriation</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(12)"><div class="slide-thumb"><img src="slides/cs1-15.jpg" alt="Yogi Tea - Opportunities" loading="lazy"><div class="slide-overlay"><span class="slide-num">13</span></div></div><div class="slide-caption"><strong>Yogi Tea - Opportunities</strong><span>Expand &amp; Modernize</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(13)"><div class="slide-thumb"><img src="slides/cs1-16.jpg" alt="Pukka Herbs - Strengths" loading="lazy"><div class="slide-overlay"><span class="slide-num">14</span></div></div><div class="slide-caption"><strong>Pukka Herbs - Strengths</strong><span>Environmental Credibility &amp; Storytelling</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(14)"><div class="slide-thumb"><img src="slides/cs1-17.jpg" alt="Pukka Herbs - Weaknesses" loading="lazy"><div class="slide-overlay"><span class="slide-num">15</span></div></div><div class="slide-caption"><strong>Pukka Herbs - Weaknesses</strong><span>Price &amp; Spiritual Overload</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(15)"><div class="slide-thumb"><img src="slides/cs1-18.jpg" alt="Pukka Herbs - Threats" loading="lazy"><div class="slide-overlay"><span class="slide-num">16</span></div></div><div class="slide-caption"><strong>Pukka Herbs - Threats</strong><span>Shelf Competition</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(16)"><div class="slide-thumb"><img src="slides/cs1-19.jpg" alt="Pukka Herbs - Opportunities" loading="lazy"><div class="slide-overlay"><span class="slide-num">17</span></div></div><div class="slide-caption"><strong>Pukka Herbs - Opportunities</strong><span>Wellness Rebrand</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(17)"><div class="slide-thumb"><img src="slides/cs1-20.jpg" alt="Strategy - Opportunities" loading="lazy"><div class="slide-overlay"><span class="slide-num">18</span></div></div><div class="slide-caption"><strong>Strategy - Opportunities</strong><span>Clear Series / Sustainability / Distinguishable Pack</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(18)"><div class="slide-thumb"><img src="slides/cs1-21.jpg" alt="Flavor Choices" loading="lazy"><div class="slide-overlay"><span class="slide-num">19</span></div></div><div class="slide-caption"><strong>Flavor Choices</strong><span>Organic Zen  &middot; Organic Dream  &middot; Organic Black</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(19)"><div class="slide-thumb"><img src="slides/cs1-22.jpg" alt="Organic Zen - Mood Board" loading="lazy"><div class="slide-overlay"><span class="slide-num">20</span></div></div><div class="slide-caption"><strong>Organic Zen - Mood Board</strong><span>Green Tea Packaging Inspiration</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(20)"><div class="slide-thumb"><img src="slides/cs1-23.jpg" alt="Organic Dream - Mood Board" loading="lazy"><div class="slide-overlay"><span class="slide-num">21</span></div></div><div class="slide-caption"><strong>Organic Dream - Mood Board</strong><span>Blue / Night Tea Packaging Inspiration</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(21)"><div class="slide-thumb"><img src="slides/cs1-24.jpg" alt="Organic Earl Grey - Mood Board" loading="lazy"><div class="slide-overlay"><span class="slide-num">22</span></div></div><div class="slide-caption"><strong>Organic Earl Grey - Mood Board</strong><span>Dark Premium Tea Packaging</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(22)"><div class="slide-thumb"><img src="slides/cs1-25.jpg" alt="Low Fidelity - Paper Prototypes" loading="lazy"><div class="slide-overlay"><span class="slide-num">23</span></div></div><div class="slide-caption"><strong>Low Fidelity - Paper Prototypes</strong><span>Tea Box Dieline &amp; Physical Model</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(23)"><div class="slide-thumb"><img src="slides/cs1-26.jpg" alt="Low Fidelity - Observations" loading="lazy"><div class="slide-overlay"><span class="slide-num">24</span></div></div><div class="slide-caption"><strong>Low Fidelity - Observations</strong><span>3 Distinct Cover Layouts</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(24)"><div class="slide-thumb"><img src="slides/cs1-27.jpg" alt="1st Iterations" loading="lazy"><div class="slide-overlay"><span class="slide-num">25</span></div></div><div class="slide-caption"><strong>1st Iterations</strong><span>Gradient + Vector Artwork Exploration</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(25)"><div class="slide-thumb"><img src="slides/cs1-28.jpg" alt="2nd Iterations" loading="lazy"><div class="slide-overlay"><span class="slide-num">26</span></div></div><div class="slide-caption"><strong>2nd Iterations</strong><span>Series Color Differentiation</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(26)"><div class="slide-thumb"><img src="slides/cs1-29.jpg" alt="2nd Iterations - Print Testing" loading="lazy"><div class="slide-overlay"><span class="slide-num">27</span></div></div><div class="slide-caption"><strong>2nd Iterations - Print Testing</strong><span>Gradient &amp; Contrast Issues on Paper</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(27)"><div class="slide-thumb"><img src="slides/cs1-30.jpg" alt="3rd Iterations" loading="lazy"><div class="slide-overlay"><span class="slide-num">28</span></div></div><div class="slide-caption"><strong>3rd Iterations</strong><span>Cup Style Covers, Removed Gradients</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(28)"><div class="slide-thumb"><img src="slides/cs1-31.jpg" alt="3rd Iterations - Full Series" loading="lazy"><div class="slide-overlay"><span class="slide-num">29</span></div></div><div class="slide-caption"><strong>3rd Iterations - Full Series</strong><span>Improved Accessibility &amp; Legibility</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(29)"><div class="slide-thumb"><img src="slides/cs1-32.jpg" alt="3rd Iterations - Critiques" loading="lazy"><div class="slide-overlay"><span class="slide-num">30</span></div></div><div class="slide-caption"><strong>3rd Iterations - Critiques</strong><span>Font &amp; Color Concerns</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(30)"><div class="slide-thumb"><img src="slides/cs1-33.jpg" alt="4th Iterations" loading="lazy"><div class="slide-overlay"><span class="slide-num">31</span></div></div><div class="slide-caption"><strong>4th Iterations</strong><span>Red Band + Sunset Symbol System</span></div></div>
+
+
+ <div class="slide-item" onclick="openLightbox(31)"><div class="slide-thumb"><img src="slides/cs1-34.jpg" alt="Final Iteration" loading="lazy"><div class="slide-overlay"><span class="slide-num">32</span></div></div><div class="slide-caption"><strong>Final Iteration</strong><span>Organic Zen  &middot; Dream  &middot; Black - Final Series</span></div></div>
+
+
+</div>
+
+
+
+
+
+<div class="page-nav">
+
+
+ <span class="disabled">&larr; Start</span>
+
+
+ <a href="case-study-2.html">Trader Joe's &rarr; </a>
+
+
+</div>
+
+
+
+
+
+<div id="lightbox" class="lightbox">
+
+
+ <button class="lb-close" onclick="closeLightbox()">X</button>
+
+
+ <div class="lb-img-wrap"><img id="lb-img" src="" alt=""></div>
+
+
+ <div class="lb-info">
+
+
+ <h3 id="lb-title"></h3>
+
+
+ <p id="lb-desc"></p>
+
+
+ </div>
+
+
+ <div id="lb-counter" class="lb-counter"></div>
+
+
+ <div class="lb-nav">
+
+
+ <button onclick="lbNav(-1)">&larr; Prev</button>
+
+
+ <button onclick="lbNav(1)">Next &rarr; </button>
+
+
+ </div>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+const slides = [
+
+
+ { src: "slides/cs1-03.jpg", title: "Packaging - Series of Three", desc: "Title Slide" },
+
+
+ { src: "slides/cs1-04.jpg", title: "Research", desc: "Section Header" },
+
+
+ { src: "slides/cs1-05.jpg", title: "Tazo - Brand Overview", desc: "Certifications & Mission" },
+
+
+ { src: "slides/cs1-06.jpg", title: "Tazo Tea - Product Categories", desc: "Pick me up / Refresh / Wind down / Sleep / Indulgence" },
+
+
+ { src: "slides/cs1-07.jpg", title: "Tazo Tea - Social Media", desc: "Youth-Oriented Marketing" },
+
+
+ { src: "slides/cs1-08.jpg", title: "Tazo Tea - Communication Goals", desc: "Marketing Tea as Experience" },
+
+
+ { src: "slides/cs1-09.jpg", title: "Tazo Tea - External Impressions", desc: "Consumer Perception" },
+
+
+ { src: "slides/cs1-10.jpg", title: "Tazo Tea - Contradictions", desc: "Brand Disconnect Analysis" },
+
+
+ { src: "slides/cs1-11.jpg", title: "Tazo Tea - Brand Summary", desc: "Strategic Assessment" },
+
+
+ { src: "slides/cs1-12.jpg", title: "Yogi Tea - Strengths", desc: "Wellness Identity & Sustainability" },
+
+
+ { src: "slides/cs1-13.jpg", title: "Yogi Tea - Weaknesses", desc: "Limited Flavors & Youth Engagement" },
+
+
+ { src: "slides/cs1-14.jpg", title: "Yogi Tea - Threats", desc: "Commoditization & Cultural Appropriation" },
+
+
+ { src: "slides/cs1-15.jpg", title: "Yogi Tea - Opportunities", desc: "Expand & Modernize" },
+
+
+ { src: "slides/cs1-16.jpg", title: "Pukka Herbs - Strengths", desc: "Environmental Credibility & Storytelling" },
+
+
+ { src: "slides/cs1-17.jpg", title: "Pukka Herbs - Weaknesses", desc: "Price & Spiritual Overload" },
+
+
+ { src: "slides/cs1-18.jpg", title: "Pukka Herbs - Threats", desc: "Shelf Competition" },
+
+
+ { src: "slides/cs1-19.jpg", title: "Pukka Herbs - Opportunities", desc: "Wellness Rebrand" },
+
+
+ { src: "slides/cs1-20.jpg", title: "Strategy - Opportunities", desc: "Clear Series / Sustainability / Distinguishable Pack" },
+
+
+ { src: "slides/cs1-21.jpg", title: "Flavor Choices", desc: "Organic Zen  &middot; Organic Dream  &middot; Organic Black" },
+
+
+ { src: "slides/cs1-22.jpg", title: "Organic Zen - Mood Board", desc: "Green Tea Packaging Inspiration" },
+
+
+ { src: "slides/cs1-23.jpg", title: "Organic Dream - Mood Board", desc: "Blue / Night Tea Packaging Inspiration" },
+
+
+ { src: "slides/cs1-24.jpg", title: "Organic Earl Grey - Mood Board", desc: "Dark Premium Tea Packaging" },
+
+
+ { src: "slides/cs1-25.jpg", title: "Low Fidelity - Paper Prototypes", desc: "Tea Box Dieline & Physical Model" },
+
+
+ { src: "slides/cs1-26.jpg", title: "Low Fidelity - Observations", desc: "3 Distinct Cover Layouts" },
+
+
+ { src: "slides/cs1-27.jpg", title: "1st Iterations", desc: "Gradient + Vector Artwork Exploration" },
+
+
+ { src: "slides/cs1-28.jpg", title: "2nd Iterations", desc: "Series Color Differentiation" },
+
+
+ { src: "slides/cs1-29.jpg", title: "2nd Iterations - Print Testing", desc: "Gradient & Contrast Issues on Paper" },
+
+
+ { src: "slides/cs1-30.jpg", title: "3rd Iterations", desc: "Cup Style Covers, Removed Gradients" },
+
+
+ { src: "slides/cs1-31.jpg", title: "3rd Iterations - Full Series", desc: "Improved Accessibility & Legibility" },
+
+
+ { src: "slides/cs1-32.jpg", title: "3rd Iterations - Critiques", desc: "Font & Color Concerns" },
+
+
+ { src: "slides/cs1-33.jpg", title: "4th Iterations", desc: "Red Band + Sunset Symbol System" },
+
+
+ { src: "slides/cs1-34.jpg", title: "Final Iteration", desc: "Organic Zen  &middot; Dream  &middot; Black - Final Series" },
+
+
+];
+
+
+let current = 0;
+
+
+function openLightbox(i) { current = i; updateLightbox(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow = 'hidden'; }
+
+
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+
+
+function updateLightbox() {
+
+
+ const s = slides[current];
+
+
+ document.getElementById('lb-img').src = s.src;
+
+
+ document.getElementById('lb-img').alt = s.title;
+
+
+ document.getElementById('lb-title').textContent = s.title;
+
+
+ document.getElementById('lb-desc').textContent = s.desc;
+
+
+ document.getElementById('lb-counter').textContent = (current + 1) + ' / ' + slides.length;
+
+
+}
+
+
+function lbNav(dir) { current = (current + dir + slides.length) % slides.length; updateLightbox(); }
+
+
+document.getElementById('lightbox').addEventListener('click', e => { if (e.target === document.getElementById('lightbox')) closeLightbox(); });
+
+
+document.addEventListener('keydown', e => {
+
+
+ if (!document.getElementById('lightbox').classList.contains('open')) return;
+
+
+ if (e.key === 'ArrowRight') lbNav(1);
+
+
+ if (e.key === 'ArrowLeft') lbNav(-1);
+
+
+ if (e.key === 'Escape') closeLightbox();
+
+
+});
+
+
+</script>
+
+
+  <link rel="stylesheet" href="widget.css">
+  <script src="widget.js" data-worker-url="https://portfolio-chat-worker.jeremylangdon.workers.dev" data-page-context="Packaging Series of Three"></script>
+</body>
+
+
+</html>
+
+
+
+
+

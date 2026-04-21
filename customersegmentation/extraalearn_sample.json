@@ -1,0 +1,26 @@
+{
+  "columns": [
+    "ID",
+    "age",
+    "current_occupation",
+    "first_interaction",
+    "profile_completed",
+    "website_visits",
+    "time_spent_on_website",
+    "page_views_per_visit",
+    "last_activity",
+    "print_media_type1",
+    "print_media_type2",
+    "digital_media",
+    "educational_channels",
+    "referral",
+    "status"
+  ],
+  "rows": [
+    ["EXT001",57,"Unemployed","Website","High",7,1639,1.861,"Website Activity","Yes","No","Yes","No","No",1],
+    ["EXT002",56,"Professional","Mobile App","Medium",2,83,0.320,"Website Activity","No","No","No","Yes","No",0],
+    ["EXT003",52,"Professional","Website","Medium",3,330,0.074,"Website Activity","No","No","Yes","No","No",0],
+    ["EXT004",53,"Unemployed","Website","High",4,464,2.057,"Website Activity","No","No","No","No","No",1],
+    ["EXT005",23,"Student","Website","High",4,600,16.914,"Email Activity","No","No","No","No","No",0]
+  ]
+}

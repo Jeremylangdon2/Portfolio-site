@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Design Work | Jeremy Langdon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:     #f8f6f2;
+      --text:   #1a1a18;
+      --muted:  #6b6860;
+      --border: #e2ddd6;
+      --card:   #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; line-height: 1.6; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      height: 60px;
+      background: rgba(248,246,242,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 48px;
+    }
+    .nav-back { font-size: 0.9rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); }
+
+    .hero {
+      max-width: 1100px; margin: 0 auto;
+      padding: 72px 48px 56px;
+    }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: 3.2rem; line-height: 1.1; margin-bottom: 16px; }
+    .hero p { color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 620px; }
+
+    .divider { max-width: 1100px; margin: 0 auto; border: none; border-top: 1px solid var(--border); }
+
+    .grid {
+      max-width: 1100px; margin: 0 auto;
+      padding: 56px 48px 80px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.09); }
+
+    .card-img {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; display: block; }
+    .project-card:hover .card-img img { transform: scale(1.03); }
+
+    .card-body { padding: 22px 24px 26px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+    .card-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+    .card-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; line-height: 1.2; }
+    .card-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; flex: 1; }
+    .card-cta { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-top: 4px; }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr 1fr; padding: 40px 24px 60px; }
+      nav, .hero { padding-left: 24px; padding-right: 24px; }
+    }
+    @media (max-width: 540px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://jeremylangdonportfolio.com" class="nav-back">← Back to Portfolio Home</a>
+</nav>
+
+<section class="hero">
+  <h1>Design Work</h1>
+  <p>Here's my design work from San Francisco State University and beyond — packaging, UX/UI, and product strategy projects built through research, iteration, and collaboration.</p>
+</section>
+
+<hr class="divider">
+
+<div class="grid">
+
+  <a class="project-card" href="teabox.html">
+    <div class="card-img">
+      <img src="slides/cs1-03.jpg" alt="Packaging Series of Three">
+    </div>
+    <div class="card-body">
+      <span class="card-label">Packaging · SF State DES 570</span>
+      <h2 class="card-title">Packaging, Series of Three</h2>
+      <p class="card-desc">A packaging redesign for Tazo Tea's organic line — three flavors, one cohesive series built through brand research, competitor analysis, and four design iterations toward a final shelf-ready system.</p>
+      <span class="card-cta">View case study →</span>
+    </div>
+  </a>
+
+  <a class="project-card" href="traderjoes.html">
+    <div class="card-img">
+      <img src="slides/cs2-36.jpg" alt="Trader Joe's Mobile App">
+    </div>
+    <div class="card-body">
+      <span class="card-label">UX/UI · SF State DES 570</span>
+      <h2 class="card-title">Trader Joe's Mobile App</h2>
+      <p class="card-desc">A UX/UI case study improving the grocery shopping experience for elderly users through in-store research, personas, wireframes, and a high-fidelity prototype built with a team of four designers.</p>
+      <span class="card-cta">View case study →</span>
+    </div>
+  </a>
+
+  <a class="project-card" href="FIC.html">
+    <div class="card-img">
+      <img src="slides/cs3-65.jpg" alt="Foundation for Intentional Community">
+    </div>
+    <div class="card-body">
+      <span class="card-label">Product Strategy · Tech Fleet</span>
+      <h2 class="card-title">Foundation for Intentional Community</h2>
+      <p class="card-desc">A 16-week product strategy engagement — client workshops, customer journey maps, MVP scope definition, and a strategic roadmap that led to a redesigned website and improved membership conversions.</p>
+      <span class="card-cta">View case study →</span>
+    </div>
+  </a>
+
+</div>
+
+  <link rel="stylesheet" href="widget.css">
+  <script src="widget.js" data-worker-url="https://portfolio-chat-worker.jeremylangdon.workers.dev" data-page-context="Design Hub"></script>
+</body>
+</html>

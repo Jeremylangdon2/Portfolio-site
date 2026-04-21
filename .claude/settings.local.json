@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import matplotlib; print\\('matplotlib ok'\\)\")",
+      "Bash(py --version)",
+      "Bash(py -c \"import matplotlib; print\\('matplotlib ok'\\)\")",
+      "Bash(py -c ' *)",
+      "Bash(python -c \"import pdf2image\")",
+      "Bash(python -c \"import fitz\")",
+      "Bash(gs --version)",
+      "Bash(magick --version)",
+      "Bash(pdftoppm --version)",
+      "Bash(npm list *)",
+      "PowerShell(python --version 2>&1)",
+      "PowerShell(winget --version 2>&1)",
+      "PowerShell(winget install --id Python.Python.3.12 --silent --accept-package-agreements --accept-source-agreements 2>&1)",
+      "Bash(xxd)",
+      "PowerShell(& \"C:\\\\Users\\\\Jeremy L\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" \"C:\\\\Users\\\\Jeremy L\\\\Desktop\\\\no extension\\\\_fix.py\")"
+    ]
+  }
+}

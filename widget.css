@@ -1,0 +1,279 @@
+/* =============================================================================
+   Portfolio Chat Widget Styles
+   Customize the CSS variables in :root to match your portfolio's color scheme.
+   ============================================================================= */
+
+:root {
+  --cw-primary:        #6366f1;   /* bubble + send button background */
+  --cw-primary-dark:   #4f46e5;   /* hover state */
+  --cw-bg:             #ffffff;   /* panel background */
+  --cw-header-bg:      #6366f1;   /* panel header */
+  --cw-header-text:    #ffffff;
+  --cw-user-bg:        #6366f1;   /* user message bubble */
+  --cw-user-text:      #ffffff;
+  --cw-bot-bg:         #f3f4f6;   /* assistant message bubble */
+  --cw-bot-text:       #111827;
+  --cw-input-bg:       #f9fafb;
+  --cw-border:         #e5e7eb;
+  --cw-shadow:         0 8px 32px rgba(0,0,0,0.15);
+  --cw-radius:         16px;
+  --cw-radius-sm:      8px;
+  --cw-font:           -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --cw-z:              9999;
+}
+
+/* ── Reset scoped to widget ─────────────────────────────────────────────────── */
+#cw-root *, #cw-root *::before, #cw-root *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Floating bubble button ─────────────────────────────────────────────────── */
+#cw-bubble {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: var(--cw-z);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--cw-primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--cw-shadow);
+  transition: background 0.2s, transform 0.15s;
+}
+
+#cw-bubble:hover {
+  background: var(--cw-primary-dark);
+  transform: scale(1.05);
+}
+
+#cw-bubble:active {
+  transform: scale(0.97);
+}
+
+/* ── Chat panel ─────────────────────────────────────────────────────────────── */
+#cw-panel {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  z-index: var(--cw-z);
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  height: 520px;
+  max-height: calc(100vh - 120px);
+  background: var(--cw-bg);
+  border-radius: var(--cw-radius);
+  box-shadow: var(--cw-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: var(--cw-font);
+  font-size: 14px;
+  /* Hidden by default — toggled via .cw-open */
+  opacity: 0;
+  transform: translateY(12px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#cw-panel.cw-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+#cw-header {
+  background: var(--cw-header-bg);
+  color: var(--cw-header-text);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+#cw-header-title {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+#cw-close-btn {
+  background: none;
+  border: none;
+  color: var(--cw-header-text);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: 4px;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+}
+
+#cw-close-btn:hover {
+  opacity: 1;
+}
+
+/* ── Message list ───────────────────────────────────────────────────────────── */
+#cw-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+#cw-messages::-webkit-scrollbar { width: 4px; }
+#cw-messages::-webkit-scrollbar-track { background: transparent; }
+#cw-messages::-webkit-scrollbar-thumb { background: var(--cw-border); border-radius: 4px; }
+
+/* ── Individual message rows ────────────────────────────────────────────────── */
+.cw-msg {
+  display: flex;
+  max-width: 80%;
+}
+
+.cw-msg-user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.cw-msg-assistant {
+  align-self: flex-start;
+}
+
+#cw-root .cw-bubble {
+  padding: 16px 20px;
+  border-radius: var(--cw-radius);
+  line-height: 1.65;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.cw-msg-user .cw-bubble {
+  background: var(--cw-user-bg);
+  color: var(--cw-user-text);
+  border-bottom-right-radius: var(--cw-radius-sm);
+}
+
+.cw-msg-assistant .cw-bubble {
+  background: var(--cw-bot-bg);
+  color: var(--cw-bot-text);
+  border-bottom-left-radius: var(--cw-radius-sm);
+}
+
+/* ── Typing indicator ───────────────────────────────────────────────────────── */
+.cw-typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 12px 16px;
+  min-width: 52px;
+}
+
+.cw-typing-indicator span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #9ca3af;
+  animation: cw-bounce 1.2s infinite;
+}
+
+.cw-typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.cw-typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes cw-bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%           { transform: translateY(-5px); }
+}
+
+/* ── Input row ──────────────────────────────────────────────────────────────── */
+#cw-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--cw-border);
+  background: var(--cw-bg);
+  flex-shrink: 0;
+}
+
+#cw-input {
+  flex: 1;
+  resize: none;
+  border: 1px solid var(--cw-border);
+  border-radius: var(--cw-radius-sm);
+  padding: 8px 12px;
+  font-family: var(--cw-font);
+  font-size: 14px;
+  line-height: 1.5;
+  background: var(--cw-input-bg);
+  color: var(--cw-bot-text);
+  outline: none;
+  transition: border-color 0.15s;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+#cw-input:focus {
+  border-color: var(--cw-primary);
+}
+
+#cw-input::placeholder {
+  color: #9ca3af;
+}
+
+#cw-send {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--cw-primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, transform 0.1s;
+}
+
+#cw-send:hover {
+  background: var(--cw-primary-dark);
+}
+
+#cw-send:active {
+  transform: scale(0.92);
+}
+
+#cw-send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Mobile ─────────────────────────────────────────────────────────────────── */
+@media (max-width: 420px) {
+  #cw-panel {
+    right: 8px;
+    bottom: 80px;
+    width: calc(100vw - 16px);
+  }
+
+  #cw-bubble {
+    right: 16px;
+    bottom: 16px;
+  }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="contact-page">
+
+  <!-- Video Background -->
+<div class="contact-page-clouds">
+  <!-- <img src="img/curvs.jpeg" alt="Cloud background" /> -->
+</div>
+
+  <!-- Header with navs-->
+  <header class="header">
+    <div class="left-header">
+      <!-- <img src="img/blue2.png" alt="Jeremy profile" class="small-profile" /> -->
+      <span class="head-name">Jeremy Langdon</span>
+    </div>
+
+     <!-- Hamburger toggle -->
+  <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- The menu that opens -->
+  <nav class="top-nav" id="site-nav">
+    <a href="/">Portfolio</a>
+    <!-- <a href="portfolio">Portfolio</a> -->
+    <a href="contact">Contact</a>
+  </nav>
+
+  </header>
+
+  <!-- Main Contact Content -->
+  <main class="contact-container">                 <!--contact heading and text-->
+    <h1 class="bio-name">Contact Me</h1>
+    <p class="bio-text">I'd love to hear from you! Please feel free to get in touch, or leave a message.</p>
+
+    <form action="https://formspree.io/f/xzzggdvv" method="POST" class="contact-form">  <!--cols text box width by character amount, Labels help accesability, -->
+      <label for="name">Name</label><br />
+      <input type="text" id="name" name="name" required /><br>
+
+      <label for="email">Email</label><br>
+      <input type="email" id="email" name="email" required /><br>
+
+      <label for="message">Message</label><br>
+      <textarea id="message" name="message" rows="6" required></textarea><br>
+
+      <button type="submit">Send</button>
+    </form>
+<section class="contact-details">
+  <h2 class="contact-details__title">Contact Details</h2>
+  <ul class="contact-details__list">
+    <!-- Location, Email, Phone, LinkedIn rows here -->
+     <li>
+  <span class="contact-details__label">Location</span>
+  <a href="https://www.google.com/maps/place/San+Francisco+Bay+Area"
+     target="_blank" rel="noopener">
+    San Francisco Bay Area
+  </a>
+</li>
+
+    <li>
+      <span class="contact-details__label">Email</span>
+      <a href="mailto:jeremylangdon22@gmail.com">jeremylangdon22@gmail.com</a>
+    </li>
+    <!-- <li>
+      <span class="contact-details__label">Phone</span>
+      <a href="tel:+17073327974">707&nbsp;332&nbsp;7974</a>
+    </li> -->
+    <li>
+  <span class="contact-details__label">LinkedIn</span>
+  <a href="https://www.linkedin.com/in/jeremy-langdon-4121a6149"
+     target="_blank" rel="noopener">
+    linkedin.com/in/jeremy-langdon-4121a6149
+  </a>
+</li>
+  </ul>
+</section>
+
+    <!-- linkdin/behance icons -->
+    <section class="nav-buttons">
+      <!-- <a href="https://www.behance.net/jeremylangdon" class="icon-link" aria-label="Behance profile" target="_blank">
+        <i class="fa-brands fa-behance nav-icon" aria-hidden="true"></i>
+      </a> -->
+      <a href="https://www.linkedin.com/in/jeremy-langdon-4121a6149" class="icon-link" aria-label="LinkedIn profile" target="_blank">
+        <i class="fa-brands fa-linkedin nav-icon" aria-hidden="true"></i>
+      </a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <!-- <p><small>Contact: </small><a href="mailto:youremail@example.com"><small>Send Email</small></a></p> -->
+  </footer>
+<script src="JS/nav.js" defer></script>
+  <link rel="stylesheet" href="widget.css">
+  <script src="widget.js" data-worker-url="https://portfolio-chat-worker.jeremylangdon.workers.dev" data-page-context="Contact"></script>
+</body>
+</html>
