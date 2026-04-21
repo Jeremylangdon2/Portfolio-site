@@ -31,7 +31,7 @@
  :root {
 
 
- --bg: #f8f6f2;
+ --bg: #ffffff;
 
 
  --text: #1a1a18;
@@ -70,10 +70,7 @@
  height: 60px;
 
 
- background: rgba(248,246,242,0.92);
-
-
- backdrop-filter: blur(12px);
+ background: #ffffff;
 
 
  border-bottom: 1px solid var(--border);
@@ -184,7 +181,7 @@
  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
 
 
- }
+  position: relative; z-index: 1;}
 
 
  .slide-item { cursor: pointer; transition: transform 0.2s; }
@@ -205,7 +202,7 @@
  border: 1px solid var(--border);
 
 
- box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+ box-shadow: 0 2px 8px rgba(100,116,160,0.07);
 
 
  transition: box-shadow 0.2s;
@@ -214,7 +211,7 @@
  }
 
 
- .slide-item:hover .slide-thumb { box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+ .slide-item:hover .slide-thumb { box-shadow: 0 6px 20px rgba(100,116,160,0.13); }
 
 
  .slide-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; display: block; }
@@ -394,7 +391,7 @@
  .hero { grid-template-columns: 1fr; }
 
 
- .slide-grid { grid-template-columns: repeat(2, 1fr); }
+ .slide-grid { grid-template-columns: repeat(2, 1fr);  position: relative; z-index: 1;}
 
 
  nav, .hero, .slides-header, .slide-grid, .page-nav { padding-left: 24px; padding-right: 24px; }
@@ -406,7 +403,7 @@
  @media (max-width: 520px) {
 
 
- .slide-grid { grid-template-columns: 1fr; }
+ .slide-grid { grid-template-columns: 1fr;  position: relative; z-index: 1;}
 
 
  .hero-left h1 { font-size: 2rem; }
