@@ -7,6 +7,26 @@
 
   <link rel="stylesheet" href="customersegmentation/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
+  <style>
+    :root {
+      --col-base: oklch(0.97 0.02 250);
+      --col-base-header: oklch(0.93 0.05 250);
+      --col-tuned: oklch(0.97 0.04 150);
+      --col-tuned-header: oklch(0.92 0.08 150);
+    }
+    .dark {
+      --col-base: oklch(0.28 0.04 250);
+      --col-base-header: oklch(0.36 0.07 250);
+      --col-tuned: oklch(0.28 0.05 150);
+      --col-tuned-header: oklch(0.36 0.09 150);
+    }
+    .response-box.base      { background: var(--col-base);         border: 1px solid var(--col-base-header); }
+    .response-box.finetuned { background: var(--col-tuned);        border: 1px solid var(--col-tuned-header); }
+    .fails-col-base-header  { background: var(--col-base-header);  border: 1px solid var(--col-base-header);  color: oklch(0.4 0.15 250); }
+    .fails-col-ft-header    { background: var(--col-tuned-header); border: 1px solid var(--col-tuned-header); }
+    .fails-item.base-fail   { background: var(--col-base);         border: 1px solid var(--col-base-header); }
+    .fails-item.ft-win      { background: var(--col-tuned);        border: 1px solid var(--col-tuned-header); }
+  </style>
   <link rel="stylesheet" href="https://use.typekit.net/oop4far.css">
   <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
@@ -1041,7 +1061,7 @@ trainer.train()</code></pre>
       benchmarks.
     </div>
     <p style="text-align:center; margin-top:20px;">
-      <a href="https://huggingface.co/spaces/jeremylangdon/gemma3-healthcare-bot" target="_blank" class="footer-app-btn">View healthcare chat bot</a>
+      <a href="https://huggingface.co/spaces/jeremylangdon/gemma3-healthcare-bot" target="_blank" class="live-app-btn">View healthcare chat bot</a>
     </p>
   </div>
 
