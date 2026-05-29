@@ -1,743 +1,196 @@
 <!DOCTYPE html>
-
-
 <html lang="en">
-
-
 <head>
-
-
- <meta charset="UTF-8" />
-
-
- <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-
- <title>Foundation for Intentional Community | Jeremy Langdon</title>
-
-
- <link rel="preconnect" href="https://fonts.googleapis.com">
-
-
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-
- <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-
-
- <style>
-
-
- :root {
-
-
- --bg: #ffffff;
-
-
- --text: #1a1a18;
-
-
- --muted: #6b6860;
-
-
- --border: #e2ddd6;
-
-
- --card: #ffffff;
-
-
- --accent: #8B6914;
-
-
- }
-
-
- *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-
- body { background: var(--bg); color: var(--text); font-family: 'Lato', sans-serif; line-height: 1.6; }
-
-
-
-
-
- nav {
-
-
- position: sticky; top: 0; z-index: 100;
-
-
- height: 60px;
-
-
- background: #ffffff;
-
-
- border-bottom: 1px solid var(--border);
-
-
- display: flex; align-items: center;
-
-
- padding: 0 48px;
-
-
- }
-
-
- .nav-back { font-size: 0.9rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-
-
- .nav-back:hover { color: var(--text); }
-
-
-
-
-
- .hero {
-
-
- max-width: 1100px; margin: 0 auto;
-
-
- padding: 72px 48px 56px;
-
-
- }
-
-
- .hero-left { display: flex; flex-direction: column; gap: 16px; max-width: 700px; }
-
-
- .hero-left h1 { font-family: 'Lora', serif; font-size: 3.2rem; line-height: 1.1; }
-
-
- .hero-left h1 em { color: var(--accent); font-style: italic; }
-
-
- .hero-subtitle { color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
-
-
- .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-
- .meta-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
-
-
- .meta-card .label { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 4px; }
-
-
- .meta-card .value { font-size: 0.88rem; font-weight: 500; }
-
-
-
-
-
- .divider { max-width: 1100px; margin: 0 auto; border: none; border-top: 1px solid var(--border); }
-
-
-
-
-
- .slides-header {
-
-
- max-width: 1100px; margin: 0 auto;
-
-
- padding: 40px 48px 24px;
-
-
- display: flex; align-items: flex-end; justify-content: space-between;
-
-
- }
-
-
- .slides-header-left { display: flex; flex-direction: column; gap: 8px; }
-
-
- .slides-header h2 { font-family: 'Lora', serif; font-size: 1.6rem; }
-
-
- .accent-bar { width: 36px; height: 3px; background: var(--accent); border-radius: 2px; }
-
-
- .slides-count { font-size: 0.875rem; color: var(--muted); }
-
-
-
-
-
- .slide-grid {
-
-
- max-width: 1100px; margin: 0 auto;
-
-
- padding: 0 48px 80px;
-
-
- display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-
-
-  position: relative; z-index: 1;}
-
-
- .slide-item { cursor: pointer; transition: transform 0.2s; }
-
-
- .slide-item:hover { transform: translateY(-3px); }
-
-
- .slide-thumb {
-
-
- position: relative; aspect-ratio: 16/9;
-
-
- border-radius: 10px; overflow: hidden;
-
-
- border: 1px solid var(--border);
-
-
- box-shadow: 0 2px 8px rgba(100,116,160,0.07);
-
-
- transition: box-shadow 0.2s;
-
-
- }
-
-
- .slide-item:hover .slide-thumb { box-shadow: 0 6px 20px rgba(100,116,160,0.13); }
-
-
- .slide-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; display: block; }
-
-
- .slide-item:hover .slide-thumb img { transform: scale(1.02); }
-
-
- .slide-overlay { position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: flex-end; padding: 10px; }
-
-
- .slide-num {
-
-
- background: rgba(0,0,0,0.45); color: #fff;
-
-
- font-size: 0.72rem; font-weight: 600; padding: 3px 8px; border-radius: 20px;
-
-
- opacity: 0; transition: opacity 0.2s;
-
-
- }
-
-
- .slide-item:hover .slide-num { opacity: 1; }
-
-
- .slide-caption { padding: 8px 2px 0; line-height: 1.2; }
-
-
- .slide-caption strong { display: block; font-size: 0.82rem; font-weight: 600; line-height: 1.3; }
-
-
- .slide-caption span { font-size: 0.75rem; color: var(--muted); line-height: 1.2; }
-
-
-
-
-
- .page-nav {
-
-
- border-top: 1px solid var(--border);
-
-
- max-width: 1100px; margin: 0 auto;
-
-
- padding: 32px 48px;
-
-
- display: flex; justify-content: space-between;
-
-
- }
-
-
- .page-nav a, .page-nav span {
-
-
- display: inline-block; padding: 10px 22px;
-
-
- border: 1.5px solid var(--border); border-radius: 100px;
-
-
- font-size: 0.875rem; font-weight: 500; text-decoration: none;
-
-
- color: var(--text); transition: all 0.2s;
-
-
- }
-
-
- .page-nav a:hover { border-color: var(--accent); color: var(--accent); }
-
-
- .page-nav .disabled { color: var(--muted); cursor: default; }
-
-
-
-
-
- .lightbox {
-
-
- position: fixed; inset: 0;
-
-
- display: none; flex-direction: column; align-items: center; justify-content: center;
-
-
- background: rgba(10,10,8,0.92); backdrop-filter: blur(6px);
-
-
- z-index: 1000; padding: 20px;
-
-
- }
-
-
- .lightbox.open { display: flex; }
-
-
- .lb-close {
-
-
- position: absolute; top: 20px; right: 20px;
-
-
- width: 40px; height: 40px; border-radius: 50%;
-
-
- background: rgba(255,255,255,0.15); border: none; color: #fff;
-
-
- font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
-
-
- transition: background 0.2s;
-
-
- }
-
-
- .lb-close:hover { background: rgba(255,255,255,0.25); }
-
-
- .lb-img-wrap img { max-width: 92vw; max-height: 78vh; border-radius: 8px; display: block; }
-
-
- .lb-info { margin-top: 16px; text-align: center; color: #fff; }
-
-
- .lb-info h3 { font-family: 'Lora', serif; font-size: 1.1rem; margin-bottom: 4px; }
-
-
- .lb-info p { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
-
-
- .lb-counter { margin-top: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
-
-
- .lb-nav { display: flex; gap: 12px; margin-top: 16px; }
-
-
- .lb-nav button {
-
-
- padding: 9px 22px; border-radius: 100px;
-
-
- background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
-
-
- color: #fff; font-size: 0.875rem; cursor: pointer; transition: background 0.2s;
-
-
- font-family: 'Lato', sans-serif;
-
-
- }
-
-
- .lb-nav button:hover { background: rgba(255,255,255,0.22); }
-
-
-
-
-
- @media (max-width: 900px) {
-
-
- .hero { grid-template-columns: 1fr; }
-
-
- .slide-grid { grid-template-columns: repeat(2, 1fr);  position: relative; z-index: 1;}
-
-
- nav, .hero, .slides-header, .slide-grid, .page-nav { padding-left: 24px; padding-right: 24px; }
-
-
- }
-
-
- @media (max-width: 520px) {
-
-
- .slide-grid { grid-template-columns: 1fr;  position: relative; z-index: 1;}
-
-
- .hero-left h1 { font-size: 2rem; }
-
-
- }
-
-
- </style>
-
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FIC | Jeremy Langdon</title>
+
+  <!-- site css (same as case-study-1) -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Lato + Font Awesome (same pattern as your cs1 page) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="widget.css">
 </head>
 
+<body class="case-study-page fic-page">
+  <!-- background cover (same structure) -->
+  <!-- <div class="clouds-bg">
+    <img src="img/houses.jpg" alt="stock photo of a team working" />
+  </div> -->
 
-<body>
+  <!-- Header + Nav (copied structure) -->
+<header class="header">
+  <div class="left-header">
+    <span class="head-name">Jeremy Langdon</span>
+  </div>
+
+  <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="top-nav" id="site-nav">
+    <a href="/">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+  </header>
+
+  <main>
+    <div id="TrackScrollProgress">
+      <div class="cs1-container">
+        <h1 class="cs1-title">Foundation for Intentional Community</h1>
+        <p class="cs1-subtitle">Tech Fleet · 16 Weeks · 2 week sprints · Product Strategy </p>
+
+        <!-- Overview (keeps your case-study rhythm) -->
+        <section class="cs1-section">
+          <h2>About</h2>
+          <p>
+            This is a case study done through Tech Fleet. Tech Fleet is a nonprofit, community-driven organization that helps people break into tech by offering real-world apprenticeships. Participants work in Agile teams on projects, gaining hands-on experience in areas like UX, product strategy, and development. Projects involve real clients and work with external stakeholders and deliver work that has real-world impact.<br>
+
+            <br>Foundation for Intentional Community was the client for this case study. The Foundation for Intentional Community (FIC) has over 35 years of partnership with hundreds of intentional communities around the world. FIC defines an intentional community as a group of people who have chosen to live together or share resources on the basis of common values.<br>
+
+            <br>FIC offers the largest North American directory of intentional communities in the world. They help seekers find and connect to communities, while allowing owners to host their own. They also offer a number of services and products, including books, classes, and other free resources. FIC is a nonprofit and they put people infront of their business decisions, not profit.
+        </section>
+          
+        <section class="cs1-section">
+          <h2>Objective</h2>
+          <p>
+        <ol>
+  <li>Define the problem space with the client by focusing on user needs, pain points, and business challenges.</li>
+  <li>Translate business goals into design and research priorities.</li>
+  <li>Use a Kanban board to visualize and translate project tasks and workflows to teams.</li>
+  <li>Facilitate cross-team discussions to ensure shared understanding</li>
+  <li>Establish ongoing feedback between stakeholders and teams.</li>
+  <li>Track progress across design, research, and development teams.</li>
+</ol>
+
+          </p>
+        </section>
+
+          <section class="cs1-section">
+          <h2>Sprint structure</h2>
+          <p>
+            The project went for 4 sprints, that were 2 weeks long each, totaling 2 months. I partnered with FIC for a total of 4 months, 2 of which were pre-phase that invloved working soley with the clients defining their business objectives and strategy.
+          </p>
+           <img src="img/plan.jpg" alt="Flow chart" class="cs1-image magnify-target" data-zoom="0.7">
+           <div class="video-caption">The Project Plan per sprint.</div>
+           <p>
+            Product oporations were a large part of our work flow. A number of workshops were run bi-weekly to maintain a level of shared understanding and keep everyone moving in the same direction.
+          </p>
+          <img src="img/raci.jpg" alt="Flow chart" class="cs1-image magnify-target" data-zoom="0.85">
+           <div class="video-caption">The RACI chart (responsable, accountable, consulted, and informed), used on our cross functional team to see the tasks per sprint, and who is contributing.</div>
+        </section>
+
+        <!-- Kanban section -->
+         
+        <section class="cs1-section" id="kanban-section">
+           <p>
+            Throughout this phase I constantly worked with teams and clients to discuss the requirements of certain tasks. It was my job to take all of the details related to what needed to be done, why, for who, and how, and relay them to the teams so they could understand in full detail what they needed to do. These details were successful in that they rudeced the amount of work that needed to be done, and could rely someone like me (who is involved in all the stakeholder meetings) to accurately deliver the most important information consistently and on time. As a product strategist I took on many hats, which included the product owner and manager role. These instructions were in the forms of tickets that were associated to each task. Here are some examples of tickets I wrote:
+          </p>
+          <h2>Kanban Board</h2>
+          <!-- Horizontal scroll wrapper -->
+          <div class="kanban-scroll" role="region" aria-label="Kanban board" tabindex="0">
+            <div class="kanban-board" id="kanban-root"></div>
+          </div>
+            <div class="video-caption">The Kanban board is designed to manage the workflow of a company by focusing on a backlog of tasks and priorities, helping teams organize and plan their workload.</div>
+        </section>
 
 
+       <section class="cs1-section">
+        <h2>Client intake</h2>
+        <p> The client intake was ran for 4 weeks, with meetings held once a week with the clients. The objective of the meetings was designed to understand how customers engage with their services at a business level. We worked with the clients to ask them questions related to their business, like what their goals were, their metrics of success, and how their business models relates to their competators. This was a highly open experience that prompted the clients to answer questions they hadn't have yet asked themselves. Their responses helped define the business and raise questions that could be looked further into. The main purpose was to focus on the customer and strategize a way to improve the membership conversion rate, while also tailoring an experience that is more attractive to the customer, which was to also improve retention, and then to finally create more opportunites for purchases.
+        </p>
+        <img src="img/intake.png" alt="Flow chart" class="cs1-image magnify-target" data-zoom="0.6">
+           <div class="video-caption">We created spaces for each section of questions and worked with the client to elicit valuable insights, engaging and asking follow up questions. We recorded their responses on sticky notes.</div>
+      </section>
+      <img src="img/metrics.png" alt="Flow chart" class="cs1-image magnify-target" data-zoom="0.6">
+           <div class="video-caption">Here are some additional catagories associated with the client intake.</div>
+     
 
+        <section class="cs1-section">
+        <h2>The Customer Experience</h2>
+        <p>The customer experience is a detailed look at how customers interact with the business. In this project I worked on developing a stronger understanding of how 2 targeted audiences (personas) engaged with the companies services (hosted mainly on their website). This was done by extensive work with the clients, defining the customer experience through the customer lifecycle, and building flows that showcase how personas interact with the journey. 
+        </p>
+      </section>
 
-
-<nav>
-
-
- <a href="design-hub.html" class="nav-back">&larr; Back to Design Hub</a>
-
-
-</nav>
-
-
-
-
-
-<section class="hero">
-
-
- <div class="hero-left">
-
-
- <h1>Foundation for <em>Intentional Community</em></h1>
-
-
- <p class="hero-subtitle">A 16-week product strategy engagement via Tech Fleet for a nonprofit connecting intentional communities worldwide. Facilitated client workshops, built customer journey maps, defined MVP scope, and delivered a strategic roadmap.</p>
-
-
- </div>
-
-
+      <section class="cs1-section">
+      <p>The customer lifecyle funnel attempts to describe the customer as part of a journey. The funnel shown below shows the different stages a customer will experience as they engage with the business. It includes becoming aware of the business, which can be in many different ways. Each stage is cruciale in understanding how a customer will experience your business or product. How they become aware of it plays a large role in advertising and methods to gain attention, which could lead to more tailored experiences. There are other stages like engagement, which is how they first engage with the website. The next is consideration, which relates to the actions they take that makes them consider their servies. Then there is a point where they convert, and spend money. This is done after consideration, and once they know more about what they want, or will be getting. Then there is retention, which was used to strategize for prolonging an experience, rather than one time purchases, and create a space for users to consistenly use a product or service. Lastly there is loyaltly, which was strategized as a program to reward loyal customers. This process led to a more clear understand of customers, and led the way to strategize for a better experience.
+        </p>
+        
+      <img src="img/funnel.png" alt="Flow chart" class="cs1-image magnify-target" data-zoom="0.6">
+           <div class="video-caption">The customer lifecycle funnel was ran with the clients, prompting them questions about how customers would interact at each stage. The sticky notes are thier responses.</div>
+           </section>
+      </section>
+      
+      <section class="cs1-section">
+        <p>I made journey tables for both personas, for our current experience and for the future experience (for the new website). This was for the user personas: community owners (FIC host communities on their website), and community seekers (those looking for a community). In total I built 4 userflows for the customer lifecycle, detailing the experience. This included the steps they took during each phase, the audiences involved, common tasks, common pain points, their current audience sentiments, KPIs related to success of their engagement, and ideas to improve <br>
+        </p>
+      <img src="img/flow1full.png" alt="Flow chart">
+      <div class="video-caption">A complete journey flow of the customer lifecycle for community owners.
+  </div>
+    </section>
+ 
+     <section class="cs1-section" style="width: 100%; height: auto;">
+      <p>Below is a section from current customer experience flow chart for community owners. The sticky notes represent in Red: pain point, Blue: questions, and Yellow: ideas. Each type of note corresponds the part of the flow. At each stage the customer will experience different parts of the website. As they engage they will encounter pain points along the way. There is always room for improvements, and it was our job to stratgize to identify and remove pain points. 
+    Our ideas were successful, and we accurately found pain points that were unseen. I presented the flows to the clients and recieved feeback on how to use these insights. The feedback was constructing and positive towards improving the customer experience.</p>
+  <img src="img/flowsection.png" alt="Flow chart" class="cs1-image magnify-target" data-zoom="0.6">
+  <div class="video-caption">A section from current customer experience flow chart for community owners.
+  </div>
 </section>
 
-
-
-
-
-<hr class="divider">
-
-
-
-
-
-<div class="slides-header">
-
-
- <div class="slides-header-left">
-
-
- <h2>Full Slide Deck</h2>
-
-
- <div class="accent-bar"></div>
-
-
- </div>
-
-
- <span class="slides-count">18 slides - click any to expand</span>
-
-
-</div>
-
-
-
-
-
-<div class="slide-grid">
-
-
- <div class="slide-item" onclick="openLightbox(0)"><div class="slide-thumb"><img src="slides/cs3-65.jpg" alt="Foundation for Intentional Community" loading="lazy"><div class="slide-overlay"><span class="slide-num">01</span></div></div><div class="slide-caption"><strong>Foundation for Intentional Community</strong><span>Product Strategy - Title</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(1)"><div class="slide-thumb"><img src="slides/cs3-66.jpg" alt="Client, Role &amp; Project Date" loading="lazy"><div class="slide-overlay"><span class="slide-num">02</span></div></div><div class="slide-caption"><strong>Client, Role &amp; Project Date</strong><span>FIC  &middot; Product Strategy 2024  &middot; Via Tech Fleet</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(2)"><div class="slide-thumb"><img src="slides/cs3-67.jpg" alt="Project Summary &amp; Objectives" loading="lazy"><div class="slide-overlay"><span class="slide-num">03</span></div></div><div class="slide-caption"><strong>Project Summary &amp; Objectives</strong><span>Conversion  &middot; Retention  &middot; Revenue  &middot; Roadmap</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(3)"><div class="slide-thumb"><img src="slides/cs3-68.jpg" alt="The Challenge" loading="lazy"><div class="slide-overlay"><span class="slide-num">04</span></div></div><div class="slide-caption"><strong>The Challenge</strong><span>Low Conversion  &middot; Poor UX  &middot; Weak Retention  &middot; Underperforming Revenue</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(4)"><div class="slide-thumb"><img src="slides/cs3-69.jpg" alt="Target Group" loading="lazy"><div class="slide-overlay"><span class="slide-num">05</span></div></div><div class="slide-caption"><strong>Target Group</strong><span>Community Seekers (Persona 1) &amp; Community Owners (Persona 2)</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(5)"><div class="slide-thumb"><img src="slides/cs3-70.jpg" alt="The Approach" loading="lazy"><div class="slide-overlay"><span class="slide-num">06</span></div></div><div class="slide-caption"><strong>The Approach</strong><span>Pre-Phase + 4  &times; 2-Week Agile Sprints</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(6)"><div class="slide-thumb"><img src="slides/cs3-71.jpg" alt="Project Plan" loading="lazy"><div class="slide-overlay"><span class="slide-num">07</span></div></div><div class="slide-caption"><strong>Project Plan</strong><span>Sprint Timeline &amp; Milestones</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(7)"><div class="slide-thumb"><img src="slides/cs3-72.jpg" alt="Sprint Tickets &amp; RACI Chart" loading="lazy"><div class="slide-overlay"><span class="slide-num">08</span></div></div><div class="slide-caption"><strong>Sprint Tickets &amp; RACI Chart</strong><span>Task Ownership Across Design / Research / Dev</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(8)"><div class="slide-thumb"><img src="slides/cs3-73.jpg" alt="The Findings" loading="lazy"><div class="slide-overlay"><span class="slide-num">09</span></div></div><div class="slide-caption"><strong>The Findings</strong><span>Unclear Value  &middot; Navigation Friction  &middot; No Retention  &middot; Invisible Revenue</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(9)"><div class="slide-thumb"><img src="slides/cs3-74.jpg" alt="Client Intake Workshops" loading="lazy"><div class="slide-overlay"><span class="slide-num">10</span></div></div><div class="slide-caption"><strong>Client Intake Workshops</strong><span>Business Goals  &middot; Customer Lifecycle Funnel</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(10)"><div class="slide-thumb"><img src="slides/cs3-75.jpg" alt="Process &amp; Deliverables" loading="lazy"><div class="slide-overlay"><span class="slide-num">11</span></div></div><div class="slide-caption"><strong>Process &amp; Deliverables</strong><span>5 Process Steps &rarr; 5 Key Deliverables</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(11)"><div class="slide-thumb"><img src="slides/cs3-76.jpg" alt="Customer Experience Journey Flow" loading="lazy"><div class="slide-overlay"><span class="slide-num">12</span></div></div><div class="slide-caption"><strong>Customer Experience Journey Flow</strong><span>6 Lifecycle Stages: Awareness &rarr; Loyalty</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(12)"><div class="slide-thumb"><img src="slides/cs3-77.jpg" alt="Journey Flow - Consideration Stage" loading="lazy"><div class="slide-overlay"><span class="slide-num">13</span></div></div><div class="slide-caption"><strong>Journey Flow - Consideration Stage</strong><span>Pain Points  &middot; Questions  &middot; Ideas Mapped</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(13)"><div class="slide-thumb"><img src="slides/cs3-78.jpg" alt="MVP Long-Term Vision" loading="lazy"><div class="slide-overlay"><span class="slide-num">14</span></div></div><div class="slide-caption"><strong>MVP Long-Term Vision</strong><span>Vision Statement  &middot; Audience  &middot; Business Goals</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(14)"><div class="slide-thumb"><img src="slides/cs3-79.jpg" alt="Business Scope Definition" loading="lazy"><div class="slide-overlay"><span class="slide-num">15</span></div></div><div class="slide-caption"><strong>Business Scope Definition</strong><span>Why / Audience / Problems / Goals / UVP / KPIs</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(15)"><div class="slide-thumb"><img src="slides/cs3-80.jpg" alt="Results &amp; Reflections" loading="lazy"><div class="slide-overlay"><span class="slide-num">16</span></div></div><div class="slide-caption"><strong>Results &amp; Reflections</strong><span>FIC Redesigned Website - Improved Conversions</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(16)"><div class="slide-thumb"><img src="slides/cs3-81.jpg" alt="Scope of Outcomes &amp; Value" loading="lazy"><div class="slide-overlay"><span class="slide-num">17</span></div></div><div class="slide-caption"><strong>Scope of Outcomes &amp; Value</strong><span>Value Proposed to FIC - Outcomes Framework</span></div></div>
-
-
- <div class="slide-item" onclick="openLightbox(17)"><div class="slide-thumb"><img src="slides/cs3-82.jpg" alt="Thank You" loading="lazy"><div class="slide-overlay"><span class="slide-num">18</span></div></div><div class="slide-caption"><strong>Thank You</strong><span>Product Strategist: Jeremy Langdon  &middot; FIC  &middot; Via Tech Fleet  &middot; 2024</span></div></div>
-
-
-</div>
-
-
-
-
-
-<div class="page-nav">
-
-
- <a href="case-study-2.html">&larr; Trader Joe's</a>
-
-
- <span class="disabled">End &rarr; </span>
-
-
-</div>
-
-
-
-
-
-<div id="lightbox" class="lightbox">
-
-
- <button class="lb-close" onclick="closeLightbox()">X</button>
-
-
- <div class="lb-img-wrap"><img id="lb-img" src="" alt=""></div>
-
-
- <div class="lb-info">
-
-
- <h3 id="lb-title"></h3>
-
-
- <p id="lb-desc"></p>
-
-
- </div>
-
-
- <div id="lb-counter" class="lb-counter"></div>
-
-
- <div class="lb-nav">
-
-
- <button onclick="lbNav(-1)">&larr; Prev</button>
-
-
- <button onclick="lbNav(1)">Next &rarr; </button>
-
-
- </div>
-
-
-</div>
-
-
-
-
-
-<script>
-
-
-const slides = [
-
-
- { src: "slides/cs3-65.jpg", title: "Foundation for Intentional Community", desc: "Product Strategy - Title" },
-
-
- { src: "slides/cs3-66.jpg", title: "Client, Role & Project Date", desc: "FIC  &middot; Product Strategy 2024  &middot; Via Tech Fleet" },
-
-
- { src: "slides/cs3-67.jpg", title: "Project Summary & Objectives", desc: "Conversion  &middot; Retention  &middot; Revenue  &middot; Roadmap" },
-
-
- { src: "slides/cs3-68.jpg", title: "The Challenge", desc: "Low Conversion  &middot; Poor UX  &middot; Weak Retention  &middot; Underperforming Revenue" },
-
-
- { src: "slides/cs3-69.jpg", title: "Target Group", desc: "Community Seekers (Persona 1) & Community Owners (Persona 2)" },
-
-
- { src: "slides/cs3-70.jpg", title: "The Approach", desc: "Pre-Phase + 4  &times; 2-Week Agile Sprints" },
-
-
- { src: "slides/cs3-71.jpg", title: "Project Plan", desc: "Sprint Timeline & Milestones" },
-
-
- { src: "slides/cs3-72.jpg", title: "Sprint Tickets & RACI Chart", desc: "Task Ownership Across Design / Research / Dev" },
-
-
- { src: "slides/cs3-73.jpg", title: "The Findings", desc: "Unclear Value  &middot; Navigation Friction  &middot; No Retention  &middot; Invisible Revenue" },
-
-
- { src: "slides/cs3-74.jpg", title: "Client Intake Workshops", desc: "Business Goals  &middot; Customer Lifecycle Funnel" },
-
-
- { src: "slides/cs3-75.jpg", title: "Process & Deliverables", desc: "5 Process Steps &rarr; 5 Key Deliverables" },
-
-
- { src: "slides/cs3-76.jpg", title: "Customer Experience Journey Flow", desc: "6 Lifecycle Stages: Awareness &rarr; Loyalty" },
-
-
- { src: "slides/cs3-77.jpg", title: "Journey Flow - Consideration Stage", desc: "Pain Points  &middot; Questions  &middot; Ideas Mapped" },
-
-
- { src: "slides/cs3-78.jpg", title: "MVP Long-Term Vision", desc: "Vision Statement  &middot; Audience  &middot; Business Goals" },
-
-
- { src: "slides/cs3-79.jpg", title: "Business Scope Definition", desc: "Why / Audience / Problems / Goals / UVP / KPIs" },
-
-
- { src: "slides/cs3-80.jpg", title: "Results & Reflections", desc: "FIC Redesigned Website - Improved Conversions" },
-
-
- { src: "slides/cs3-81.jpg", title: "Scope of Outcomes & Value", desc: "Value Proposed to FIC - Outcomes Framework" },
-
-
- { src: "slides/cs3-82.jpg", title: "Thank You", desc: "Product Strategist: Jeremy Langdon  &middot; FIC  &middot; Via Tech Fleet  &middot; 2024" },
-
-
-];
-
-
-let current = 0;
-
-
-function openLightbox(i) { current = i; updateLightbox(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow = 'hidden'; }
-
-
-function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
-
-
-function updateLightbox() {
-
-
- const s = slides[current];
-
-
- document.getElementById('lb-img').src = s.src;
-
-
- document.getElementById('lb-img').alt = s.title;
-
-
- document.getElementById('lb-title').textContent = s.title;
-
-
- document.getElementById('lb-desc').textContent = s.desc;
-
-
- document.getElementById('lb-counter').textContent = (current + 1) + ' / ' + slides.length;
-
-
-}
-
-
-function lbNav(dir) { current = (current + dir + slides.length) % slides.length; updateLightbox(); }
-
-
-document.getElementById('lightbox').addEventListener('click', e => { if (e.target === document.getElementById('lightbox')) closeLightbox(); });
-
-
-document.addEventListener('keydown', e => {
-
-
- if (!document.getElementById('lightbox').classList.contains('open')) return;
-
-
- if (e.key === 'ArrowRight') lbNav(1);
-
-
- if (e.key === 'ArrowLeft') lbNav(-1);
-
-
- if (e.key === 'Escape') closeLightbox();
-
-
-});
-
-
-</script>
-
-
-  <link rel="stylesheet" href="widget.css">
-  <script src="widget.js" data-worker-url="https://portfolio-chat-worker.jeremylangdon.workers.dev" data-page-context="Foundation for Intentional Community"></script>
+     <section class="cs1-section" style="width: 100%; height: auto;">
+      <p>I helped strategize for the MVP, giving direction to the scope of the business. In doing so we established high level goals while also defining our current model. By focusing on the use cases, we helped give direction to what features should be focused on first. This allowed the teams and clients to plan for the next levels of release.</p>
+  <img src="img/mvp.png" alt="Flow chart" class="cs1-image magnify-target" data-zoom="0.6">
+  <div class="video-caption">The MVP long term vision for community seekers.</div>
+</section>
+
+<section class="cs1-section" style="width: 100%; height: auto;">
+      <p>I developed multiple areas of the business that eventually turned into actionable steps to make improvements. In order to do this we needed to define more about FIC. This included the target audience, FICs meaning and purpose, problems and opportunites, business goals, KPIs, costs that go into release, risks and barriers, and the Unique Value Proposition</p>
+  <img src="img/scope.png" alt="Flow chart" class="cs1-image magnify-target" data-zoom="0.6">
+  <div class="video-caption">A view of some of the business sections we defined for FIC.</div>
+</section>
+
+ <section class="cs1-section" style="width: 100%; height: auto;">
+      <p>After defining a large portion of the business, we used these insights to identify value to FIC, recognize thier current problems, come up with outcomes to solve, and then take actions towards solving those problems (including how). This helped the client identify based on the current state of their business, that there is value looking into certain areas.</p>
+  <img src="img/Businessgoals.png" alt="Flow chart" class="cs1-image magnify-target" data-zoom="0.6">
+  <div class="video-caption">A table showing the scope of outcomes and value proposed to FIC</div>
+</section>
+
+<section class="cs1-section">
+  <h2>Conclusion</h2>
+      <p>Working with the Foundation for Intentional Community was a postive experience. I got to know all of the clients, and I got to spend a considerable amount of time strategizing with them. This lasted for 4 months. A lot of time was spent into the customer experience. Managing the teams tasks and backlog played a huge part of why we were able to get so much done. The teams were agile and the communication was constantly clear on what needed to be done. Working with the client was a success and we managed to help them define and build their new membership proposal. This effort took a lot of time, research, and meetings. I learned how to break down many different parts of a business and organize them, creating value for the client, and strategizing towards a better experience. Another thing I learned is that much of the experience is tailored towards targeted personas, or the most common users. This can be an effective strategy, but with the amount of time we had, we weren't able to fully stratigize for all of the personas. By bringing success to the clients, this was a rewarding process. Shortly after they redesigned many aspects of their website and implemented their new business model, tailoring their experiences to more understood users, and improving the purchase and membership conversion rate.
+        </p>
+        <!-- Optional image block for your magnifier (left commented for later) -->
+        <!--
+        <figure class="cs-figure">
+          <img src="img/placeholder.png"
+               alt="Annotated board detail"
+               class="cs1-image magnify-target"
+               data-zoom="0.32">
+          <figcaption class="video-caption">Zoomable board detail (add your image file).</figcaption>
+        </figure>
+        -->
+
+        <section class="cs1-section cs3-cta">
+          <a class="cs1-button" href="portfolio">Back to Portfolio</a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+
+  <script id="kanban-data" type="application/json">
+[{"Tickets":"Secondary Research on Membership Copywriting for Tiered Access & PWYC Models","Type":"Task","Status":"Sprint In Progress","Sprint":"Sprint 2","User Stories":{"type":"ul","items":["As a UX researcher, I want to analyze how other mission-aligned organizations communicate their membership tiers and pricing so I can guide FIC and the UX writing team.","As an FIC stakeholder, I want to understand how similar orgs explain membership systems so our messaging feels clear, inviting, and values-aligned."]},"Background":"FIC is rolling out a new membership system with PWYC options, premium features behind a paywall, and multiple audience types. Values-aligned copy is critical; research will gather patterns from mission-aligned platforms (e.g., sliding-scale, gated content, nonprofit/co-op models).","Problem to Solve":{"type":"ul","items":["Explain tier differences simply","Encourage fair PWYC payment","Reduce confusion around locked features","Build trust with value-focused messaging"]},"Task Goals":{"type":"ol","items":["Identify how mission-driven platforms explain tiers, PWYC, members-only features, and upgrade CTAs","Document strengths/pitfalls and value-communication patterns","Summarize approaches that fit FIC’s audiences"]},"Task Scope":{"type":"ol","items":["Collect public examples from nonprofits/co-ops/sliding-scale services/open-source/IC directories","Analyze tier names/framing, benefits, locked-content framing, PWYC language, tone","Organize findings into deck/report + reference doc","Coordinate with writing/strategy to align with values and timeline"]},"Expected Outcomes":{"type":"ul","items":["Curated examples of membership experiences and language","Summary of effective patterns/strategies","Reference doc for writing team","Strategic talking points for client"]},"Supported Use Cases":{"type":"ul","items":["Give FIC leadership confidence in PWYC/membership messaging","Equip copywriters with examples and best practices","Guide UX writers on pricing/feature-access messaging","Clarify paid feature value and rationale"]},"Acceptance Criteria":{"type":"ol","items":["Multiple membership/PWYC examples included","Report highlights strengths/risks, tier/gating explanations, persuasive values-aligned language","Findings shared with writing team and client","Collaboration with UX writers on how findings inform copy","Delivered by end of sprint"]}},{"Tickets":"Subscription and Membership Business Strategy","Type":"Task","Status":"Sprint In Progress","Sprint":"Sprint 2","User Stories":{"type":"ul","items":["As an FIC executive director, I want to increase retention to sustain revenue.","As a product manager, I want to help FIC make informed strategy decisions so the org can grow."]},"Background":"FIC is defining/structuring paid services with a clearer understanding of the customer journey across exploration, joining, and ongoing engagement.","Problem to Solve":{"type":"ul","items":["User needs evolve over time; without alignment, drop-off threatens revenue and stability."]},"Task Goals":{"type":"ol","items":["Develop a framework aligning offerings and membership states with business goals and user needs across the lifecycle"]},"Task Scope":{"type":"ol","items":["Run CX Strategy Workshop (Seekers & Community Owners)","Share takeaways; build current flows and future funnels for both audiences","Identify research needs"]},"Expected Outcomes":{"type":"ul","items":["Workshop takeaways","Customer experience funnel (Seekers, Community Owners)","UX flows (Seekers, Community Owners)","Workshop report with insights/recommendations"]},"Supported Use Cases":{"type":"ul","items":["What to show to logged-in vs new visitors","When to promote subscriptions vs memberships","Tracking progression from visitors to members","Clarity on goals of paid services","Shared framework for updating offerings"]},"Acceptance Criteria":{"type":"ol","items":["Workshop completed; conversion points documented for both audiences","Services defined: subscription vs membership; targets; features/benefits; overlaps/edge cases","Journey maps/flows of current and future states (visual + table)","Short- vs long-term goals; touchpoints; retention tactics","Framework for adapting offerings by auth state (visitor/user/member)"]}},{"Tickets":"Defining Membership for Research","Type":"Task","Status":"Sprint In Progress","Sprint":"Sprint 2","User Stories":{"type":"ul","items":["As an FIC director, I want to reflect membership ideas to users via research on existing models.","As strategy, I want to progress/define membership to guide client strategy and enable design/research.","As research, I want to understand membership strategy, materials, and info to plan studies with stakeholders."]},"Background":"Membership changes are being discussed; site is ready for design but membership definition is incomplete. Strategy must inform research materials/data.","Task Goals":{"type":"ol","items":["Help FIC make informed membership decisions by defining structure, interpreting insights, and analyzing client work with them"]},"Problem to Solve":{"type":"ul","items":["Too many options; unclear fit for user stages and goals; risk of lower conversions","Membership state incomplete → teams unprepared for research/strategy/design"]},"Task Scope":{"type":"ol","items":["Meet with research","Understand client priorities","Assist with insights gathering","Co-define recommendations for membership structure"]},"Expected Outcomes":{"type":"ul","items":["Document showing full understanding of membership strategy including proposed features and pricing"]},"Supported Use Cases":{"type":"ul","items":["Research team receives inputs to conduct studies","Stakeholders build new membership structure"]},"Acceptance Criteria":{"type":"ol","items":["Features & pricing fully documented per tier (features, access level, pricing model, audiences)","Key artifacts reviewed (Payment Tiers doc, Figma, Miro)","Synthesis doc for research: current/proposed structures, gaps/overlaps, what’s testable","Research & strategy alignment on priorities, RQs, next steps","Client alignment with documented open questions"]}},{"Tickets":"Copy-writing for membership","Type":"Task","Status":"Sprint In Progress","Sprint":"Sprint 2","User Stories":{"type":"ul","items":["As FIC director, I want values-aligned language that builds trust and increases paid conversion.","As a registered user encountering a locked feature, I want a clear explanation and rationale so I feel confident upgrading."]},"Background":"FIC is moving to PWYC + premium access; success depends on clarity and trust. UX writing is central to the experience.","Problem to Solve":{"type":"ul","items":["Membership options can confuse/overwhelm if not conveyed clearly → underpaying in PWYC, tier confusion, abandonment."]},"Task Goals":{"type":"ol","items":["Create effective UX copy: explain pricing/tiers, encourage fair PWYC, convert to paid/premium, match values/tone"]},"Task Scope":{"type":"ol","items":["Write copy for tier selection, PWYC prompts, premium CTAs, landing/pages/popups, tooltips/modals","Collaborate with design for clarity; A/B alternate headlines/CTAs if time allows"]},"Expected Outcomes":{"type":"ul","items":["Clear values-based copy for new membership and premium flows","Messaging that increases conversions and reduces confusion","Optional variants for testing/segments"]},"Supported Use Cases":{"type":"ul","items":["First-time visitor choosing free vs paid","Returning user hitting locked feature","PWYC seeker deciding contribution","Community admin understanding included tier features","Donor-type user paying it forward"]},"Acceptance Criteria":{"type":"ol","items":["Copy for: tier descriptions (Accessible/Sustaining/Pay It Forward), PWYC explainer, upgrade modals/tooltips, tier comparison, payment confirmations","Language is clear, values-aligned, fair, and transparent; defaults encourage fair PWYC; includes trust messaging"]}},{"Tickets":"Comparative analysis of Analytics tools","Type":"Task","Status":"Sprint In Progress","Sprint":"Sprint 2","User Stories":{"type":"ul","items":["As a TF UX strategist/researcher, I want to compare analytics tools aligned to FIC goals and tech needs.","As an FIC director, I want a tool matching strategy and constraints to make data-informed decisions."]},"Background":"New membership structure (PWYC, premium) requires tracking of behaviors to evaluate success and reduce friction.","Problem to Solve":{"type":"ul","items":["Limited tracking → can’t measure tier conversion, drop-off, PWYC behavior, or optimize language/design."]},"Task Goals":{"type":"ol","items":["Define behaviors/metrics, compare tools, implement selected tool(s), begin collecting baseline data"]},"Task Scope":{"type":"ol","items":["Identify key flows (signup, feature access, PWYC)","Compare 4–5 tools on events/funnels, privacy, integration, cost","Select tool and implement tracking; share baseline/confirmation"]},"Expected Outcomes":{"type":"ul","items":["Tool comparison and recommendation","Tracking implemented for core flows","Baseline data/confirmation and summary to stakeholders"]},"Supported Use Cases":{"type":"ul","items":["Track free→paid conversion","Monitor premium feature access","Measure signup/PWYC drop-off","Understand tier behavior differences","Identify friction/underused features"]},"Acceptance Criteria":{"type":"ol","items":["Key metrics/flows defined","≥4 tools compared with consistent criteria","One tool selected and integrated","Priority behaviors tracked; baseline summary delivered","Research/setup documented in editable format"]}},{"Tickets":"Future CX Maps","Type":"Task","Status":"Sprint In Progress","Sprint":"Sprint 2","User Stories":{"type":"ul","items":["As strategy, define future journey for FIC audiences to support engagement, conversion, retention.","As FIC stakeholder, see impacts of membership changes to gain confidence and surface gaps early."]},"Background":"Membership restructuring (PWYC, premium, clearer tiers) changes experience; a future-state CX map/flow is needed.","Problem to Solve":{"type":"ul","items":["Outdated CX map risks misaligned design, missed needs, and poor internal alignment."]},"Task Goals":{"type":"ol","items":["Define proposed model, map ideal CX, visualize in flowchart, present for feedback and next steps"]},"Task Scope":{"type":"ol","items":["Summarize proposed membership structure","Create CX map across lifecycle stages and tasks/decisions","Identify opportunities/friction; share drafts; revise and finalize"]},"Expected Outcomes":{"type":"ul","items":["Future-state CX map and user flow","Next-step recommendations; shared editable files (FigJam)"]},"Supported Use Cases":{"type":"ul","items":["Anticipate behavior with new tiers","Align teams on end-to-end journey","Identify friction to test/improve","Guide copy/UI/dev priorities"]},"Acceptance Criteria":{"type":"ol","items":["Membership model summary documented/approved","Lifecycle CX journey map created","User flowchart created","Drafts reviewed; notes collected; final artifacts delivered in editable formats"]}},{"Tickets":"Perform research around membership model potential","Type":"Task","Status":"Sprint In Progress","Sprint":"Sprint 2","User Stories":{"type":"ul","items":["As a UX researcher, understand user response to tiers for effectiveness/equity.","As strategy, clarify intent/flexibility to ground research.","As stakeholder, evaluate fit with needs to improve trust/accessibility/conversions."]},"Background":"Before launch, assess if proposal meets needs, if users understand value, and how best practices inform strategy; define internal clarifications and external feedback.","Problem to Solve":{"type":"ul","items":["Model not fully validated → risk of confusing/inequitable/unsustainable system without user insight and best-practice comparison."]},"Task Goals":{"type":"ol","items":["Understand how tiers/pricing/access were developed and what is flexible","Analyze internal feedback/usage","Identify risks/friction and role of comparative scan"]},"Task Scope":{"type":"ol","items":["Confirm with Kim: finality, influences, prior comparative work","Analyze internal data (engagement, drop-off, paywall experiments)","Snapshot tiers/features/pricing/clarity; optional public comparative review","Deliver sprint-timely insights before July launch"]},"Expected Outcomes":{"type":"ul","items":["Summary of model development and flexibility","Tier breakdown with potential confusion","Internal data findings where available","Feedback on PWYC clarity/trust","Recommendation on comparative analysis necessity","Client-ready insights before sprint end"]},"Supported Use Cases":{"type":"ul","items":["Evaluate fit with user expectations","Compare to best practices","Inform revisions to features/pricing/language","Ensure membership messaging is research-grounded"]},"Acceptance Criteria":{"type":"ol","items":["Comms with Kim documented","Background/influences/flexibility summarized","Internal usage data reviewed/summarized","Tier-by-tier analysis with confusion notes","Optional comparative scan completed or ruled out","Final recommendations delivered and reviewed"]}}]
+  </script>
+  <script src="JS/magnifier.js"></script>
+<script src="JS/nav.js"></script>
+<script src="JS/port.js"></script>
+<script src="JS/fic.js"></script>
+      <script src="widget.js"
+            data-worker-url="https://portfolio-chat-worker.jeremylangdon.workers.dev"></script>
 </body>
-
-
 </html>
-
-
-
-
-

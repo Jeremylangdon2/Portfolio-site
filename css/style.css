@@ -2447,6 +2447,36 @@ FIC PAGE
   .fic-page .kanban-column { flex-basis: 280px; }
 }
 
+/* Accordion expanded body */
+.fic-page .kanban-card .ticket-body {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ececef;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.fic-page .kanban-card .ticket-meta-line {
+  opacity: .65;
+  margin: 0 0 8px;
+  font-size: 0.82rem;
+}
+.fic-page .kanban-card .ticket-section h3 {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin: 10px 0 4px;
+  opacity: .6;
+  text-align: left;
+}
+.fic-page .kanban-card .ticket-section p { margin: 0 0 4px; }
+.fic-page .kanban-card .ticket-section ul,
+.fic-page .kanban-card .ticket-section ol {
+  margin: 0 0 6px 1.1rem;
+  padding: 0;
+}
+.fic-page .kanban-card .ticket-section li { margin: 2px 0; }
+
 
 /* ===== Kanban detail modal (scoped) ===== */
 .fic-page .fic-modal{position:fixed;inset:0;display:none}
